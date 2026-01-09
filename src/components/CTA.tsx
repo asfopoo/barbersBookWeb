@@ -9,12 +9,20 @@ export default function CTA() {
           Join thousands of barbers who are already using BarbersBook to manage their business like pros.
         </p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <button className="px-10 py-5 bg-white text-blue-600 rounded-lg font-bold text-xl hover:bg-blue-50 transition shadow-2xl transform hover:scale-105">
-            📱 Download for iOS
-          </button>
-          <button className="px-10 py-5 bg-blue-500 text-white rounded-lg font-bold text-xl hover:bg-blue-400 transition border-2 border-white shadow-2xl transform hover:scale-105">
-            🤖 Download for Android
-          </button>
+          <a href="#" className="inline-block transform hover:scale-105 transition">
+            <img 
+              src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83&amp;releaseDate=1617926400" 
+              alt="Download on the App Store" 
+              className="h-[52px]"
+            />
+          </a>
+          <a href="#" className="inline-block transform hover:scale-105 transition">
+            <img 
+              src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
+              alt="Get it on Google Play" 
+              className="h-[70px]"
+            />
+          </a>
         </div>
         <p className="mt-8 text-blue-200">
           Cancel anytime

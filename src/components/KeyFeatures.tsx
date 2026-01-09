@@ -6,7 +6,7 @@ export default function KeyFeatures() {
         <div className="grid md:grid-cols-2 gap-16 items-center mb-32">
           <div>
             <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-semibold mb-6">
-              💰 Earnings Insights
+              Earnings Insights
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               See Every Dollar You Earn
@@ -76,9 +76,7 @@ export default function KeyFeatures() {
               <div className="space-y-3">
                 <div className="bg-white rounded-xl p-4 flex justify-between items-center">
                   <div className="flex items-center gap-3">
-                    <div className="bg-blue-100 rounded-lg p-2">
-                      <span className="text-xl">✂️</span>
-                    </div>
+                    <div className="bg-blue-100 rounded-lg p-2 w-10 h-10"></div>
                     <div>
                       <p className="font-semibold text-gray-900">Classic Cut</p>
                       <p className="text-sm text-gray-500">8 services today</p>
@@ -88,9 +86,7 @@ export default function KeyFeatures() {
                 </div>
                 <div className="bg-white rounded-xl p-4 flex justify-between items-center">
                   <div className="flex items-center gap-3">
-                    <div className="bg-purple-100 rounded-lg p-2">
-                      <span className="text-xl">💈</span>
-                    </div>
+                    <div className="bg-purple-100 rounded-lg p-2 w-10 h-10"></div>
                     <div>
                       <p className="font-semibold text-gray-900">Fade + Beard</p>
                       <p className="text-sm text-gray-500">4 services today</p>
@@ -133,21 +129,21 @@ export default function KeyFeatures() {
               <div className="space-y-2">
                 <div className="bg-white rounded-xl p-3 flex justify-between items-center">
                   <div className="flex items-center gap-2">
-                    <span className="text-lg">💺</span>
+                    <div className="bg-gray-200 rounded-lg w-8 h-8"></div>
                     <span className="text-sm font-medium text-gray-900">Chair Rent</span>
                   </div>
                   <span className="text-sm font-bold text-red-600">-$800</span>
                 </div>
                 <div className="bg-white rounded-xl p-3 flex justify-between items-center">
                   <div className="flex items-center gap-2">
-                    <span className="text-lg">✂️</span>
+                    <div className="bg-gray-200 rounded-lg w-8 h-8"></div>
                     <span className="text-sm font-medium text-gray-900">Supplies</span>
                   </div>
                   <span className="text-sm font-bold text-red-600">-$450</span>
                 </div>
                 <div className="bg-white rounded-xl p-3 flex justify-between items-center">
                   <div className="flex items-center gap-2">
-                    <span className="text-lg">📱</span>
+                    <div className="bg-gray-200 rounded-lg w-8 h-8"></div>
                     <span className="text-sm font-medium text-gray-900">Marketing</span>
                   </div>
                   <span className="text-sm font-bold text-red-600">-$300</span>
@@ -157,7 +153,7 @@ export default function KeyFeatures() {
           </div>
           <div className="order-1 md:order-2">
             <div className="inline-block bg-red-100 text-red-700 px-4 py-2 rounded-full font-semibold mb-6">
-              📊 Expense Management
+              Expense Management
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Know Your True Profit
@@ -207,7 +203,7 @@ export default function KeyFeatures() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <div className="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-semibold mb-6">
-              ⏰ Digital Waitlist
+              Digital Waitlist
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Your Customers Join Online
