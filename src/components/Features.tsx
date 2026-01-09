@@ -60,7 +60,6 @@ export default function Features() {
               key={index}
               className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
             >
-              <div className="text-5xl mb-4">{feature.icon}</div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
               <p className="text-gray-600">{feature.description}</p>
             </div>
