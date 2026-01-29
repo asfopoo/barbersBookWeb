@@ -25,9 +25,9 @@ export default function Pricing() {
         'Unlimited history access',
         'No ads - completely ad-free',
         'Advanced analytics',
-        'Data export (coming soon)',
-        'SMS notifications (coming soon)',
-        'Custom branding (coming soon)',
+        'Data export',
+        'SMS notifications',
+        'Custom branding',
         'Priority support'
       ],
       highlighted: true
