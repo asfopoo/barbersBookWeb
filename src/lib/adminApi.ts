@@ -19,6 +19,7 @@ export interface User {
 export interface Shop {
   id: string;
   userId: string;
+  ownerId: string;
   name: string;
   code: string;
   address: string | null;
@@ -28,6 +29,7 @@ export interface Shop {
   logoUrl: string | null;
   primaryColor: string | null;
   welcomeMessage: string | null;
+  lastActivityAt: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -247,6 +249,32 @@ class AdminApiClient {
     ).toString();
 
     return this.request(`/api/admin/expenses?${queryString}`);
+  }
+
+  // Invitations
+  async getInvitations(params: {
+    page?: number;
+    limit?: number;
+    search?: string;
+    status?: string;
+    shopId?: string;
+  }) {
+    const queryString = new URLSearchParams(
+      Object.entries(params).reduce((acc, [key, value]) => {
+        if (value !== undefined) {
+          acc[key] = String(value);
+        }
+        return acc;
+      }, {} as Record<string, string>)
+    ).toString();
+
+    return this.request(`/api/admin/invitations?${queryString}`);
+  }
+
+  async cancelInvitation(id: string) {
+    return this.request(`/api/admin/invitations/${id}`, {
+      method: 'DELETE',
+    });
   }
 }
 
