@@ -75,7 +75,18 @@ export default function AdminShops() {
                 phone: string | null;
                 isActive: boolean;
                 estimatedWaitMinutes: number;
+                lastActivityAt: string;
                 user: { firstName: string; lastName: string; email: string; subscriptionTier: string };
+                owner: { firstName: string; lastName: string; email: string } | null;
+                memberCount: number;
+                members: Array<{
+                  id: string;
+                  firstName: string;
+                  lastName: string;
+                  email: string;
+                  role: string;
+                  joinedAt: string;
+                }>;
                 waitlistStats: { waiting: number; completed: number };
               }) => (
                 <div
@@ -100,23 +111,29 @@ export default function AdminShops() {
 
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center text-sm">
-                      <span className="text-gray-600 w-20">Owner:</span>
+                      <span className="text-gray-600 w-24">👑 Owner:</span>
                       <span className="text-gray-900">
-                        {shop.user.firstName} {shop.user.lastName}
+                        {shop.owner ? `${shop.owner.firstName} ${shop.owner.lastName}` : 'N/A'}
                       </span>
                     </div>
+                    {shop.owner && (
+                      <div className="flex items-center text-sm">
+                        <span className="text-gray-600 w-24">Email:</span>
+                        <span className="text-gray-900 text-xs">{shop.owner.email}</span>
+                      </div>
+                    )}
                     <div className="flex items-center text-sm">
-                      <span className="text-gray-600 w-20">Email:</span>
-                      <span className="text-gray-900 text-xs">{shop.user.email}</span>
+                      <span className="text-gray-600 w-24">👥 Members:</span>
+                      <span className="text-gray-900 font-semibold">{shop.memberCount}</span>
                     </div>
                     {shop.phone && (
                       <div className="flex items-center text-sm">
-                        <span className="text-gray-600 w-20">Phone:</span>
+                        <span className="text-gray-600 w-24">Phone:</span>
                         <span className="text-gray-900">{shop.phone}</span>
                       </div>
                     )}
                     <div className="flex items-center text-sm">
-                      <span className="text-gray-600 w-20">Plan:</span>
+                      <span className="text-gray-600 w-24">Plan:</span>
                       <span
                         className={`px-2 py-0.5 rounded text-xs font-medium capitalize ${
                           shop.user.subscriptionTier === 'premium'
@@ -129,7 +146,40 @@ export default function AdminShops() {
                         {shop.user.subscriptionTier}
                       </span>
                     </div>
+                    <div className="flex items-center text-sm">
+                      <span className="text-gray-600 w-24">Last Active:</span>
+                      <span className="text-gray-900 text-xs">
+                        {new Date(shop.lastActivityAt).toLocaleDateString()}
+                      </span>
+                    </div>
                   </div>
+
+                  {/* Members List Expandable */}
+                  {shop.members.length > 0 && (
+                    <details className="mb-4">
+                      <summary className="cursor-pointer text-sm font-medium text-blue-600 hover:text-blue-700">
+                        View all {shop.memberCount} member{shop.memberCount !== 1 ? 's' : ''}
+                      </summary>
+                      <div className="mt-2 space-y-2 pl-2 border-l-2 border-gray-200">
+                        {shop.members.map((member) => (
+                          <div key={member.id} className="text-xs">
+                            <div className="flex items-center gap-2">
+                              <span className={member.role === 'owner' ? 'text-yellow-600' : 'text-gray-600'}>
+                                {member.role === 'owner' ? '👑' : '👤'}
+                              </span>
+                              <span className="font-medium text-gray-900">
+                                {member.firstName} {member.lastName}
+                              </span>
+                            </div>
+                            <div className="text-gray-500 ml-5">{member.email}</div>
+                            <div className="text-gray-400 ml-5">
+                              Joined {new Date(member.joinedAt).toLocaleDateString()}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </details>
+                  )}
 
                   <div className="border-t border-gray-200 pt-4">
                     <div className="flex justify-between text-sm">

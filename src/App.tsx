@@ -15,6 +15,7 @@ import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminUsers from './pages/admin/AdminUsers'
 import AdminUserDetail from './pages/admin/AdminUserDetail'
 import AdminShops from './pages/admin/AdminShops'
+import AdminInvitations from './pages/admin/AdminInvitations'
 import AdminAnalytics from './pages/admin/AdminAnalytics'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 
@@ -73,6 +74,14 @@ function App() {
           element={
             <ProtectedRoute>
               <AdminShops />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/invitations"
+          element={
+            <ProtectedRoute>
+              <AdminInvitations />
             </ProtectedRoute>
           }
         />
