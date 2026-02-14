@@ -10,6 +10,8 @@ import Footer from './components/Footer'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import CookiePolicy from './pages/CookiePolicy'
+import StripeReturn from './pages/StripeReturn'
+import StripeRefresh from './pages/StripeRefresh'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminUsers from './pages/admin/AdminUsers'
@@ -42,6 +44,10 @@ function App() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/cookies" element={<CookiePolicy />} />
+        
+        {/* Stripe Connect redirect pages */}
+        <Route path="/stripe-return" element={<StripeReturn />} />
+        <Route path="/stripe-refresh" element={<StripeRefresh />} />
         
         {/* Admin Routes - No reference from home page */}
         <Route path="/admin/login" element={<AdminLogin />} />

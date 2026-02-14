@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
       {/* Content */}
       <div className="container mx-auto px-6 py-16 max-w-4xl">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
-        <p className="text-gray-600 mb-8">Last updated: January 8, 2026</p>
+        <p className="text-gray-600 mb-8">Last updated: February 13, 2026</p>
 
         <div className="prose prose-lg max-w-none">
           <section className="mb-8">
@@ -31,8 +31,8 @@ export default function PrivacyPolicy() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">2.1 Personal Information</h3>
             <p className="text-gray-700 mb-4">We collect information that you provide directly to us, including:</p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li>Account information (name, email address)</li>
-              <li>Business information (shop name, services offered)</li>
+              <li>Account information (name, email address, phone number)</li>
+              <li>Business information (shop name, services offered, pricing)</li>
               <li>Financial data (earnings, expenses, payment information)</li>
               <li>Customer information (names, phone numbers for waitlist)</li>
             </ul>
@@ -43,6 +43,11 @@ export default function PrivacyPolicy() {
               <li>Usage data (features used, time spent in app)</li>
               <li>Log data (IP address, access times, errors)</li>
             </ul>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">2.3 Payment Information</h3>
+            <p className="text-gray-700 mb-4">
+              Payment information is collected and processed by our payment processor, Stripe. We do not store full credit card numbers on our servers. We receive limited payment information (last 4 digits, transaction amounts) for record-keeping purposes.
+            </p>
           </section>
 
           <section className="mb-8">
@@ -62,12 +67,28 @@ export default function PrivacyPolicy() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Data Sharing and Disclosure</h2>
             <p className="text-gray-700 mb-4">We may share your information with:</p>
+            
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Service Providers</h3>
+            <p className="text-gray-700 mb-4">Third-party vendors who perform services on our behalf:</p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li><strong>Service Providers:</strong> Third-party vendors who perform services on our behalf (cloud hosting, analytics, payment processing)</li>
-              <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
-              <li><strong>Business Transfers:</strong> In connection with a merger, sale, or acquisition</li>
+              <li><strong>Stripe:</strong> Payment processing and payouts</li>
+              <li><strong>AWS:</strong> Cloud hosting, storage (S3), and email (SES)</li>
+              <li><strong>PostHog:</strong> Analytics and product insights</li>
+              <li><strong>Sentry:</strong> Error tracking and monitoring</li>
+              <li><strong>RevenueCat:</strong> Subscription management</li>
             </ul>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Legal Requirements</h3>
             <p className="text-gray-700 mb-4">
+              We may disclose information when required by law or to protect our rights.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Business Transfers</h3>
+            <p className="text-gray-700 mb-4">
+              In connection with a merger, sale, or acquisition of our business.
+            </p>
+
+            <p className="text-gray-700 mb-4 font-semibold">
               We do not sell your personal information to third parties.
             </p>
           </section>
@@ -75,7 +96,16 @@ export default function PrivacyPolicy() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Data Security</h2>
             <p className="text-gray-700 mb-4">
-              We implement appropriate technical and organizational measures to protect your information, including encryption, secure servers, and access controls. However, no method of transmission over the Internet is 100% secure.
+              We implement appropriate technical and organizational measures to protect your information, including:
+            </p>
+            <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
+              <li>Encryption of data in transit and at rest</li>
+              <li>Secure servers and databases</li>
+              <li>Access controls and authentication</li>
+              <li>Regular security audits</li>
+            </ul>
+            <p className="text-gray-700 mb-4">
+              However, no method of transmission over the Internet is 100% secure. We cannot guarantee absolute security.
             </p>
           </section>
 
@@ -90,44 +120,62 @@ export default function PrivacyPolicy() {
               <li>Opt-out of marketing communications</li>
               <li>Withdraw consent at any time</li>
             </ul>
+            <p className="text-gray-700 mb-4">
+              To exercise these rights, contact us at privacy@thebarbersbook.com or through the app settings.
+            </p>
           </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Data Retention</h2>
             <p className="text-gray-700 mb-4">
-              We retain your information for as long as necessary to provide our Service and comply with legal obligations. You may request deletion of your account at any time through the app settings.
+              We retain your information for as long as necessary to provide our Service and comply with legal obligations. You may request deletion of your account at any time through the app settings. After deletion, we will remove your personal information within 30 days, except where retention is required by law.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Children's Privacy</h2>
             <p className="text-gray-700 mb-4">
-              Our Service is not intended for children under 13 years of age. We do not knowingly collect information from children under 13.
+              Our Service is not intended for children under 13 years of age. We do not knowingly collect information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">9. International Data Transfers</h2>
             <p className="text-gray-700 mb-4">
-              Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place for such transfers.
+              Your information may be transferred to and processed in the United States and other countries. We ensure appropriate safeguards are in place for such transfers in compliance with applicable data protection laws.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Changes to This Policy</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Third-Party Services</h2>
             <p className="text-gray-700 mb-4">
-              We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date.
+              Our Service uses third-party services that have their own privacy policies:
+            </p>
+            <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
+              <li>Stripe (payments): <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://stripe.com/privacy</a></li>
+              <li>RevenueCat (subscriptions): <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://www.revenuecat.com/privacy</a></li>
+              <li>AWS (hosting & storage): <a href="https://aws.amazon.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://aws.amazon.com/privacy</a></li>
+              <li>PostHog (analytics): <a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://posthog.com/privacy</a></li>
+              <li>Sentry (error tracking): <a href="https://sentry.io/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://sentry.io/privacy</a></li>
+            </ul>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Changes to This Policy</h2>
+            <p className="text-gray-700 mb-4">
+              We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy in the app and updating the "Last updated" date. Your continued use of the Service after changes constitutes acceptance of the updated policy.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Contact Us</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Contact Us</h2>
             <p className="text-gray-700 mb-4">
               If you have questions about this Privacy Policy, please contact us at:
             </p>
             <p className="text-gray-700">
               <strong>eansolutions llc</strong><br />
-              Email: privacy@barbersbook.com
+              Email: privacy@thebarbersbook.com<br />
+              Support: support@thebarbersbook.com
             </p>
           </section>
         </div>
