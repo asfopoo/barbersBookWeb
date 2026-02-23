@@ -19,6 +19,7 @@ import AdminUserDetail from './pages/admin/AdminUserDetail'
 import AdminShops from './pages/admin/AdminShops'
 import AdminInvitations from './pages/admin/AdminInvitations'
 import AdminAnalytics from './pages/admin/AdminAnalytics'
+import AdminNotifications from './pages/admin/AdminNotifications'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 
 function HomePage() {
@@ -96,6 +97,14 @@ function App() {
           element={
             <ProtectedRoute>
               <AdminAnalytics />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/notifications"
+          element={
+            <ProtectedRoute>
+              <AdminNotifications />
             </ProtectedRoute>
           }
         />

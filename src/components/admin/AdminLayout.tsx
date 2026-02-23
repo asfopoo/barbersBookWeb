@@ -22,6 +22,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
     { path: '/admin/shops', label: 'Shops', icon: '🏪' },
     { path: '/admin/invitations', label: 'Invitations', icon: '✉️' },
     { path: '/admin/analytics', label: 'Analytics', icon: '📈' },
+    { path: '/admin/notifications', label: 'Notifications', icon: '🔔' },
   ];
 
   return (
