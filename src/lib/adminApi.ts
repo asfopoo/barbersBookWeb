@@ -276,6 +276,14 @@ class AdminApiClient {
       method: 'DELETE',
     });
   }
+
+  async blastTapToPayEmail(): Promise<{ sent: number; failed: number; total: number; errors?: string[] }> {
+    return this.request('/api/admin/blast/tap-to-pay-email', { method: 'POST' });
+  }
+
+  async blastTapToPayPush(): Promise<{ sent: number; failed: number; total: number }> {
+    return this.request('/api/admin/blast/tap-to-pay-push', { method: 'POST' });
+  }
 }
 
 export const adminAuth = new AdminAuthService();
