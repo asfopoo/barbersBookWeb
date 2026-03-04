@@ -12,6 +12,7 @@ export default function Pricing() {
         'Expense tracking',
         'Service management',
         'Mobile app access',
+        '3.5% all-in payment processing',
         'Banner ads'
       ],
       highlighted: false
@@ -26,11 +27,27 @@ export default function Pricing() {
         'No ads - completely ad-free',
         'Advanced analytics',
         'Data export',
-        'SMS notifications',
+        'SMS & email notifications',
         'Custom branding',
+        'Tax estimation tools',
+        '0% platform fee - Stripe rate only',
         'Priority support'
       ],
       highlighted: true
+    },
+    {
+      name: 'Premium',
+      price: '$9.99',
+      period: 'per month',
+      features: [
+        'Everything in Pro',
+        'Tax hold tracking',
+        'Reserve tax portion from balance',
+        'Multi-location support',
+        '0% platform fee - Stripe rate only',
+        'Premium support'
+      ],
+      highlighted: false
     }
   ]
 
@@ -46,7 +63,7 @@ export default function Pricing() {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">{plans.map((plan, index) => (
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">{plans.map((plan, index) => (
             <div 
               key={index}
               className={`bg-white rounded-2xl shadow-xl overflow-hidden transform transition hover:scale-105 ${

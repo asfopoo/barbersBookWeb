@@ -73,8 +73,8 @@ export default function TermsOfService() {
             </p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
               <li><strong>Free Tier:</strong> 3.5% all-in fee (includes platform fee + Stripe processing fees)</li>
-              <li><strong>Pro Tier ($4.99/month):</strong> 3.0% all-in fee (includes platform fee + Stripe processing fees)</li>
-              <li><strong>Premium Tier ($9.99/month):</strong> 0% platform fee (only Stripe processing fees apply: 2.9% + $0.30 per transaction)</li>
+              <li><strong>Pro Tier ($4.99/month):</strong> 0% platform fee (only Stripe processing fees apply: ~2.7% + $0.15 per in-person transaction)</li>
+              <li><strong>Premium Tier ($9.99/month):</strong> 0% platform fee (only Stripe processing fees apply: ~2.7% + $0.15 per in-person transaction)</li>
             </ul>
             <p className="text-gray-700 mb-4">
               All fees are clearly disclosed before processing each transaction. Platform fees may be adjusted with 30 days' notice.
@@ -94,6 +94,17 @@ export default function TermsOfService() {
             <p className="text-gray-700 mb-4">
               You may not use the payment processing features for any illegal, fraudulent, or prohibited activities as defined by Stripe's terms and applicable law.
             </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">4.6 Tax Estimation Features</h3>
+            <p className="text-gray-700 mb-4">
+              The tax estimation features provided by the Service (available to Pro and Premium subscribers) are for informational and planning purposes only. These features do NOT constitute tax advice and should NOT be relied upon for tax filing.
+            </p>
+            <p className="text-gray-700 mb-4">
+              Tax estimates are based solely on recorded earnings and your configured tax rate. Your actual tax liability depends on many factors not considered here, including but not limited to: other income sources, deductions, credits, filing status, state/local taxes, and self-employment taxes.
+            </p>
+            <p className="text-gray-700 mb-4">
+              We strongly recommend consulting with a qualified tax professional (CPA, enrolled agent, or tax attorney) for accurate tax guidance specific to your situation. The platform and its operators are not responsible for any inaccuracies in tax estimates or any consequences resulting from reliance on these estimates.
+            </p>
           </section>
 
           <section className="mb-8">
@@ -103,6 +114,10 @@ export default function TermsOfService() {
             <p className="text-gray-700 mb-4">
               We offer Free, Pro ($4.99/month), and Premium ($9.99/month) subscription plans. Paid subscriptions are billed on a recurring monthly basis through your chosen app store (Apple App Store or Google Play Store).
             </p>
+            <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
+              <li><strong>Pro:</strong> Tax estimation, 0% platform fee, and all standard features</li>
+              <li><strong>Premium:</strong> All Pro features plus tax hold tracking and multi-location support</li>
+            </ul>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">5.2 Cancellation</h3>
             <p className="text-gray-700 mb-4">

@@ -179,13 +179,8 @@ export default function PrivacyPolicy() {
             </p>
           </section>
         </div>
-
         <div className="mt-12 pt-8 border-t">
           <Link to="/" className="text-blue-600 hover:text-blue-700 font-semibold">
             ← Back to Home
           </Link>
         </div>
-      </div>
-    </div>
-  )
-}
