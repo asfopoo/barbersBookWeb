@@ -4,53 +4,51 @@ export default function Testimonials() {
       name: 'Marcus Johnson',
       role: 'Master Barber, NYC',
       image: '👨🏿‍🦱',
-      text: 'BarbersBook has completely transformed how I track my earnings. I can see exactly how much I make daily, weekly, and monthly. The waitlist feature is a game changer!'
+      text: 'Tap to Pay is a game changer. My clients just tap their card on my phone — no reader, no fuss. And Tax Hold running automatically means I stopped dreading tax season.'
     },
     {
       name: 'Sofia Martinez',
-      role: 'Salon Owner, Miami',
+      role: 'Shop Owner, Miami',
       image: '👩🏽',
-      text: 'The analytics features are incredible. I can track trends, see my best services, and make data-driven decisions for my salon.'
+      text: 'I used to keep a notebook for everything. Now Barber\'s Book tracks every service, every expense, and every tip. The earnings charts showed me my Fridays are twice as profitable — so I stopped taking Mondays off.'
     },
     {
       name: 'James Lee',
       role: 'Independent Barber, LA',
       image: '👨🏻',
-      text: 'The digital waitlist is incredible. My customers love being able to check the queue from their phones. No more crowded waiting area!'
+      text: 'The waitlist is incredible. Customers scan my QR code from their car, wait outside, and walk in right on time. No more crowded shop. My clients love it and honestly so do I.'
     }
   ]
 
   return (
-    <section id="testimonials" className="py-20 bg-white">
+    <section id="testimonials" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Loved by Barbers Worldwide
+            Barbers Love It
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Join thousands of barbers who have transformed their business with BarbersBook.
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            From solo barbers to multi-chair shops — Barber's Book is built for how you actually work.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div 
+            <div
               key={index}
-              className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition flex flex-col"
             >
-              <div className="flex items-center mb-6">
-                <div className="text-5xl mr-4">{testimonial.image}</div>
+              <div className="flex text-yellow-400 text-lg mb-5">
+                {'⭐'.repeat(5)}
+              </div>
+              <p className="text-gray-700 leading-relaxed italic flex-1 mb-6">"{testimonial.text}"</p>
+              <div className="flex items-center gap-3 border-t pt-5">
+                <div className="text-4xl">{testimonial.image}</div>
                 <div>
-                  <div className="font-bold text-gray-900 text-lg">{testimonial.name}</div>
-                  <div className="text-gray-600">{testimonial.role}</div>
+                  <div className="font-bold text-gray-900">{testimonial.name}</div>
+                  <div className="text-gray-500 text-sm">{testimonial.role}</div>
                 </div>
               </div>
-              <div className="mb-4">
-                <div className="flex text-yellow-400 text-xl">
-                  ⭐⭐⭐⭐⭐
-                </div>
-              </div>
-              <p className="text-gray-700 leading-relaxed italic">"{testimonial.text}"</p>
             </div>
           ))}
         </div>

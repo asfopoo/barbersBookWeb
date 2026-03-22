@@ -184,3 +184,7 @@ export default function PrivacyPolicy() {
             ← Back to Home
           </Link>
         </div>
+      </div>
+    </div>
+  )
+}

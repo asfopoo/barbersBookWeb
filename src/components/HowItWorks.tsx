@@ -2,23 +2,27 @@ export default function HowItWorks() {
   const steps = [
     {
       number: '1',
-      title: 'Download & Sign Up',
-      description: 'Get the app from App Store or Google Play. Create your account in seconds.'
+      emoji: '📲',
+      title: 'Download & Create Account',
+      description: 'Get Barber\'s Book from the App Store or Google Play. Create your free account and set up your shop profile in minutes.'
     },
     {
       number: '2',
-      title: 'Set Up Your Services',
-      description: 'Add your services with pricing. Set up your digital waitlist with a custom shop code.'
+      emoji: '💳',
+      title: 'Connect Stripe & Set Up',
+      description: 'Complete the quick Stripe onboarding to start accepting payments. Add your custom services with pricing and get your waitlist QR code.'
     },
     {
       number: '3',
-      title: 'Log Every Haircut',
-      description: 'After each service, quickly log the earnings, tips, and payment method.'
+      emoji: '✂️',
+      title: 'Serve Clients & Get Paid',
+      description: 'Tap to Pay on iPhone for contactless payments, or charge via card and Apple Pay. Add tips, select the service, done.'
     },
     {
       number: '4',
-      title: 'Track & Grow',
-      description: 'View analytics, manage expenses, and watch your business grow with data-driven insights.'
+      emoji: '📊',
+      title: 'Track, Save for Taxes & Grow',
+      description: 'Monitor daily earnings, watch your Tax Hold balance grow automatically, manage expenses, and analyze your business performance.'
     }
   ]
 
@@ -27,23 +31,28 @@ export default function HowItWorks() {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            How It Works
+            Up and Running in Minutes
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get started with BarbersBook in just four simple steps.
+            Barber's Book is built to get out of your way — set up once, then just run your shop.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="relative">
-              <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-full w-16 h-16 flex items-center justify-center text-white text-2xl font-bold mb-6 shadow-lg">
-                {step.number}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl w-14 h-14 flex items-center justify-center shadow-md flex-shrink-0">
+                  <span className="text-2xl">{step.emoji}</span>
+                </div>
+                <div className="bg-gray-100 text-gray-500 text-xs font-bold px-2 py-1 rounded-full">
+                  Step {step.number}
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">{step.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{step.description}</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">{step.description}</p>
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-20 w-full h-0.5 bg-gradient-to-r from-blue-300 to-purple-300"></div>
+                <div className="hidden lg:block absolute top-7 left-16 w-full h-0.5 bg-gradient-to-r from-blue-200 to-transparent"></div>
               )}
             </div>
           ))}
