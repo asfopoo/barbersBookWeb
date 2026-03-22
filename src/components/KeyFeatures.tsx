@@ -52,35 +52,8 @@ export default function KeyFeatures() {
             </div>
           </div>
           <div className="relative">
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl p-10 shadow-xl">
-              <div className="bg-white rounded-2xl p-6 shadow-lg mb-4">
-                <div className="text-center mb-5">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-2xl text-3xl mb-3">
-                    📲
-                  </div>
-                  <p className="font-bold text-gray-900 text-lg">Tap to Pay</p>
-                  <p className="text-gray-500 text-sm">Hold near a contactless card or device</p>
-                </div>
-                <div className="bg-blue-50 rounded-xl p-4 text-center border-2 border-blue-200 border-dashed">
-                  <p className="text-sm text-gray-500 mb-1">Payment amount</p>
-                  <p className="text-3xl font-bold text-gray-900">$45.00</p>
-                  <p className="text-xs text-gray-400 mt-1">Fade + Beard Trim</p>
-                </div>
-                <div className="mt-4 flex items-center justify-center gap-2 text-green-600 font-bold">
-                  <span className="text-xl">&#10003;</span>
-                  <span>Payment Accepted</span>
-                </div>
-              </div>
-              <div className="bg-white rounded-xl p-4 shadow-sm flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <div className="text-2xl">💳</div>
-                  <div>
-                    <p className="font-semibold text-gray-900 text-sm">Or charge manually</p>
-                    <p className="text-xs text-gray-500">Apple Pay · Google Pay · All cards</p>
-                  </div>
-                </div>
-                <span className="text-xs text-blue-600 font-semibold bg-blue-50 px-2 py-1 rounded-full">Stripe</span>
-              </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl p-6 shadow-xl">
+              <img src="/screenshots/tap-to-pay.png" alt="Tap to Pay on iPhone" className="w-full rounded-2xl drop-shadow-lg" />
             </div>
           </div>
         </div>
@@ -88,52 +61,8 @@ export default function KeyFeatures() {
         {/* Earnings and Analytics */}
         <div className="grid md:grid-cols-2 gap-16 items-center mb-32">
           <div className="order-2 md:order-1 relative">
-            <div className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-3xl p-10 shadow-xl">
-              <div className="bg-white rounded-2xl p-6 shadow-lg mb-4">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <p className="text-gray-600 text-sm mb-1">Today's Earnings</p>
-                    <p className="text-4xl font-bold text-gray-900">$425.50</p>
-                  </div>
-                  <div className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">+12%</div>
-                </div>
-                <div className="grid grid-cols-3 gap-3 text-sm">
-                  <div>
-                    <p className="text-gray-500">Services</p>
-                    <p className="font-bold text-gray-900">$360.00</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-500">Tips</p>
-                    <p className="font-bold text-gray-900">$65.50</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-500">Cuts</p>
-                    <p className="font-bold text-gray-900">11</p>
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="bg-white rounded-xl p-4 flex justify-between items-center">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-blue-100 rounded-lg w-10 h-10 flex items-center justify-center">✂️</div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Classic Cut</p>
-                      <p className="text-sm text-gray-500">8 services today</p>
-                    </div>
-                  </div>
-                  <p className="font-bold text-gray-900">$240</p>
-                </div>
-                <div className="bg-white rounded-xl p-4 flex justify-between items-center">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-purple-100 rounded-lg w-10 h-10 flex items-center justify-center">🪒</div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Fade + Beard</p>
-                      <p className="text-sm text-gray-500">3 services today</p>
-                    </div>
-                  </div>
-                  <p className="font-bold text-gray-900">$135</p>
-                </div>
-              </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-3xl p-6 shadow-xl">
+              <img src="/screenshots/earnings.png" alt="Earnings overview screen" className="w-full rounded-2xl drop-shadow-lg" />
             </div>
           </div>
           <div className="order-1 md:order-2">
@@ -212,39 +141,8 @@ export default function KeyFeatures() {
             </div>
           </div>
           <div className="relative">
-            <div className="bg-gradient-to-br from-amber-50 to-yellow-100 rounded-3xl p-10 shadow-xl">
-              <div className="bg-white rounded-2xl p-6 shadow-lg mb-4">
-                <div className="flex justify-between items-start mb-5">
-                  <div>
-                    <p className="text-gray-500 text-sm mb-1">Tax Hold Balance</p>
-                    <p className="text-4xl font-bold text-gray-900">$1,218.75</p>
-                    <p className="text-sm text-amber-600 font-semibold mt-1">25% of earnings set aside</p>
-                  </div>
-                  <div className="text-3xl">🏦</div>
-                </div>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between py-2 border-t">
-                    <span className="text-gray-600">This Month's Earnings</span>
-                    <span className="font-semibold text-gray-900">$4,875.00</span>
-                  </div>
-                  <div className="flex justify-between py-2 border-t">
-                    <span className="text-gray-600">Tax Hold (25%)</span>
-                    <span className="font-semibold text-amber-600">$1,218.75</span>
-                  </div>
-                  <div className="flex justify-between py-2 border-t">
-                    <span className="font-bold text-gray-900">Estimated Liability</span>
-                    <span className="font-bold text-gray-900">~$1,150</span>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white rounded-xl p-4 flex items-center gap-3">
-                <div className="bg-green-100 rounded-full p-2 flex-shrink-0">
-                  <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <p className="text-sm text-gray-700 font-medium">You're covered. Tax money is already set aside.</p>
-              </div>
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-100 rounded-3xl p-6 shadow-xl">
+              <img src="/screenshots/tax-hold.png" alt="Tax Hold and Tax Estimation" className="w-full rounded-2xl drop-shadow-lg" />
             </div>
           </div>
         </div>
@@ -252,43 +150,8 @@ export default function KeyFeatures() {
         {/* Digital Waitlist */}
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="order-2 md:order-1 relative">
-            <div className="bg-gradient-to-br from-purple-50 to-blue-100 rounded-3xl p-10 shadow-xl">
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="flex items-center justify-between mb-5">
-                  <h3 className="text-xl font-bold text-gray-900">Current Queue</h3>
-                  <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">5 waiting</span>
-                </div>
-                <div className="space-y-3">
-                  <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-4">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="font-bold text-gray-900">Marcus J.</span>
-                      <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">NOW SERVING</span>
-                    </div>
-                    <p className="text-xs text-gray-500">Joined 12 min ago</p>
-                  </div>
-                  <div className="bg-gray-50 rounded-xl p-4">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="font-semibold text-gray-900">Sarah M.</span>
-                      <span className="text-gray-600 text-sm font-semibold">Position 2</span>
-                    </div>
-                    <p className="text-xs text-gray-500">Est. wait: 15 min</p>
-                  </div>
-                  <div className="bg-gray-50 rounded-xl p-4">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="font-semibold text-gray-900">John D.</span>
-                      <span className="text-gray-600 text-sm font-semibold">Position 3</span>
-                    </div>
-                    <p className="text-xs text-gray-500">Est. wait: 30 min</p>
-                  </div>
-                  <div className="bg-gray-50 rounded-xl p-4">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="font-semibold text-gray-900">Mike R.</span>
-                      <span className="text-gray-600 text-sm font-semibold">Position 4</span>
-                    </div>
-                    <p className="text-xs text-gray-500">Est. wait: 45 min</p>
-                  </div>
-                </div>
-              </div>
+            <div className="bg-gradient-to-br from-purple-50 to-blue-100 rounded-3xl p-6 shadow-xl">
+              <img src="/screenshots/waitlist.png" alt="Digital Waitlist management" className="w-full rounded-2xl drop-shadow-lg" />
             </div>
           </div>
           <div className="order-1 md:order-2">
