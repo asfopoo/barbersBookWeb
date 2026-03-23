@@ -19,29 +19,29 @@ export default function Pricing() {
   ]
 
   return (
-    <section id="pricing" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="pricing" className="py-20 bg-gray-950">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             One Plan. Everything Included.
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Payments, tax tools, analytics, and a digital waitlist — all in one app for less than a cup of coffee a week.
           </p>
         </div>
 
         <div className="max-w-lg mx-auto">
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden ring-4 ring-blue-500">
+          <div className="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden ring-4 ring-blue-500">
             <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white text-center py-3 text-sm font-bold tracking-wide">
               BARBER&apos;S BOOK PRO
             </div>
             <div className="p-10">
               <div className="text-center mb-8">
                 <div className="flex items-end justify-center gap-1 mb-2">
-                  <span className="text-6xl font-bold text-gray-900">$4.99</span>
-                  <span className="text-gray-500 text-lg mb-2">/ month</span>
+                  <span className="text-6xl font-bold text-white">$4.99</span>
+                  <span className="text-gray-400 text-lg mb-2">/ month</span>
                 </div>
-                <p className="text-gray-500 text-sm">Cancel anytime. No contracts.</p>
+                <p className="text-gray-400 text-sm">Cancel anytime. No contracts.</p>
               </div>
 
               <ul className="space-y-3 mb-10">
@@ -50,9 +50,9 @@ export default function Pricing() {
                     <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-gray-700 text-sm">
+                    <span className="text-gray-300 text-sm">
                       {feature.text}
-                      {feature.note && <span className="text-gray-400 ml-1">— {feature.note}</span>}
+                      {feature.note && <span className="text-gray-500 ml-1">— {feature.note}</span>}
                     </span>
                   </li>
                 ))}
@@ -67,7 +67,7 @@ export default function Pricing() {
                 </a>
                 <a
                   href="https://play.google.com/store/apps/details?id=com.thebarbersbook.app"
-                  className="flex items-center justify-center gap-2 w-full bg-gray-900 hover:bg-gray-800 text-white font-bold py-4 rounded-xl transition text-base"
+                  className="flex items-center justify-center gap-2 w-full bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 rounded-xl transition text-base"
                 >
                   Get it on Google Play
                 </a>
@@ -75,7 +75,7 @@ export default function Pricing() {
             </div>
           </div>
 
-          <p className="text-center text-gray-400 text-sm mt-6">
+          <p className="text-center text-gray-500 text-sm mt-6">
             3.5% all-in fee applies to payment transactions. Payments powered by Stripe.
           </p>
         </div>

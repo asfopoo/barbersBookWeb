@@ -21,13 +21,13 @@ export default function Testimonials() {
   ]
 
   return (
-    <section id="testimonials" className="py-20 bg-gray-50">
+    <section id="testimonials" className="py-20 bg-gray-950">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Barbers Love It
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             From solo barbers to multi-chair shops — Barber's Book is built for how you actually work.
           </p>
         </div>
@@ -36,17 +36,17 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition flex flex-col"
+              className="bg-gray-900 rounded-2xl p-8 border border-gray-800 hover:border-gray-700 transition flex flex-col"
             >
               <div className="flex text-yellow-400 text-lg mb-5">
                 {'⭐'.repeat(5)}
               </div>
-              <p className="text-gray-700 leading-relaxed italic flex-1 mb-6">"{testimonial.text}"</p>
-              <div className="flex items-center gap-3 border-t pt-5">
+              <p className="text-gray-300 leading-relaxed italic flex-1 mb-6">"{testimonial.text}"</p>
+              <div className="flex items-center gap-3 border-t border-gray-700 pt-5">
                 <div className="text-4xl">{testimonial.image}</div>
                 <div>
-                  <div className="font-bold text-gray-900">{testimonial.name}</div>
-                  <div className="text-gray-500 text-sm">{testimonial.role}</div>
+                  <div className="font-bold text-white">{testimonial.name}</div>
+                  <div className="text-gray-400 text-sm">{testimonial.role}</div>
                 </div>
               </div>
             </div>
