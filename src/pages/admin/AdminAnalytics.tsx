@@ -104,87 +104,74 @@ export default function AdminAnalytics() {
 
         {/* Daily Revenue Chart */}
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Daily Revenue Trend</h3>
-          {revenueData?.dailyRevenue?.length > 0 ? (
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead>
-                  <tr>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                      Date
-                    </th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                      Haircuts
-                    </th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                      Revenue
-                    </th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                      Avg
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {revenueData.dailyRevenue.map((day: { date: string; count?: string; total?: string }) => {
-                    const revenue = parseFloat(day.total || '0');
-                    const count = parseInt(day.count || '0', 10);
-                    const avg = count > 0 ? revenue / count : 0;
-
-                    return (
-                      <tr key={day.date} className="hover:bg-gray-50">
-                        <td className="px-4 py-3 text-sm text-gray-900">
-                          {new Date(day.date).toLocaleDateString()}
-                        </td>
-                        <td className="px-4 py-3 text-sm text-gray-900">{count}</td>
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                          ${revenue.toFixed(2)}
-                        </td>
-                        <td className="px-4 py-3 text-sm text-gray-600">${avg.toFixed(2)}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          ) : (
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-5">Daily Revenue Trend</h3>
+          {revenueData?.dailyRevenue?.length > 0 ? (() => {
+            const days: { date: string; count?: string; total?: string }[] = revenueData.dailyRevenue;
+            const maxRev = Math.max(...days.map((d) => parseFloat(d.total || '0')), 1);
+            return (
+              <div className="space-y-2">
+                {days.map((day) => {
+                  const revenue = parseFloat(day.total || '0');
+                  const count = parseInt(day.count || '0', 10);
+                  const pct = (revenue / maxRev) * 100;
+                  return (
+                    <div key={day.date} className="flex items-center gap-3 group">
+                      <span className="text-xs text-gray-400 w-20 shrink-0 text-right">
+                        {new Date(day.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                      </span>
+                      <div className="flex-1 h-6 bg-gray-100 rounded overflow-hidden">
+                        <div
+                          className="h-full bg-emerald-500 rounded transition-all duration-300"
+                          style={{ width: `${pct}%` }}
+                        />
+                      </div>
+                      <span className="text-xs font-semibold text-gray-700 w-16 text-right shrink-0">
+                        ${revenue.toFixed(0)}
+                      </span>
+                      <span className="text-xs text-gray-400 w-12 text-right shrink-0">
+                        {count} cuts
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })() : (
             <p className="text-center text-gray-500 py-8">No revenue data available</p>
           )}
         </div>
 
         {/* User Growth */}
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">User Growth (Last 12 Months)</h3>
-          {userGrowth?.userGrowth?.length > 0 ? (
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead>
-                  <tr>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                      Month
-                    </th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                      New Users
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {userGrowth.userGrowth.map((month: { month: string; count: string }) => (
-                    <tr key={month.month} className="hover:bg-gray-50">
-                      <td className="px-4 py-3 text-sm text-gray-900">
-                        {new Date(month.month).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'long',
-                        })}
-                      </td>
-                      <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                        {month.count}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          ) : (
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-5">User Growth (Last 12 Months)</h3>
+          {userGrowth?.userGrowth?.length > 0 ? (() => {
+            const months: { month: string; count: string }[] = userGrowth.userGrowth;
+            const maxCount = Math.max(...months.map((m) => parseInt(m.count || '0', 10)), 1);
+            return (
+              <div className="space-y-2">
+                {months.map((m) => {
+                  const count = parseInt(m.count || '0', 10);
+                  const pct = (count / maxCount) * 100;
+                  return (
+                    <div key={m.month} className="flex items-center gap-3">
+                      <span className="text-xs text-gray-400 w-24 shrink-0 text-right">
+                        {new Date(m.month).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+                      </span>
+                      <div className="flex-1 h-6 bg-gray-100 rounded overflow-hidden">
+                        <div
+                          className="h-full bg-blue-500 rounded transition-all duration-300"
+                          style={{ width: `${pct}%` }}
+                        />
+                      </div>
+                      <span className="text-xs font-semibold text-gray-700 w-10 text-right shrink-0">
+                        {count}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })() : (
             <p className="text-center text-gray-500 py-8">No user growth data available</p>
           )}
         </div>
