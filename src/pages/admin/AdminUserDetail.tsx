@@ -259,6 +259,112 @@ export default function AdminUserDetail() {
             </div>
           </div>
         )}
+
+        {/* Stripe & Payments */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Stripe &amp; Payments</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="text-sm font-medium text-gray-600">Connect Account ID</label>
+              <p className="text-sm text-gray-900 font-mono break-all">
+                {user.stripeConnectAccountId || <span className="text-gray-400">Not set up</span>}
+              </p>
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-600">Payouts Enabled</label>
+              <p className="text-sm">
+                {user.stripePayoutsEnabled ? (
+                  <span className="text-green-600 font-semibold">Yes</span>
+                ) : (
+                  <span className="text-red-500 font-semibold">No</span>
+                )}
+              </p>
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-600">Open Dispute</label>
+              <p className="text-sm">
+                {user.hasOpenDispute ? (
+                  <span className="text-red-600 font-semibold">
+                    Yes — deadline {user.disputeDeadline
+                      ? new Date(user.disputeDeadline).toLocaleDateString()
+                      : 'unknown'}
+                  </span>
+                ) : (
+                  <span className="text-gray-500">None</span>
+                )}
+              </p>
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-600">RevenueCat Customer ID</label>
+              <p className="text-sm text-gray-900 font-mono break-all">
+                {user.revenueCatCustomerId || <span className="text-gray-400">None</span>}
+              </p>
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-600">Legacy Subscriber</label>
+              <p className="text-sm text-gray-900">
+                {user.isLegacySubscriber ? (
+                  <span className="text-amber-600 font-semibold">Yes</span>
+                ) : (
+                  <span className="text-gray-500">No</span>
+                )}
+              </p>
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-600">Push Token</label>
+              <p className="text-xs text-gray-900 font-mono break-all">
+                {user.expoPushToken
+                  ? `${String(user.expoPushToken).slice(0, 30)}…`
+                  : <span className="text-gray-400">Not registered</span>}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Payouts & Tax */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Payouts &amp; Tax</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="text-sm font-medium text-gray-600">Payout Schedule</label>
+              <p className="text-sm text-gray-900 capitalize">
+                {user.payoutSchedule || <span className="text-gray-400">Not configured</span>}
+              </p>
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-600">Payout Frequency</label>
+              <p className="text-sm text-gray-900 capitalize">
+                {user.payoutFrequency || <span className="text-gray-400">Not configured</span>}
+              </p>
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-600">Tax Hold Enabled</label>
+              <p className="text-sm">
+                {user.taxHoldEnabled ? (
+                  <span className="text-green-600 font-semibold">Yes</span>
+                ) : (
+                  <span className="text-gray-500">No</span>
+                )}
+              </p>
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-600">Tax Hold Amount</label>
+              <p className="text-sm text-gray-900">
+                {user.taxHoldAmount != null
+                  ? `$${parseFloat(user.taxHoldAmount).toFixed(2)}`
+                  : <span className="text-gray-400">N/A</span>}
+              </p>
+            </div>
+            {user.scheduledPayoutError && (
+              <div className="md:col-span-2">
+                <label className="text-sm font-medium text-red-600">Last Payout Error</label>
+                <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded p-2 mt-1 font-mono">
+                  {user.scheduledPayoutError}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </AdminLayout>
   );

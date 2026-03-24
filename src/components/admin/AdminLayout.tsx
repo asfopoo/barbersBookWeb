@@ -20,6 +20,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
     { path: '/admin/dashboard', label: 'Dashboard', icon: '📊' },
     { path: '/admin/users', label: 'Users', icon: '👥' },
     { path: '/admin/shops', label: 'Shops', icon: '🏪' },
+    { path: '/admin/transactions', label: 'Transactions', icon: '💵' },
     { path: '/admin/invitations', label: 'Invitations', icon: '✉️' },
     { path: '/admin/analytics', label: 'Analytics', icon: '📈' },
     { path: '/admin/notifications', label: 'Notifications', icon: '🔔' },
