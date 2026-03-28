@@ -101,47 +101,52 @@ function TaxBreakdownRow({ userId }: TaxBreakdownRowProps) {
     );
   }
 
-  const drift = Math.abs(data.dbHold - data.stripeHold) > 0.01;
+  const drift = Math.abs(data.dbHold - data.calculatedHold) > 0.01;
 
   return (
     <tr>
       <td colSpan={7} className="px-8 py-4 bg-amber-50 border-b border-amber-100">
-        <div className="flex flex-wrap gap-6 text-xs">
-          <div>
-            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Tax Rate</p>
-            <p className="text-gray-900 font-medium">{data.taxRate}%</p>
+        {!data.holdEnabled || !data.taxHoldEnabledSince ? (
+          <p className="text-xs text-gray-400">Tax hold is off — no accumulation period.</p>
+        ) : (
+          <div className="flex flex-wrap gap-6 text-xs">
+            <div>
+              <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Hold Active Since</p>
+              <p className="text-gray-900 font-medium">{formatDate(data.taxHoldEnabledSince)}</p>
+              <p className="text-gray-400">Only services from this date count</p>
+            </div>
+            <div>
+              <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Tax Rate</p>
+              <p className="text-gray-900 font-medium">{data.taxRate}%</p>
+            </div>
+            <div>
+              <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Card Earnings</p>
+              <p className="text-gray-900 font-medium">${data.holdEarnings.toFixed(2)}</p>
+            </div>
+            <div>
+              <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Card Tips</p>
+              <p className="text-gray-900 font-medium">${data.holdTips.toFixed(2)}</p>
+            </div>
+            <div>
+              <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Total</p>
+              <p className="text-gray-900 font-medium">${data.holdTotal.toFixed(2)}</p>
+            </div>
+            <div>
+              <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Calculated Hold</p>
+              <p className="text-gray-900 font-medium">${data.calculatedHold.toFixed(2)}</p>
+              <p className="text-gray-400">{data.taxRate}% × ${data.holdTotal.toFixed(2)}</p>
+            </div>
+            <div>
+              <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">DB Hold (used by cron)</p>
+              <p className={`font-medium ${drift ? 'text-red-600' : 'text-gray-900'}`}>${data.dbHold.toFixed(2)}</p>
+              {drift && <p className="text-red-500">Stale — run Recalculate</p>}
+            </div>
+            <div>
+              <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Transactions</p>
+              <p className="text-gray-900 font-medium">{data.transactionCount}</p>
+            </div>
           </div>
-          <div>
-            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Card Earnings YTD</p>
-            <p className="text-gray-900 font-medium">${data.stripeYTDEarnings.toFixed(2)}</p>
-          </div>
-          <div>
-            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Card Tips YTD</p>
-            <p className="text-gray-900 font-medium">${data.stripeYTDTips.toFixed(2)}</p>
-          </div>
-          <div>
-            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Card Total YTD</p>
-            <p className="text-gray-900 font-medium">${data.stripeYTDTotal.toFixed(2)}</p>
-          </div>
-          <div>
-            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Calculated Hold</p>
-            <p className="text-gray-900 font-medium">${data.stripeHold.toFixed(2)}</p>
-            <p className="text-gray-400">{data.taxRate}% × ${data.stripeYTDTotal.toFixed(2)}</p>
-          </div>
-          <div>
-            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">DB Hold (used by cron)</p>
-            <p className={`font-medium ${drift ? 'text-red-600' : 'text-gray-900'}`}>${data.dbHold.toFixed(2)}</p>
-            {drift && <p className="text-red-500">Stale — run Recalculate</p>}
-          </div>
-          <div>
-            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Transactions</p>
-            <p className="text-gray-900 font-medium">{data.transactionCount}</p>
-          </div>
-          <div>
-            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Period</p>
-            <p className="text-gray-900 font-medium">{formatDate(data.periodStart)} – {formatDate(data.periodEnd)}</p>
-          </div>
-        </div>
+        )}
       </td>
     </tr>
   );
