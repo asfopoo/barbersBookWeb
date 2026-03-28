@@ -20,6 +20,12 @@ export default function AdminUserDetail() {
     enabled: !!id,
   });
 
+  const { data: taxBreakdown } = useQuery({
+    queryKey: ['admin-tax-breakdown', id],
+    queryFn: () => adminApi.getTaxBreakdown(id!),
+    enabled: !!id,
+  });
+
   const updateMutation = useMutation({
     mutationFn: (data: Record<string, unknown>) => adminApi.updateUser(id!, data),
     onSuccess: () => {
@@ -338,21 +344,23 @@ export default function AdminUserDetail() {
               </p>
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-600">Tax Hold Enabled</label>
+              <label className="text-sm font-medium text-gray-600">Tax Reserve</label>
               <p className="text-sm">
                 {user.taxHoldEnabled ? (
-                  <span className="text-green-600 font-semibold">Yes</span>
+                  <span className="text-green-600 font-semibold">Enabled</span>
                 ) : (
-                  <span className="text-gray-500">No</span>
+                  <span className="text-gray-500">Disabled</span>
                 )}
               </p>
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-600">Tax Hold Amount</label>
+              <label className="text-sm font-medium text-gray-600">Tax Reserve Amount</label>
               <p className="text-sm text-gray-900">
-                {user.taxHoldAmount != null
-                  ? `$${parseFloat(user.taxHoldAmount).toFixed(2)}`
-                  : <span className="text-gray-400">N/A</span>}
+                {taxBreakdown
+                  ? `$${taxBreakdown.calculatedHold.toFixed(2)}`
+                  : user.taxHoldAmount != null
+                    ? `$${parseFloat(user.taxHoldAmount).toFixed(2)}`
+                    : <span className="text-gray-400">N/A</span>}
               </p>
             </div>
             {user.scheduledPayoutError && (
