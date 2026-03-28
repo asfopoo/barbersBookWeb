@@ -78,6 +78,7 @@ function RunResultBanner({ result, onDismiss }: RunResultBannerProps) {
 export default function AdminPayouts() {
   const [filter, setFilter] = useState<Filter>('all');
   const [runResult, setRunResult] = useState<PayoutRunResult | null>(null);
+  const [recalcResult, setRecalcResult] = useState<{ updated: number; failed: number; total: number } | null>(null);
   const queryClient = useQueryClient();
 
   const { data, isLoading, error } = useQuery({
@@ -90,6 +91,14 @@ export default function AdminPayouts() {
     mutationFn: () => adminApi.triggerPayoutRun(),
     onSuccess: (result) => {
       setRunResult(result);
+      queryClient.invalidateQueries({ queryKey: ['admin-payout-cron'] });
+    },
+  });
+
+  const recalcMutation = useMutation({
+    mutationFn: () => adminApi.recalculateTaxHolds(),
+    onSuccess: (result) => {
+      setRecalcResult(result);
       queryClient.invalidateQueries({ queryKey: ['admin-payout-cron'] });
     },
   });
@@ -116,19 +125,39 @@ export default function AdminPayouts() {
               )}
             </p>
           </div>
-          <button
-            onClick={() => triggerMutation.mutate()}
-            disabled={triggerMutation.isPending}
-            className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-          >
-            {triggerMutation.isPending ? 'Running…' : 'Trigger Run Now'}
-          </button>
+          <div className="flex gap-2">
+            <button
+              onClick={() => { setRecalcResult(null); recalcMutation.mutate(); }}
+              disabled={recalcMutation.isPending || triggerMutation.isPending}
+              className="px-4 py-2 bg-amber-500 text-white text-sm font-medium rounded-lg hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              {recalcMutation.isPending ? 'Recalculating…' : 'Recalculate Tax Holds'}
+            </button>
+            <button
+              onClick={() => triggerMutation.mutate()}
+              disabled={triggerMutation.isPending || recalcMutation.isPending}
+              className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              {triggerMutation.isPending ? 'Running…' : 'Trigger Run Now'}
+            </button>
+          </div>
         </div>
 
         {/* Trigger error */}
         {triggerMutation.isError && (
           <div className="bg-red-50 border border-red-200 rounded-lg p-3 text-sm text-red-700">
             Trigger failed: {(triggerMutation.error as Error).message}
+          </div>
+        )}
+
+        {/* Recalc result */}
+        {recalcResult && (
+          <div className="bg-green-50 border border-green-200 rounded-lg p-3 flex items-center justify-between gap-4">
+            <p className="text-sm text-green-800">
+              Tax holds recalculated — <span className="font-medium">{recalcResult.updated}</span> of {recalcResult.total} users updated.
+              {recalcResult.failed > 0 && <span className="text-red-600 ml-2">{recalcResult.failed} failed.</span>}
+            </p>
+            <button onClick={() => setRecalcResult(null)} className="text-gray-400 hover:text-gray-600 text-lg leading-none">×</button>
           </div>
         )}
 

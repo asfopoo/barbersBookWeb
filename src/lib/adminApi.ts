@@ -329,6 +329,10 @@ class AdminApiClient {
   async triggerPayoutRun(): Promise<PayoutRunResult> {
     return this.request('/api/admin/payouts/trigger', { method: 'POST' });
   }
+
+  async recalculateTaxHolds(): Promise<{ updated: number; failed: number; total: number; errors: { email: string; error: string }[] }> {
+    return this.request('/api/admin/payouts/recalculate-tax-holds', { method: 'POST' });
+  }
 }
 
 export const adminAuth = new AdminAuthService();
