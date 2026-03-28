@@ -21,6 +21,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
     { path: '/admin/users', label: 'Users', icon: '👥' },
     { path: '/admin/shops', label: 'Shops', icon: '🏪' },
     { path: '/admin/transactions', label: 'Transactions', icon: '💵' },
+    { path: '/admin/payouts', label: 'Payouts', icon: '💸' },
     { path: '/admin/invitations', label: 'Invitations', icon: '✉️' },
     { path: '/admin/analytics', label: 'Analytics', icon: '📈' },
     { path: '/admin/notifications', label: 'Notifications', icon: '🔔' },

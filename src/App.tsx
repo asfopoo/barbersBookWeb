@@ -21,6 +21,7 @@ import AdminInvitations from './pages/admin/AdminInvitations'
 import AdminAnalytics from './pages/admin/AdminAnalytics'
 import AdminNotifications from './pages/admin/AdminNotifications'
 import AdminTransactions from './pages/admin/AdminTransactions'
+import AdminPayouts from './pages/admin/AdminPayouts'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 
 function HomePage() {
@@ -114,6 +115,14 @@ function App() {
           element={
             <ProtectedRoute>
               <AdminTransactions />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/payouts"
+          element={
+            <ProtectedRoute>
+              <AdminPayouts />
             </ProtectedRoute>
           }
         />
