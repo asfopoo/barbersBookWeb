@@ -52,7 +52,7 @@ export default function KeyFeatures() {
             </div>
           </div>
           <div className="relative">
-            <div className="bg-gradient-to-br from-blue-950/50 to-indigo-950/50 rounded-3xl p-6 shadow-xl">
+            <div className="bg-gray-900 rounded-3xl p-6 shadow-xl">
               <img src="/screenshots/tap-to-pay.png" alt="Tap to Pay on iPhone" className="w-full rounded-2xl drop-shadow-lg" />
             </div>
           </div>
@@ -61,7 +61,7 @@ export default function KeyFeatures() {
         {/* Earnings and Analytics */}
         <div className="grid md:grid-cols-2 gap-16 items-center mb-32">
           <div className="order-2 md:order-1 relative">
-            <div className="bg-gradient-to-br from-green-950/50 to-emerald-950/50 rounded-3xl p-6 shadow-xl">
+            <div className="bg-gray-900 rounded-3xl p-6 shadow-xl">
               <img src="/screenshots/earnings.png" alt="Earnings overview screen" className="w-full rounded-2xl drop-shadow-lg" />
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function KeyFeatures() {
             </div>
           </div>
           <div className="relative">
-            <div className="bg-gradient-to-br from-amber-950/50 to-yellow-950/50 rounded-3xl p-6 shadow-xl">
+            <div className="bg-gray-900 rounded-3xl p-6 shadow-xl">
               <img src="/screenshots/tax-hold.png" alt="Tax Hold and Tax Estimation" className="w-full rounded-2xl drop-shadow-lg" />
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function KeyFeatures() {
         {/* Digital Waitlist */}
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="order-2 md:order-1 relative">
-            <div className="bg-gradient-to-br from-purple-950/50 to-blue-950/50 rounded-3xl p-6 shadow-xl">
+            <div className="bg-gray-900 rounded-3xl p-6 shadow-xl">
               <img src="/screenshots/waitlist.png" alt="Digital Waitlist management" className="w-full rounded-2xl drop-shadow-lg" />
             </div>
           </div>
