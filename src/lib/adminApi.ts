@@ -336,14 +336,16 @@ class AdminApiClient {
 
   async getTaxBreakdown(userId: string): Promise<{
     taxRate: number;
-    stripeYTDEarnings: number;
-    stripeYTDTips: number;
-    stripeYTDTotal: number;
-    stripeHold: number;
+    holdEnabled: boolean;
+    taxHoldEnabledSince: string | null;
+    holdEarnings: number;
+    holdTips: number;
+    holdTotal: number;
+    calculatedHold: number;
     dbHold: number;
     transactionCount: number;
-    periodStart: string;
-    periodEnd: string;
+    periodStart: string | null;
+    periodEnd: string | null;
   }> {
     return this.request(`/api/admin/payouts/tax-breakdown/${userId}`);
   }
