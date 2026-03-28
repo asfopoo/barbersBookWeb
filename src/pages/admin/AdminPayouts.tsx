@@ -75,8 +75,81 @@ function RunResultBanner({ result, onDismiss }: RunResultBannerProps) {
   );
 }
 
+interface TaxBreakdownRowProps {
+  userId: string;
+}
+
+function TaxBreakdownRow({ userId }: TaxBreakdownRowProps) {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['admin-tax-breakdown', userId],
+    queryFn: () => adminApi.getTaxBreakdown(userId),
+  });
+
+  if (isLoading) {
+    return (
+      <tr>
+        <td colSpan={7} className="px-8 py-3 bg-amber-50 text-xs text-gray-400">Loading breakdown…</td>
+      </tr>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <tr>
+        <td colSpan={7} className="px-8 py-3 bg-amber-50 text-xs text-red-500">Failed to load breakdown.</td>
+      </tr>
+    );
+  }
+
+  const drift = Math.abs(data.dbHold - data.stripeHold) > 0.01;
+
+  return (
+    <tr>
+      <td colSpan={7} className="px-8 py-4 bg-amber-50 border-b border-amber-100">
+        <div className="flex flex-wrap gap-6 text-xs">
+          <div>
+            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Tax Rate</p>
+            <p className="text-gray-900 font-medium">{data.taxRate}%</p>
+          </div>
+          <div>
+            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Card Earnings YTD</p>
+            <p className="text-gray-900 font-medium">${data.stripeYTDEarnings.toFixed(2)}</p>
+          </div>
+          <div>
+            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Card Tips YTD</p>
+            <p className="text-gray-900 font-medium">${data.stripeYTDTips.toFixed(2)}</p>
+          </div>
+          <div>
+            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Card Total YTD</p>
+            <p className="text-gray-900 font-medium">${data.stripeYTDTotal.toFixed(2)}</p>
+          </div>
+          <div>
+            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Calculated Hold</p>
+            <p className="text-gray-900 font-medium">${data.stripeHold.toFixed(2)}</p>
+            <p className="text-gray-400">{data.taxRate}% × ${data.stripeYTDTotal.toFixed(2)}</p>
+          </div>
+          <div>
+            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">DB Hold (used by cron)</p>
+            <p className={`font-medium ${drift ? 'text-red-600' : 'text-gray-900'}`}>${data.dbHold.toFixed(2)}</p>
+            {drift && <p className="text-red-500">Stale — run Recalculate</p>}
+          </div>
+          <div>
+            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Transactions</p>
+            <p className="text-gray-900 font-medium">{data.transactionCount}</p>
+          </div>
+          <div>
+            <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Period</p>
+            <p className="text-gray-900 font-medium">{formatDate(data.periodStart)} – {formatDate(data.periodEnd)}</p>
+          </div>
+        </div>
+      </td>
+    </tr>
+  );
+}
+
 export default function AdminPayouts() {
   const [filter, setFilter] = useState<Filter>('all');
+  const [expandedUserId, setExpandedUserId] = useState<string | null>(null);
   const [runResult, setRunResult] = useState<PayoutRunResult | null>(null);
   const [recalcResult, setRecalcResult] = useState<{ updated: number; failed: number; total: number } | null>(null);
   const queryClient = useQueryClient();
@@ -100,6 +173,7 @@ export default function AdminPayouts() {
     onSuccess: (result) => {
       setRecalcResult(result);
       queryClient.invalidateQueries({ queryKey: ['admin-payout-cron'] });
+      queryClient.invalidateQueries({ queryKey: ['admin-tax-breakdown'] });
     },
   });
 
@@ -227,49 +301,62 @@ export default function AdminPayouts() {
                         </td>
                       </tr>
                     )}
-                    {filtered.map((user) => (
-                      <tr key={user.id} className={`hover:bg-gray-50 transition-colors ${user.scheduledPayoutError ? 'bg-red-50/40' : ''}`}>
-                        <td className="px-4 py-3">
-                          <p className="font-medium text-gray-900">{user.firstName} {user.lastName}</p>
-                          <p className="text-xs text-gray-400">{user.email}</p>
-                        </td>
-                        <td className="px-4 py-3 text-gray-700">{frequencyLabel(user)}</td>
-                        <td className="px-4 py-3 text-gray-600">{formatDate(user.lastScheduledPayoutAt)}</td>
-                        <td className="px-4 py-3 text-gray-600">
-                          {user.payoutFrequency === 'rolling'
-                            ? <span className="text-gray-400 italic">Stripe auto</span>
-                            : formatDate(user.nextPayoutDate)}
-                        </td>
-                        <td className="px-4 py-3">
-                          {user.taxHoldEnabled ? (
-                            <span className="text-xs bg-amber-100 text-amber-800 font-medium px-2 py-0.5 rounded-full">
-                              ${Number(user.taxHoldAmount).toFixed(2)}
-                            </span>
-                          ) : (
-                            <span className="text-xs text-gray-400">Off</span>
-                          )}
-                        </td>
-                        <td className="px-4 py-3">
-                          {user.stripePayoutsEnabled ? (
-                            <span className="text-xs bg-green-100 text-green-700 font-medium px-2 py-0.5 rounded-full">Enabled</span>
-                          ) : (
-                            <span className="text-xs bg-gray-100 text-gray-500 font-medium px-2 py-0.5 rounded-full">Disabled</span>
-                          )}
-                        </td>
-                        <td className="px-4 py-3 max-w-xs">
-                          {user.scheduledPayoutError ? (
-                            <span className="text-xs text-red-600 truncate block" title={user.scheduledPayoutError}>
-                              {user.scheduledPayoutError}
-                            </span>
-                          ) : (
-                            <span className="text-xs text-gray-400">—</span>
-                          )}
-                        </td>
-                      </tr>
-                    ))}
+                    {filtered.map((user) => {
+                      const isExpanded = expandedUserId === user.id;
+                      return (
+                        <>
+                          <tr
+                            key={user.id}
+                            onClick={() => setExpandedUserId(isExpanded ? null : user.id)}
+                            className={`cursor-pointer transition-colors ${user.scheduledPayoutError ? 'bg-red-50/40' : ''} ${isExpanded ? 'bg-amber-50' : 'hover:bg-gray-50'}`}
+                          >
+                            <td className="px-4 py-3">
+                              <p className="font-medium text-gray-900">{user.firstName} {user.lastName}</p>
+                              <p className="text-xs text-gray-400">{user.email}</p>
+                            </td>
+                            <td className="px-4 py-3 text-gray-700">{frequencyLabel(user)}</td>
+                            <td className="px-4 py-3 text-gray-600">{formatDate(user.lastScheduledPayoutAt)}</td>
+                            <td className="px-4 py-3 text-gray-600">
+                              {user.payoutFrequency === 'rolling'
+                                ? <span className="text-gray-400 italic">Stripe auto</span>
+                                : formatDate(user.nextPayoutDate)}
+                            </td>
+                            <td className="px-4 py-3">
+                              {user.taxHoldEnabled ? (
+                                <span className="text-xs bg-amber-100 text-amber-800 font-medium px-2 py-0.5 rounded-full">
+                                  ${Number(user.taxHoldAmount).toFixed(2)}
+                                </span>
+                              ) : (
+                                <span className="text-xs text-gray-400">Off</span>
+                              )}
+                            </td>
+                            <td className="px-4 py-3">
+                              {user.stripePayoutsEnabled ? (
+                                <span className="text-xs bg-green-100 text-green-700 font-medium px-2 py-0.5 rounded-full">Enabled</span>
+                              ) : (
+                                <span className="text-xs bg-gray-100 text-gray-500 font-medium px-2 py-0.5 rounded-full">Disabled</span>
+                              )}
+                            </td>
+                            <td className="px-4 py-3 max-w-xs">
+                              {user.scheduledPayoutError ? (
+                                <span className="text-xs text-red-600 truncate block" title={user.scheduledPayoutError}>
+                                  {user.scheduledPayoutError}
+                                </span>
+                              ) : (
+                                <span className="text-xs text-gray-400">—</span>
+                              )}
+                            </td>
+                          </tr>
+                          {isExpanded && <TaxBreakdownRow key={`${user.id}-breakdown`} userId={user.id} />}
+                        </>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
+              {filtered.length > 0 && (
+                <p className="text-xs text-gray-400 px-4 py-2 border-t border-gray-100">Click a row to see the tax hold breakdown.</p>
+              )}
             </div>
           </>
         )}

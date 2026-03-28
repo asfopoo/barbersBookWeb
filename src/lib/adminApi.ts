@@ -333,6 +333,20 @@ class AdminApiClient {
   async recalculateTaxHolds(): Promise<{ updated: number; failed: number; total: number; errors: { email: string; error: string }[] }> {
     return this.request('/api/admin/payouts/recalculate-tax-holds', { method: 'POST' });
   }
+
+  async getTaxBreakdown(userId: string): Promise<{
+    taxRate: number;
+    stripeYTDEarnings: number;
+    stripeYTDTips: number;
+    stripeYTDTotal: number;
+    stripeHold: number;
+    dbHold: number;
+    transactionCount: number;
+    periodStart: string;
+    periodEnd: string;
+  }> {
+    return this.request(`/api/admin/payouts/tax-breakdown/${userId}`);
+  }
 }
 
 export const adminAuth = new AdminAuthService();
