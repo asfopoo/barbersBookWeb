@@ -106,8 +106,10 @@ function TaxBreakdownRow({ userId }: TaxBreakdownRowProps) {
   return (
     <tr>
       <td colSpan={7} className="px-8 py-4 bg-amber-50 border-b border-amber-100">
-        {!data.holdEnabled || !data.taxHoldEnabledSince ? (
-          <p className="text-xs text-gray-400">Tax hold is off — no accumulation period.</p>
+        {!data.holdEnabled ? (
+          <p className="text-xs text-gray-400">Tax reserve is disabled for this user.</p>
+        ) : !data.taxHoldEnabledSince ? (
+          <p className="text-xs text-amber-600">Tax reserve is enabled but has no accumulation start date. Run <strong>Recalculate Tax Reserves</strong> to initialize.</p>
         ) : (
           <div className="flex flex-wrap gap-6 text-xs">
             <div>
@@ -210,7 +212,7 @@ export default function AdminPayouts() {
               disabled={recalcMutation.isPending || triggerMutation.isPending}
               className="px-4 py-2 bg-amber-500 text-white text-sm font-medium rounded-lg hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              {recalcMutation.isPending ? 'Recalculating…' : 'Recalculate Tax Holds'}
+              {recalcMutation.isPending ? 'Recalculating…' : 'Recalculate Tax Reserves'}
             </button>
             <button
               onClick={() => triggerMutation.mutate()}
@@ -293,7 +295,7 @@ export default function AdminPayouts() {
                       <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">Frequency</th>
                       <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">Last Payout</th>
                       <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">Next Payout</th>
-                      <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">Tax Hold</th>
+                      <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">Tax Reserve</th>
                       <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">Stripe</th>
                       <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">Error</th>
                     </tr>
@@ -360,7 +362,7 @@ export default function AdminPayouts() {
                 </table>
               </div>
               {filtered.length > 0 && (
-                <p className="text-xs text-gray-400 px-4 py-2 border-t border-gray-100">Click a row to see the tax hold breakdown.</p>
+                <p className="text-xs text-gray-400 px-4 py-2 border-t border-gray-100">Click a row to see the tax reserve breakdown.</p>
               )}
             </div>
           </>
