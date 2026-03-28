@@ -47,6 +47,42 @@ export interface DashboardStats {
   activeWaitlistEntries: number;
 }
 
+export interface PayoutUser {
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  payoutFrequency: 'rolling' | 'daily' | 'weekly' | 'biweekly' | 'semimonthly';
+  payoutDayOfWeek: number | null;
+  lastScheduledPayoutAt: string | null;
+  nextPayoutDate: string | null;
+  scheduledPayoutError: string | null;
+  stripePayoutsEnabled: boolean;
+  taxHoldEnabled: boolean;
+  taxHoldAmount: number;
+}
+
+export interface PayoutCronStatus {
+  cronSchedule: string;
+  nextCronRunAt: string;
+  summary: {
+    totalOnScheduled: number;
+    withErrors: number;
+    stripeEnabled: number;
+  };
+  users: PayoutUser[];
+}
+
+export interface PayoutRunResult {
+  processedAt: string;
+  usersEvaluated: number;
+  payoutsInitiated: number;
+  payoutsSkipped: number;
+  payoutsFailed: number;
+  totalAmountPaid: number;
+  errors: Array<{ userId: string; email: string; error: string }>;
+}
+
 // Auth Service
 class AdminAuthService {
   private tokenKey = 'admin_token';
@@ -283,6 +319,15 @@ class AdminApiClient {
 
   async blastTapToPayPush(): Promise<{ sent: number; failed: number; total: number }> {
     return this.request('/api/admin/blast/tap-to-pay-push', { method: 'POST' });
+  }
+
+  // Payout Cron
+  async getPayoutCronStatus(): Promise<PayoutCronStatus> {
+    return this.request('/api/admin/payouts/users');
+  }
+
+  async triggerPayoutRun(): Promise<PayoutRunResult> {
+    return this.request('/api/admin/payouts/trigger', { method: 'POST' });
   }
 }
 
