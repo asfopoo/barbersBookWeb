@@ -13,6 +13,33 @@ export default function AdminUserDetail() {
     subscriptionStatus: '',
     exportCount: 0,
   });
+  const [tempPassword, setTempPassword] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const resetPasswordMutation = useMutation({
+    mutationFn: () => adminApi.resetUserPassword(id!),
+    onSuccess: (result) => {
+      setTempPassword(result.tempPassword);
+      setCopied(false);
+    },
+  });
+
+  const handleResetPassword = () => {
+    if (
+      !window.confirm(
+        "Reset this user's password to a new temporary one? Their current password will stop working immediately.",
+      )
+    ) {
+      return;
+    }
+    resetPasswordMutation.mutate();
+  };
+
+  const handleCopyTempPassword = async () => {
+    if (!tempPassword) return;
+    await navigator.clipboard.writeText(tempPassword);
+    setCopied(true);
+  };
 
   const { data, isLoading } = useQuery({
     queryKey: ['admin-user', id],
@@ -135,6 +162,51 @@ export default function AdminUserDetail() {
                 <p className="text-sm text-gray-900">
                   {new Date(user.createdAt).toLocaleString()}
                 </p>
+              </div>
+              <div className="pt-2 border-t border-gray-100">
+                <label className="text-sm font-medium text-gray-600">Password</label>
+                <div className="mt-1 flex items-center gap-2">
+                  <button
+                    onClick={handleResetPassword}
+                    disabled={resetPasswordMutation.isPending}
+                    className="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white text-sm rounded-lg transition-colors disabled:opacity-50"
+                  >
+                    {resetPasswordMutation.isPending ? 'Resetting…' : 'Reset Password'}
+                  </button>
+                  {resetPasswordMutation.isError && (
+                    <span className="text-sm text-red-600">
+                      {(resetPasswordMutation.error as Error).message}
+                    </span>
+                  )}
+                </div>
+                {tempPassword && (
+                  <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+                    <p className="text-xs font-semibold text-amber-800 uppercase tracking-wide">
+                      Temporary password — shown only once
+                    </p>
+                    <div className="mt-2 flex items-center gap-2">
+                      <code className="flex-1 px-3 py-2 bg-white border border-amber-300 rounded font-mono text-base text-gray-900 select-all">
+                        {tempPassword}
+                      </code>
+                      <button
+                        onClick={handleCopyTempPassword}
+                        className="px-3 py-2 bg-gray-800 hover:bg-gray-900 text-white text-sm rounded-lg transition-colors"
+                      >
+                        {copied ? 'Copied' : 'Copy'}
+                      </button>
+                      <button
+                        onClick={() => setTempPassword(null)}
+                        className="px-3 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm rounded-lg transition-colors"
+                      >
+                        Dismiss
+                      </button>
+                    </div>
+                    <p className="mt-2 text-xs text-amber-700">
+                      Deliver this to the user out-of-band (text / phone). It will not be
+                      recoverable once dismissed.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
