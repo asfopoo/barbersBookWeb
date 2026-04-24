@@ -213,6 +213,12 @@ class AdminApiClient {
     });
   }
 
+  async resetUserPassword(id: string): Promise<{ tempPassword: string }> {
+    return this.request(`/api/admin/users/${id}/reset-password`, {
+      method: 'POST',
+    });
+  }
+
   async deleteUser(id: string) {
     return this.request(`/api/admin/users/${id}`, {
       method: 'DELETE',
