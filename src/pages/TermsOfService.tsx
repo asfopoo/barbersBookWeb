@@ -15,7 +15,7 @@ export default function TermsOfService() {
       {/* Content */}
       <div className="container mx-auto px-6 py-16 max-w-4xl">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Terms of Service</h1>
-        <p className="text-gray-600 mb-8">Last updated: February 13, 2026</p>
+        <p className="text-gray-600 mb-8">Last updated: April 27, 2026</p>
 
         <div className="prose prose-lg max-w-none">
           <section className="mb-8">
@@ -64,17 +64,16 @@ export default function TermsOfService() {
             
             <h3 className="text-xl font-semibold text-gray-900 mb-3">4.1 Payment Service Provider</h3>
             <p className="text-gray-700 mb-4">
-              Payment processing services are provided by Stripe. By enabling payment features, you agree to Stripe's Connected Account Agreement available at <a href="https://stripe.com/legal/connect-account" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://stripe.com/legal/connect-account</a>. We act as a payment facilitator and collect platform fees based on your subscription tier.
+              Payment processing services are provided by Stripe. By enabling payment features, you agree to Stripe's Connected Account Agreement available at <a href="https://stripe.com/legal/connect-account" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://stripe.com/legal/connect-account</a>. We act as a payment facilitator and collect a platform fee on every transaction you process.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">4.2 Platform Fees</h3>
             <p className="text-gray-700 mb-4">
-              Platform fees are deducted from each transaction you process:
+              A platform fee is deducted from each transaction at the following rates. Rates are inclusive of Stripe's own processing fees, so the amounts listed below are the total deducted from the transaction. Rates are the same for every subscription tier — subscriptions unlock additional features (tax tools, multi-location, etc.) but do not change payment processing fees:
             </p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li><strong>Free Tier:</strong> 3.5% all-in fee (includes platform fee + Stripe processing fees)</li>
-              <li><strong>Pro Tier ($4.99/month):</strong> 0% platform fee (only Stripe processing fees apply: ~2.7% + $0.15 per in-person transaction)</li>
-              <li><strong>Premium Tier ($9.99/month):</strong> 0% platform fee (only Stripe processing fees apply: ~2.7% + $0.15 per in-person transaction)</li>
+              <li><strong>In-person (Tap to Pay):</strong> 3.0% + $0.30 per transaction</li>
+              <li><strong>Online (PaymentSheet):</strong> 3.3% + $0.40 per transaction</li>
             </ul>
             <p className="text-gray-700 mb-4">
               All fees are clearly disclosed before processing each transaction. Platform fees may be adjusted with 30 days' notice.
@@ -108,25 +107,64 @@ export default function TermsOfService() {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Subscription and Billing</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. SMS / Text Messaging Service</h2>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">5.1 Program Description</h3>
+            <p className="text-gray-700 mb-4">
+              When you opt in during the booking flow at app.thebarbersbook.com, The Barbers Book sends transactional text messages to confirm your appointment, send reminders, and notify you of any changes. SMS is strictly transactional — we do not send marketing messages.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">5.2 Consent</h3>
+            <p className="text-gray-700 mb-4">
+              You provide consent to receive SMS by checking the consent box on the booking form. Consent is not a condition of booking — you can complete a booking and choose email or no notifications instead.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">5.3 Message Frequency</h3>
+            <p className="text-gray-700 mb-4">
+              Message frequency varies and is typically 1–3 messages per appointment.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">5.4 Message and Data Rates</h3>
+            <p className="text-gray-700 mb-4">
+              Standard message and data rates may apply, depending on your wireless carrier plan. The Barbers Book is not responsible for charges from your carrier.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">5.5 Opting Out</h3>
+            <p className="text-gray-700 mb-4">
+              You can opt out of SMS at any time by replying <strong>STOP</strong> to any message. Reply <strong>HELP</strong> for assistance, or contact us at support@thebarbersbook.com. After you reply STOP, we will stop sending text messages to your number, though you may receive a final confirmation message.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">5.6 Carrier Disclaimer</h3>
+            <p className="text-gray-700 mb-4">
+              Wireless carriers are not liable for delayed or undelivered messages.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">5.7 Privacy</h3>
+            <p className="text-gray-700 mb-4">
+              For details on how we handle SMS data, see our <Link to="/privacy" className="text-blue-600 hover:underline">Privacy Policy</Link>.
+            </p>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Subscription and Billing</h2>
             
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">5.1 Subscription Plans</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">6.1 Subscription Plans</h3>
             <p className="text-gray-700 mb-4">
               We offer Free, Pro ($4.99/month), and Premium ($9.99/month) subscription plans. Paid subscriptions are billed on a recurring monthly basis through your chosen app store (Apple App Store or Google Play Store).
             </p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li><strong>Pro:</strong> Tax estimation, 0% platform fee, and all standard features</li>
-              <li><strong>Premium:</strong> All Pro features plus tax hold tracking and multi-location support</li>
+              <li><strong>Pro:</strong> Tax estimation, tax hold, multi-location, unlimited history, data export, SMS/email notifications, and all standard features</li>
+              <li><strong>Premium:</strong> All Pro features plus additional advanced tooling</li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">5.2 Cancellation</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">6.2 Cancellation</h3>
             <p className="text-gray-700 mb-4">
               You may cancel your subscription at any time through your app store account settings. Cancellations take effect at the end of the current billing period. Refunds are handled according to the app store's refund policy.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Acceptable Use</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Acceptable Use</h2>
             <p className="text-gray-700 mb-4">You agree not to:</p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
               <li>Use the Service for any illegal purpose</li>
@@ -142,70 +180,70 @@ export default function TermsOfService() {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. User Content</h2>
-            
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">6.1 Your Content</h3>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. User Content</h2>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">8.1 Your Content</h3>
             <p className="text-gray-700 mb-4">
               You retain ownership of all content you submit to the Service (earnings data, customer information, etc.). You grant us a license to use, store, and process this content to provide the Service.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">6.2 Responsibility</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">8.2 Responsibility</h3>
             <p className="text-gray-700 mb-4">
               You are responsible for the accuracy and legality of your content. You must have the right to share any customer information you enter into the Service.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Intellectual Property</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Intellectual Property</h2>
             <p className="text-gray-700 mb-4">
               The Service, including its design, features, and content, is owned by eansolutions llc and protected by copyright, trademark, and other laws. You may not copy, modify, or distribute any part of the Service without our permission.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Disclaimers</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Disclaimers</h2>
             <p className="text-gray-700 mb-4">
               THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND. WE DO NOT GUARANTEE THAT THE SERVICE WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE. YOU USE THE SERVICE AT YOUR OWN RISK.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Limitation of Liability</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Limitation of Liability</h2>
             <p className="text-gray-700 mb-4">
               TO THE MAXIMUM EXTENT PERMITTED BY LAW, EANSOLUTIONS LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, OR OTHER INTANGIBLE LOSSES.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Indemnification</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Indemnification</h2>
             <p className="text-gray-700 mb-4">
               You agree to indemnify and hold harmless eansolutions llc from any claims, damages, or expenses arising from your use of the Service or violation of these Terms.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Termination</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">13. Termination</h2>
             <p className="text-gray-700 mb-4">
               We may suspend or terminate your account at any time for violation of these Terms or for any other reason. You may delete your account at any time through the app settings.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">13. Governing Law</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">14. Governing Law</h2>
             <p className="text-gray-700 mb-4">
               These Terms are governed by the laws of the United States, without regard to conflict of law provisions. Any disputes will be resolved in the appropriate courts.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">14. Changes to Terms</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">15. Changes to Terms</h2>
             <p className="text-gray-700 mb-4">
               We may modify these Terms at any time. We will notify you of material changes via email or through the Service. Continued use of the Service after changes constitutes acceptance of the new Terms.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">15. Contact Information</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">16. Contact Information</h2>
             <p className="text-gray-700 mb-4">
               For questions about these Terms, contact us at:
             </p>
