@@ -1,4 +1,13 @@
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+export const CUSTOMER_APP_URL = 'https://app.thebarbersbook.com';
+
+export function barberBookingUrl(slug: string | null | undefined): string | null {
+  return slug ? `${CUSTOMER_APP_URL}/book/${slug}` : null;
+}
+
+export function shopBookingUrl(slug: string | null | undefined): string | null {
+  return slug ? `${CUSTOMER_APP_URL}/book/shop/${slug}` : null;
+}
 
 // Types
 export interface User {
@@ -12,6 +21,8 @@ export interface User {
   isAdmin: boolean;
   exportCount: number;
   lastExportDate: string | null;
+  bookingSlug: string | null;
+  bookingEnabled: boolean;
   createdAt: string;
   updatedAt: string;
 }
@@ -29,6 +40,8 @@ export interface Shop {
   logoUrl: string | null;
   primaryColor: string | null;
   welcomeMessage: string | null;
+  bookingSlug: string | null;
+  shopBookingEnabled: boolean;
   lastActivityAt: string;
   createdAt: string;
   updatedAt: string;

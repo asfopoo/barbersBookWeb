@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { adminApi } from '../../lib/adminApi';
+import { adminApi, barberBookingUrl, shopBookingUrl } from '../../lib/adminApi';
 import AdminLayout from '../../components/admin/AdminLayout';
+import BookingLink from '../../components/admin/BookingLink';
 import { useState } from 'react';
 
 export default function AdminUserDetail() {
@@ -337,6 +338,61 @@ export default function AdminUserDetail() {
             </div>
           </div>
         )}
+
+        {/* Booking Sites */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Booking Sites</h3>
+          <div className="space-y-4">
+            <div>
+              <label className="text-sm font-medium text-gray-600">Barber Booking Page</label>
+              {(() => {
+                const url = barberBookingUrl(user.bookingSlug);
+                if (!url) {
+                  return (
+                    <p className="text-sm text-gray-400 mt-1">
+                      No booking slug — user hasn't generated their booking page yet.
+                    </p>
+                  );
+                }
+                return (
+                  <div className="mt-1">
+                    <BookingLink
+                      url={url}
+                      disabled={!user.bookingEnabled}
+                      disabledReason={!user.bookingEnabled ? 'Booking disabled' : undefined}
+                    />
+                  </div>
+                );
+              })()}
+            </div>
+            {shop && (
+              <div>
+                <label className="text-sm font-medium text-gray-600">Shop Booking Page</label>
+                {(() => {
+                  const url = shopBookingUrl(shop.bookingSlug);
+                  if (!url) {
+                    return (
+                      <p className="text-sm text-gray-400 mt-1">
+                        Shop has no booking slug — shop booking not set up.
+                      </p>
+                    );
+                  }
+                  return (
+                    <div className="mt-1">
+                      <BookingLink
+                        url={url}
+                        disabled={!shop.shopBookingEnabled}
+                        disabledReason={
+                          !shop.shopBookingEnabled ? 'Shop booking disabled' : undefined
+                        }
+                      />
+                    </div>
+                  );
+                })()}
+              </div>
+            )}
+          </div>
+        </div>
 
         {/* Stripe & Payments */}
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
