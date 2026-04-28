@@ -218,6 +218,7 @@ class AdminApiClient {
       subscriptionExpiresAt?: string | null;
       isAdmin?: boolean;
       exportCount?: number;
+      bookingEnabled?: boolean;
     }
   ) {
     return this.request(`/api/admin/users/${id}`, {
