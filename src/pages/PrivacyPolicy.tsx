@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
       {/* Content */}
       <div className="container mx-auto px-6 py-16 max-w-4xl">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
-        <p className="text-gray-600 mb-8">Last updated: February 13, 2026</p>
+        <p className="text-gray-600 mb-8">Last updated: April 27, 2026</p>
 
         <div className="prose prose-lg max-w-none">
           <section className="mb-8">
@@ -29,12 +29,22 @@ export default function PrivacyPolicy() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Information We Collect</h2>
             
             <h3 className="text-xl font-semibold text-gray-900 mb-3">2.1 Personal Information</h3>
-            <p className="text-gray-700 mb-4">We collect information that you provide directly to us, including:</p>
+            <p className="text-gray-700 mb-4">
+              We collect information directly from two groups of users: barbers and other service professionals who use our app to run their business, and the end customers who book appointments with those professionals through our online booking flow.
+            </p>
+            <p className="text-gray-700 mb-4">From <strong>barbers and service professionals</strong>, we collect:</p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
               <li>Account information (name, email address, phone number)</li>
               <li>Business information (shop name, services offered, pricing)</li>
               <li>Financial data (earnings, expenses, payment information)</li>
-              <li>Customer information (names, phone numbers for waitlist)</li>
+              <li>Customer information you enter into the app (names, phone numbers for waitlist)</li>
+            </ul>
+            <p className="text-gray-700 mb-4">From <strong>end customers</strong> booking appointments through the booking flow, we collect:</p>
+            <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
+              <li>Name, phone number, and email address</li>
+              <li>Appointment details (selected service, time, notes to barber)</li>
+              <li>SMS opt-in status and consent timestamp (when you check the consent box on the booking form)</li>
+              <li>Payment information processed by Stripe (we do not store full card numbers)</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">2.2 Automatically Collected Information</h3>
@@ -47,6 +57,20 @@ export default function PrivacyPolicy() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">2.3 Payment Information</h3>
             <p className="text-gray-700 mb-4">
               Payment information is collected and processed by our payment processor, Stripe. We do not store full credit card numbers on our servers. We receive limited payment information (last 4 digits, transaction amounts) for record-keeping purposes.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">2.4 SMS / Text Messaging Data</h3>
+            <p className="text-gray-700 mb-4">
+              When you book an appointment through The Barbers Book and consent to receive text messages, we collect your mobile phone number to send transactional SMS — specifically, booking confirmations, appointment reminders, and updates if your appointment time or status changes. We also record the timestamp and source of your opt-in to maintain a compliance audit trail.
+            </p>
+            <p className="text-gray-700 mb-4">
+              <strong>No sharing of mobile information.</strong> Mobile information (including your phone number, opt-in consent, and SMS-related data) will not be shared with third parties or affiliates for marketing or promotional purposes. All other data-sharing categories described in this Privacy Policy exclude text messaging originator opt-in data and consent — this information is never shared with any third parties for their own marketing.
+            </p>
+            <p className="text-gray-700 mb-4">
+              <strong>SMS service providers.</strong> We use Twilio and/or AWS End User Messaging (Amazon SNS) to deliver text messages on our behalf. These providers process your phone number solely to transmit messages we initiate and are contractually prohibited from using it for any other purpose.
+            </p>
+            <p className="text-gray-700 mb-4">
+              <strong>Opting out.</strong> You can opt out of SMS at any time by replying <strong>STOP</strong> to any message. Reply <strong>HELP</strong> for assistance. Standard message and data rates may apply.
             </p>
           </section>
 
@@ -72,7 +96,8 @@ export default function PrivacyPolicy() {
             <p className="text-gray-700 mb-4">Third-party vendors who perform services on our behalf:</p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
               <li><strong>Stripe:</strong> Payment processing and payouts</li>
-              <li><strong>AWS:</strong> Cloud hosting, storage (S3), and email (SES)</li>
+              <li><strong>AWS:</strong> Cloud hosting, storage (S3), email (SES), and SMS delivery (AWS End User Messaging / SNS)</li>
+              <li><strong>Twilio:</strong> SMS delivery (transactional booking confirmations and reminders)</li>
               <li><strong>PostHog:</strong> Analytics and product insights</li>
               <li><strong>Sentry:</strong> Error tracking and monitoring</li>
               <li><strong>RevenueCat:</strong> Subscription management</li>
@@ -121,7 +146,7 @@ export default function PrivacyPolicy() {
               <li>Withdraw consent at any time</li>
             </ul>
             <p className="text-gray-700 mb-4">
-              To exercise these rights, contact us at privacy@thebarbersbook.com or through the app settings.
+              To exercise these rights, contact us at support@thebarbersbook.com or through the app settings.
             </p>
           </section>
 
@@ -174,7 +199,7 @@ export default function PrivacyPolicy() {
             </p>
             <p className="text-gray-700">
               <strong>eansolutions llc</strong><br />
-              Email: privacy@thebarbersbook.com<br />
+              Email: support@thebarbersbook.com<br />
               Support: support@thebarbersbook.com
             </p>
           </section>
