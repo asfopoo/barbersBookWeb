@@ -25,6 +25,13 @@ export default function AdminUserDetail() {
     },
   });
 
+  const generateSlugMutation = useMutation({
+    mutationFn: () => adminApi.generateUserBookingSlug(id!),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['admin-user', id] });
+    },
+  });
+
   const handleResetPassword = () => {
     if (
       !window.confirm(
@@ -349,9 +356,24 @@ export default function AdminUserDetail() {
                 const url = barberBookingUrl(user.bookingSlug);
                 if (!url) {
                   return (
-                    <p className="text-sm text-gray-400 mt-1">
-                      No booking slug — user hasn't generated their booking page yet.
-                    </p>
+                    <div className="mt-1 flex items-center gap-3">
+                      <p className="text-sm text-gray-400">
+                        No booking slug yet.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => generateSlugMutation.mutate()}
+                        disabled={generateSlugMutation.isPending}
+                        className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors disabled:opacity-50"
+                      >
+                        {generateSlugMutation.isPending ? 'Generating…' : 'Generate slug'}
+                      </button>
+                      {generateSlugMutation.isError && (
+                        <span className="text-sm text-red-600">
+                          {(generateSlugMutation.error as Error).message}
+                        </span>
+                      )}
+                    </div>
                   );
                 }
                 return (
