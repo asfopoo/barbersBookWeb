@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { adminApi } from '../../lib/adminApi';
+import { adminApi, shopBookingUrl } from '../../lib/adminApi';
 import AdminLayout from '../../components/admin/AdminLayout';
+import BookingLink from '../../components/admin/BookingLink';
 
 export default function AdminShops() {
   const [page, setPage] = useState(1);
@@ -75,6 +76,8 @@ export default function AdminShops() {
                 phone: string | null;
                 isActive: boolean;
                 estimatedWaitMinutes: number;
+                bookingSlug: string | null;
+                shopBookingEnabled: boolean;
                 lastActivityAt: string;
                 user: { firstName: string; lastName: string; email: string; subscriptionTier: string };
                 owner: { firstName: string; lastName: string; email: string } | null;
@@ -180,6 +183,23 @@ export default function AdminShops() {
                       </div>
                     </details>
                   )}
+
+                  {(() => {
+                    const url = shopBookingUrl(shop.bookingSlug);
+                    if (!url) return null;
+                    return (
+                      <div className="mb-4">
+                        <p className="text-xs font-medium text-gray-600 mb-1">Booking site</p>
+                        <BookingLink
+                          url={url}
+                          disabled={!shop.shopBookingEnabled}
+                          disabledReason={
+                            !shop.shopBookingEnabled ? 'Disabled' : undefined
+                          }
+                        />
+                      </div>
+                    );
+                  })()}
 
                   <div className="border-t border-gray-200 pt-4">
                     <div className="flex justify-between text-sm">
