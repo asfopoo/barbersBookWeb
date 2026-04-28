@@ -232,6 +232,12 @@ class AdminApiClient {
     });
   }
 
+  async generateUserBookingSlug(id: string): Promise<{ bookingSlug: string }> {
+    return this.request(`/api/admin/users/${id}/booking-slug`, {
+      method: 'POST',
+    });
+  }
+
   async deleteUser(id: string) {
     return this.request(`/api/admin/users/${id}`, {
       method: 'DELETE',
