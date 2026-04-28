@@ -32,6 +32,13 @@ export default function AdminUserDetail() {
     },
   });
 
+  const toggleBookingEnabledMutation = useMutation({
+    mutationFn: (enabled: boolean) => adminApi.updateUser(id!, { bookingEnabled: enabled }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['admin-user', id] });
+    },
+  });
+
   const handleResetPassword = () => {
     if (
       !window.confirm(
@@ -350,6 +357,37 @@ export default function AdminUserDetail() {
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Booking Sites</h3>
           <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <label className="text-sm font-medium text-gray-600">Booking Enabled</label>
+              <span
+                className={`text-sm font-semibold ${
+                  user.bookingEnabled ? 'text-green-600' : 'text-gray-500'
+                }`}
+              >
+                {user.bookingEnabled ? 'On' : 'Off'}
+              </span>
+              <button
+                type="button"
+                onClick={() => toggleBookingEnabledMutation.mutate(!user.bookingEnabled)}
+                disabled={toggleBookingEnabledMutation.isPending}
+                className={`px-3 py-1 text-sm rounded-lg transition-colors disabled:opacity-50 ${
+                  user.bookingEnabled
+                    ? 'bg-gray-200 hover:bg-gray-300 text-gray-700'
+                    : 'bg-blue-600 hover:bg-blue-700 text-white'
+                }`}
+              >
+                {toggleBookingEnabledMutation.isPending
+                  ? 'Saving…'
+                  : user.bookingEnabled
+                    ? 'Disable'
+                    : 'Enable'}
+              </button>
+              {toggleBookingEnabledMutation.isError && (
+                <span className="text-sm text-red-600">
+                  {(toggleBookingEnabledMutation.error as Error).message}
+                </span>
+              )}
+            </div>
             <div>
               <label className="text-sm font-medium text-gray-600">Barber Booking Page</label>
               {(() => {
