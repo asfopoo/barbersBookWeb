@@ -143,7 +143,7 @@ export default function CookiePolicy() {
             </p>
             <p className="text-gray-700">
               <strong>eansolutions llc</strong><br />
-              Email: privacy@barbersbook.com
+              Email: support@thebarbersbook.com
             </p>
           </section>
         </div>

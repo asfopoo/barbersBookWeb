@@ -123,4 +123,4 @@ MIT
 
 ## Support
 
-For questions or support, please contact support@barbersbook.com
+For questions or support, please contact support@thebarbersbook.com

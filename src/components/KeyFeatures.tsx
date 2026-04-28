@@ -25,7 +25,7 @@ export default function KeyFeatures() {
             <p className="text-xl text-gray-400 mb-8 leading-relaxed">
               No card reader. No extra hardware. Use Tap to Pay on iPhone to accept contactless cards, Apple Pay,
               and Google Pay — right from your phone. Or charge any card via the built-in payment sheet.
-              Powered by Stripe, with a flat 3.5% all-in fee.
+              Powered by Stripe, with one clear rate per channel.
             </p>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
@@ -45,8 +45,8 @@ export default function KeyFeatures() {
               <div className="flex items-start gap-3">
                 <CheckIcon color="bg-blue-500/20 text-blue-400" />
                 <div>
-                  <h4 className="font-bold text-white mb-1">Flat 3.5% All-In Fee</h4>
-                  <p className="text-gray-400">One transparent rate for everyone. No monthly surprises, no hidden fees stacked on top.</p>
+                  <h4 className="font-bold text-white mb-1">Clear Rates by Channel</h4>
+                  <p className="text-gray-400">3.0% + $0.30 in-person (Tap to Pay) · 3.3% + $0.40 online. Same rates for every subscription tier — no surprises, no hidden fees.</p>
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@ export default function Pricing() {
   const features = [
     { text: 'Tap to Pay on iPhone', note: 'no card reader needed' },
     { text: 'Cards, Apple Pay & Google Pay' },
+    { text: 'No-show fee protection', note: 'auto-charge customers who miss their appointment' },
     { text: 'Tax Hold', note: 'auto-earmarks % of every payment' },
     { text: 'Tax Estimation', note: 'running liability estimate' },
     { text: 'Earnings & tips tracking' },
@@ -15,7 +16,7 @@ export default function Pricing() {
     { text: 'SMS & email customer notifications' },
     { text: 'Custom waitlist branding' },
     { text: 'Priority support' },
-    { text: '3.5% all-in payment processing' },
+    { text: 'Transparent payment processing', note: '3.0% + $0.30 in-person · 3.3% + $0.40 online' },
   ]
 
   return (
@@ -76,7 +77,7 @@ export default function Pricing() {
           </div>
 
           <p className="text-center text-gray-500 text-sm mt-6">
-            3.5% all-in fee applies to payment transactions. Payments powered by Stripe.
+            Payment processing: 3.0% + $0.30 in-person (Tap to Pay) · 3.3% + $0.40 online. Powered by Stripe.
           </p>
         </div>
       </div>
