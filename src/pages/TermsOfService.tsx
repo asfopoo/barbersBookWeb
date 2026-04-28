@@ -21,7 +21,7 @@ export default function TermsOfService() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
             <p className="text-gray-700 mb-4">
-              By accessing or using BarbersBook ("Service"), operated by eansolutions llc ("Company," "we," "our," or "us"), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use the Service.
+              By accessing or using BarbersBook ("Service"), operated by EAN Solutions LLC ("Company," "we," "our," or "us"), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use the Service.
             </p>
           </section>
 
@@ -196,7 +196,7 @@ export default function TermsOfService() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Intellectual Property</h2>
             <p className="text-gray-700 mb-4">
-              The Service, including its design, features, and content, is owned by eansolutions llc and protected by copyright, trademark, and other laws. You may not copy, modify, or distribute any part of the Service without our permission.
+              The Service, including its design, features, and content, is owned by EAN Solutions LLC and protected by copyright, trademark, and other laws. You may not copy, modify, or distribute any part of the Service without our permission.
             </p>
           </section>
 
@@ -210,14 +210,14 @@ export default function TermsOfService() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Limitation of Liability</h2>
             <p className="text-gray-700 mb-4">
-              TO THE MAXIMUM EXTENT PERMITTED BY LAW, EANSOLUTIONS LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, OR OTHER INTANGIBLE LOSSES.
+              TO THE MAXIMUM EXTENT PERMITTED BY LAW, EAN SOLUTIONS LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, OR OTHER INTANGIBLE LOSSES.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Indemnification</h2>
             <p className="text-gray-700 mb-4">
-              You agree to indemnify and hold harmless eansolutions llc from any claims, damages, or expenses arising from your use of the Service or violation of these Terms.
+              You agree to indemnify and hold harmless EAN Solutions LLC from any claims, damages, or expenses arising from your use of the Service or violation of these Terms.
             </p>
           </section>
 
@@ -248,7 +248,7 @@ export default function TermsOfService() {
               For questions about these Terms, contact us at:
             </p>
             <p className="text-gray-700">
-              <strong>eansolutions llc</strong><br />
+              <strong>EAN Solutions LLC</strong><br />
               Email: support@thebarbersbook.com
             </p>
           </section>

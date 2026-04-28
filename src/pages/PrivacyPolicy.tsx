@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Introduction</h2>
             <p className="text-gray-700 mb-4">
-              eansolutions llc ("we," "our," or "us") operates the BarbersBook mobile application and related services (the "Service"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Service.
+              EAN Solutions LLC ("we," "our," or "us") operates the BarbersBook mobile application and related services (the "Service"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Service.
             </p>
           </section>
 
@@ -198,7 +198,7 @@ export default function PrivacyPolicy() {
               If you have questions about this Privacy Policy, please contact us at:
             </p>
             <p className="text-gray-700">
-              <strong>eansolutions llc</strong><br />
+              <strong>EAN Solutions LLC</strong><br />
               Email: support@thebarbersbook.com<br />
               Support: support@thebarbersbook.com
             </p>
