@@ -14,7 +14,7 @@ export default function Pricing() {
     { text: 'Data export & backup' },
     { text: 'Multi-location management' },
     { text: 'SMS & email customer notifications' },
-    { text: 'Custom waitlist branding' },
+    { text: 'Customers see your brand, not ours' },
     { text: 'Priority support' },
     { text: 'Transparent payment processing', note: '3.0% + $0.30 in-person · 3.3% + $0.40 online' },
   ]
