@@ -72,7 +72,7 @@ export default function TermsOfService() {
               A platform fee is deducted from each transaction at the following rates. Rates are inclusive of Stripe's own processing fees, so the amounts listed below are the total deducted from the transaction. Rates are the same for every subscription tier — subscriptions unlock additional features (tax tools, multi-location, etc.) but do not change payment processing fees:
             </p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li><strong>In-person (Tap to Pay):</strong> 3.0% + $0.30 per transaction</li>
+              <li><strong>In-person (Tap to Pay):</strong> 3.0% + $0.20 per transaction</li>
               <li><strong>Online (PaymentSheet):</strong> 3.3% + $0.40 per transaction</li>
             </ul>
             <p className="text-gray-700 mb-4">
