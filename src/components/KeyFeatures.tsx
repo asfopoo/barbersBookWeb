@@ -46,7 +46,7 @@ export default function KeyFeatures() {
                 <CheckIcon color="bg-blue-500/20 text-blue-400" />
                 <div>
                   <h4 className="font-bold text-white mb-1">Clear Rates by Channel</h4>
-                  <p className="text-gray-400">3.0% + $0.30 in-person (Tap to Pay) · 3.3% + $0.40 online. Same rates for every subscription tier — no surprises, no hidden fees.</p>
+                  <p className="text-gray-400">3.0% + $0.20 in-person (Tap to Pay) · 3.3% + $0.40 online. Same rates for every subscription tier — no surprises, no hidden fees.</p>
                 </div>
               </div>
             </div>

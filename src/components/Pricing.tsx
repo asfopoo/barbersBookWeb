@@ -16,7 +16,7 @@ export default function Pricing() {
     { text: 'SMS & email customer notifications' },
     { text: 'Customers see your brand, not ours' },
     { text: 'Priority support' },
-    { text: 'Transparent payment processing', note: '3.0% + $0.30 in-person · 3.3% + $0.40 online' },
+    { text: 'Transparent payment processing', note: '3.0% + $0.20 in-person · 3.3% + $0.40 online' },
   ]
 
   return (
@@ -77,7 +77,7 @@ export default function Pricing() {
           </div>
 
           <p className="text-center text-gray-500 text-sm mt-6">
-            Payment processing: 3.0% + $0.30 in-person (Tap to Pay) · 3.3% + $0.40 online. Powered by Stripe.
+            Payment processing: 3.0% + $0.20 in-person (Tap to Pay) · 3.3% + $0.40 online. Powered by Stripe.
           </p>
         </div>
       </div>
