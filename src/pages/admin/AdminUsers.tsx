@@ -9,7 +9,20 @@ export default function AdminUsers() {
   const [search, setSearch] = useState('');
   const [tierFilter, setTierFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
+  // Track which user id was just copied so we can flash a "Copied" label.
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const queryClient = useQueryClient();
+
+  const handleCopyId = async (id: string) => {
+    try {
+      await navigator.clipboard.writeText(id);
+      setCopiedId(id);
+      setTimeout(() => setCopiedId((v) => (v === id ? null : v)), 1500);
+    } catch {
+      // Fallback for browsers/contexts without clipboard API.
+      window.prompt('Copy App User ID:', id);
+    }
+  };
 
   const { data, isLoading } = useQuery({
     queryKey: ['admin-users', page, search, tierFilter, statusFilter],
@@ -89,7 +102,6 @@ export default function AdminUsers() {
               <option value="">All Tiers</option>
               <option value="free">Free</option>
               <option value="pro">Pro</option>
-              <option value="premium">Premium</option>
             </select>
             <select
               value={statusFilter}
@@ -164,9 +176,7 @@ export default function AdminUsers() {
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span
                             className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${
-                              user.subscriptionTier === 'premium'
-                                ? 'bg-yellow-100 text-yellow-800'
-                                : user.subscriptionTier === 'pro'
+                              user.subscriptionTier === 'pro'
                                 ? 'bg-blue-100 text-blue-800'
                                 : 'bg-gray-100 text-gray-800'
                             }`}
@@ -199,6 +209,13 @@ export default function AdminUsers() {
                           >
                             View
                           </Link>
+                          <button
+                            onClick={() => handleCopyId(user.id)}
+                            className="text-gray-600 hover:text-gray-900"
+                            title="Copy App User ID for RevenueCat"
+                          >
+                            {copiedId === user.id ? 'Copied!' : 'Copy ID'}
+                          </button>
                           <button
                             onClick={() => handleToggleAdmin(user)}
                             className="text-purple-600 hover:text-purple-900"

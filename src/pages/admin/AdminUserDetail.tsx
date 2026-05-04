@@ -16,6 +16,19 @@ export default function AdminUserDetail() {
   });
   const [tempPassword, setTempPassword] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  // Brief flash after copying the App User ID so it's clear the click landed.
+  const [idCopied, setIdCopied] = useState(false);
+
+  const handleCopyId = async () => {
+    if (!id) return;
+    try {
+      await navigator.clipboard.writeText(id);
+      setIdCopied(true);
+      setTimeout(() => setIdCopied(false), 1500);
+    } catch {
+      window.prompt('Copy App User ID:', id);
+    }
+  };
 
   const resetPasswordMutation = useMutation({
     mutationFn: () => adminApi.resetUserPassword(id!),
@@ -155,8 +168,21 @@ export default function AdminUserDetail() {
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Account Details</h3>
             <div className="space-y-3">
               <div>
-                <label className="text-sm font-medium text-gray-600">User ID</label>
-                <p className="text-sm text-gray-900 font-mono">{user.id}</p>
+                <label className="text-sm font-medium text-gray-600">
+                  App User ID{' '}
+                  <span className="text-gray-400 font-normal">(use in RevenueCat)</span>
+                </label>
+                <div className="mt-1 flex items-center gap-2">
+                  <code className="flex-1 px-2 py-1 bg-gray-50 border border-gray-200 rounded text-xs text-gray-900 font-mono select-all break-all">
+                    {user.id}
+                  </code>
+                  <button
+                    onClick={handleCopyId}
+                    className="px-2 py-1 text-xs bg-gray-800 hover:bg-gray-900 text-white rounded transition-colors whitespace-nowrap"
+                  >
+                    {idCopied ? 'Copied!' : 'Copy'}
+                  </button>
+                </div>
               </div>
               <div>
                 <label className="text-sm font-medium text-gray-600">Email</label>
@@ -241,7 +267,6 @@ export default function AdminUserDetail() {
                   >
                     <option value="free">Free</option>
                     <option value="pro">Pro</option>
-                    <option value="premium">Premium</option>
                   </select>
                 ) : (
                   <p className="text-sm text-gray-900 capitalize">{user.subscriptionTier}</p>
