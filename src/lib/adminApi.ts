@@ -15,7 +15,7 @@ export interface User {
   email: string;
   firstName: string;
   lastName: string;
-  subscriptionTier: 'free' | 'pro' | 'premium';
+  subscriptionTier: 'free' | 'pro';
   subscriptionStatus: 'active' | 'expired' | 'cancelled' | 'trialing' | 'none';
   subscriptionExpiresAt: string | null;
   isAdmin: boolean;

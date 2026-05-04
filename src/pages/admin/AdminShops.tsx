@@ -139,9 +139,7 @@ export default function AdminShops() {
                       <span className="text-gray-600 w-24">Plan:</span>
                       <span
                         className={`px-2 py-0.5 rounded text-xs font-medium capitalize ${
-                          shop.user.subscriptionTier === 'premium'
-                            ? 'bg-yellow-100 text-yellow-800'
-                            : shop.user.subscriptionTier === 'pro'
+                          shop.user.subscriptionTier === 'pro'
                             ? 'bg-blue-100 text-blue-800'
                             : 'bg-gray-100 text-gray-800'
                         }`}

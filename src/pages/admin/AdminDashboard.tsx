@@ -46,7 +46,6 @@ export default function AdminDashboard() {
   const tierConfig: Record<string, { color: string; bar: string }> = {
     free: { color: 'text-gray-600', bar: 'bg-gray-400' },
     pro: { color: 'text-blue-600', bar: 'bg-blue-500' },
-    premium: { color: 'text-purple-600', bar: 'bg-purple-500' },
   };
 
   return (

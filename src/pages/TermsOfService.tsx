@@ -96,7 +96,7 @@ export default function TermsOfService() {
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">4.6 Tax Estimation Features</h3>
             <p className="text-gray-700 mb-4">
-              The tax estimation features provided by the Service (available to Pro and Premium subscribers) are for informational and planning purposes only. These features do NOT constitute tax advice and should NOT be relied upon for tax filing.
+              The tax estimation features provided by the Service (available to Pro subscribers) are for informational and planning purposes only. These features do NOT constitute tax advice and should NOT be relied upon for tax filing.
             </p>
             <p className="text-gray-700 mb-4">
               Tax estimates are based solely on recorded earnings and your configured tax rate. Your actual tax liability depends on many factors not considered here, including but not limited to: other income sources, deductions, credits, filing status, state/local taxes, and self-employment taxes.
@@ -150,11 +150,10 @@ export default function TermsOfService() {
             
             <h3 className="text-xl font-semibold text-gray-900 mb-3">6.1 Subscription Plans</h3>
             <p className="text-gray-700 mb-4">
-              We offer Free, Pro ($4.99/month), and Premium ($9.99/month) subscription plans. Paid subscriptions are billed on a recurring monthly basis through your chosen app store (Apple App Store or Google Play Store).
+              We offer Free and Pro ($4.99/month) subscription plans. Paid subscriptions are billed on a recurring monthly basis through your chosen app store (Apple App Store or Google Play Store).
             </p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
               <li><strong>Pro:</strong> Tax estimation, tax hold, multi-location, unlimited history, data export, SMS/email notifications, and all standard features</li>
-              <li><strong>Premium:</strong> All Pro features plus additional advanced tooling</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">6.2 Cancellation</h3>
