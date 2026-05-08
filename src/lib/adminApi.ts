@@ -25,6 +25,8 @@ export interface User {
   bookingEnabled: boolean;
   createdAt: string;
   updatedAt: string;
+  /** Set when the user is soft-deleted (admin delete or self-delete). */
+  deletedAt: string | null;
 }
 
 export interface Shop {
@@ -242,6 +244,24 @@ class AdminApiClient {
   async deleteUser(id: string) {
     return this.request(`/api/admin/users/${id}`, {
       method: 'DELETE',
+    });
+  }
+
+  async grantTrial(id: string, days: number): Promise<{
+    message: string;
+    subscriptionTier: string;
+    subscriptionStatus: string;
+    subscriptionExpiresAt: string;
+  }> {
+    return this.request(`/api/admin/users/${id}/grant-trial`, {
+      method: 'POST',
+      body: JSON.stringify({ days }),
+    });
+  }
+
+  async restoreUser(id: string): Promise<{ message: string }> {
+    return this.request(`/api/admin/users/${id}/restore`, {
+      method: 'POST',
     });
   }
 

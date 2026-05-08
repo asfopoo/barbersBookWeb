@@ -38,6 +38,54 @@ export default function AdminUserDetail() {
     },
   });
 
+  const grantTrialMutation = useMutation({
+    mutationFn: (days: number) => adminApi.grantTrial(id!, days),
+    onSuccess: (result) => {
+      queryClient.invalidateQueries({ queryKey: ['admin-user', id] });
+      window.alert(
+        `Trial granted. Now Premium / trialing through ${new Date(result.subscriptionExpiresAt).toLocaleDateString()}.`,
+      );
+    },
+    onError: (err: Error) => {
+      window.alert(err.message || 'Failed to grant trial');
+    },
+  });
+
+  const restoreUserMutation = useMutation({
+    mutationFn: () => adminApi.restoreUser(id!),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['admin-user', id] });
+    },
+    onError: (err: Error) => {
+      window.alert(err.message || 'Failed to restore user');
+    },
+  });
+
+  const handleGrantTrial = () => {
+    const input = window.prompt(
+      'How many days of free trial?\n(Default 90 — sets tier to Premium / status trialing)',
+      '90',
+    );
+    if (input === null) return;
+    const days = Number(input.trim());
+    if (!Number.isFinite(days) || days <= 0 || days > 365) {
+      window.alert('Days must be a number between 1 and 365.');
+      return;
+    }
+    grantTrialMutation.mutate(days);
+  };
+
+  const handleRestoreUser = () => {
+    if (
+      !window.confirm(
+        'Restore this deleted user? They will be able to log in again with their existing password.',
+      )
+    ) {
+      return;
+    }
+    restoreUserMutation.mutate();
+  };
+
   const generateSlugMutation = useMutation({
     mutationFn: () => adminApi.generateUserBookingSlug(id!),
     onSuccess: () => {
@@ -129,10 +177,37 @@ export default function AdminUserDetail() {
   return (
     <AdminLayout>
       <div className="space-y-6">
+        {user.deletedAt && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold text-red-900">
+                Account deleted
+              </p>
+              <p className="text-sm text-red-800 mt-1">
+                Soft-deleted on {new Date(user.deletedAt).toLocaleString()}. They
+                cannot log in. Restore to re-enable the account; their settings
+                and data are preserved.
+              </p>
+            </div>
+            <button
+              onClick={handleRestoreUser}
+              disabled={restoreUserMutation.isPending}
+              className="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white text-sm rounded-lg transition-colors disabled:opacity-50 whitespace-nowrap"
+            >
+              {restoreUserMutation.isPending ? 'Restoring…' : 'Restore Account'}
+            </button>
+          </div>
+        )}
+
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-2xl font-bold text-gray-900">
               {user.firstName} {user.lastName}
+              {user.deletedAt && (
+                <span className="ml-3 inline-block px-2 py-0.5 text-xs font-medium bg-red-100 text-red-800 rounded">
+                  Deleted
+                </span>
+              )}
             </h2>
             <p className="text-gray-600 mt-1">{user.email}</p>
           </div>
@@ -301,6 +376,28 @@ export default function AdminUserDetail() {
                     ? new Date(user.subscriptionExpiresAt).toLocaleString()
                     : 'N/A'}
                 </p>
+              </div>
+              <div className="pt-2 border-t border-gray-100">
+                <label className="text-sm font-medium text-gray-600">
+                  Grant Trial{' '}
+                  <span className="text-gray-400 font-normal">
+                    (Premium / trialing for N days; auto-downgrades on expiry)
+                  </span>
+                </label>
+                <div className="mt-1 flex items-center gap-2">
+                  <button
+                    onClick={handleGrantTrial}
+                    disabled={grantTrialMutation.isPending}
+                    className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded-lg transition-colors disabled:opacity-50"
+                  >
+                    {grantTrialMutation.isPending ? 'Granting…' : 'Grant Trial'}
+                  </button>
+                  {grantTrialMutation.isError && (
+                    <span className="text-sm text-red-600">
+                      {(grantTrialMutation.error as Error).message}
+                    </span>
+                  )}
+                </div>
               </div>
               <div>
                 <label className="text-sm font-medium text-gray-600">Export Count</label>
