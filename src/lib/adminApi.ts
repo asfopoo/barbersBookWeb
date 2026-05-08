@@ -195,6 +195,7 @@ class AdminApiClient {
     search?: string;
     tier?: string;
     status?: string;
+    includeDeleted?: boolean;
   }) {
     const queryString = new URLSearchParams(
       Object.entries(params).reduce((acc, [key, value]) => {

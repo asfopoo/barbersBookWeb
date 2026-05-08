@@ -9,6 +9,7 @@ export default function AdminUsers() {
   const [search, setSearch] = useState('');
   const [tierFilter, setTierFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
+  const [includeDeleted, setIncludeDeleted] = useState(false);
   // Track which user id was just copied so we can flash a "Copied" label.
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const queryClient = useQueryClient();
@@ -25,7 +26,7 @@ export default function AdminUsers() {
   };
 
   const { data, isLoading } = useQuery({
-    queryKey: ['admin-users', page, search, tierFilter, statusFilter],
+    queryKey: ['admin-users', page, search, tierFilter, statusFilter, includeDeleted],
     queryFn: () =>
       adminApi.getUsers({
         page,
@@ -33,8 +34,29 @@ export default function AdminUsers() {
         search: search || undefined,
         tier: tierFilter || undefined,
         status: statusFilter || undefined,
+        includeDeleted: includeDeleted || undefined,
       }),
   });
+
+  const restoreUserMutation = useMutation({
+    mutationFn: (id: string) => adminApi.restoreUser(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['admin-users'] });
+    },
+    onError: (err: Error) => {
+      window.alert(err.message || 'Failed to restore user');
+    },
+  });
+
+  const handleRestore = (user: User) => {
+    if (
+      confirm(
+        `Restore ${user.email}? They will be able to log in again with their existing password.`
+      )
+    ) {
+      restoreUserMutation.mutate(user.id);
+    }
+  };
 
   const updateUserMutation = useMutation({
     mutationFn: ({ id, data }: { id: string; data: Record<string, unknown> }) =>
@@ -101,7 +123,7 @@ export default function AdminUsers() {
             >
               <option value="">All Tiers</option>
               <option value="free">Free</option>
-              <option value="pro">Pro</option>
+              <option value="premium">Premium</option>
             </select>
             <select
               value={statusFilter}
@@ -120,12 +142,25 @@ export default function AdminUsers() {
                 setSearch('');
                 setTierFilter('');
                 setStatusFilter('');
+                setIncludeDeleted(false);
               }}
               className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors"
             >
               Clear Filters
             </button>
           </div>
+          <label className="mt-4 inline-flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={includeDeleted}
+              onChange={(e) => {
+                setIncludeDeleted(e.target.checked);
+                setPage(1);
+              }}
+              className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+            />
+            Include deleted users
+          </label>
         </div>
 
         {/* Users Table */}
@@ -159,7 +194,12 @@ export default function AdminUsers() {
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
                     {data?.users?.map((user: User) => (
-                      <tr key={user.id} className="hover:bg-gray-50">
+                      <tr
+                        key={user.id}
+                        className={`hover:bg-gray-50 ${
+                          user.deletedAt ? 'bg-red-50/50' : ''
+                        }`}
+                      >
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div>
                             <div className="text-sm font-medium text-gray-900">
@@ -169,6 +209,14 @@ export default function AdminUsers() {
                                   Admin
                                 </span>
                               )}
+                              {user.deletedAt && (
+                                <span
+                                  className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800"
+                                  title={`Deleted ${new Date(user.deletedAt).toLocaleString()}`}
+                                >
+                                  Deleted
+                                </span>
+                              )}
                             </div>
                             <div className="text-sm text-gray-500">{user.email}</div>
                           </div>
@@ -176,7 +224,7 @@ export default function AdminUsers() {
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span
                             className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${
-                              user.subscriptionTier === 'pro'
+                              user.subscriptionTier === 'premium'
                                 ? 'bg-blue-100 text-blue-800'
                                 : 'bg-gray-100 text-gray-800'
                             }`}
@@ -223,13 +271,23 @@ export default function AdminUsers() {
                           >
                             {user.isAdmin ? 'Remove Admin' : 'Make Admin'}
                           </button>
-                          <button
-                            onClick={() => handleDeleteUser(user)}
-                            className="text-red-600 hover:text-red-900"
-                            disabled={deleteUserMutation.isPending}
-                          >
-                            Delete
-                          </button>
+                          {user.deletedAt ? (
+                            <button
+                              onClick={() => handleRestore(user)}
+                              className="text-emerald-600 hover:text-emerald-900"
+                              disabled={restoreUserMutation.isPending}
+                            >
+                              Restore
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => handleDeleteUser(user)}
+                              className="text-red-600 hover:text-red-900"
+                              disabled={deleteUserMutation.isPending}
+                            >
+                              Delete
+                            </button>
+                          )}
                         </td>
                       </tr>
                     ))}
