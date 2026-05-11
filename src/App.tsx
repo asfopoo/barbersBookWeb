@@ -24,6 +24,7 @@ import AdminTransactions from './pages/admin/AdminTransactions'
 import AdminPayouts from './pages/admin/AdminPayouts'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 
+// home page with hero, features, pricing, testimonials, and CTA sections
 function HomePage() {
   return (
     <>
