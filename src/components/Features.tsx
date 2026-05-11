@@ -140,5 +140,3 @@ export default function Features() {
     </section>
   )
 }
-</content>
-</invoke>

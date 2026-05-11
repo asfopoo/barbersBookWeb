@@ -89,5 +89,3 @@ export default function Pricing() {
     </section>
   )
 }
-</content>
-</invoke>
