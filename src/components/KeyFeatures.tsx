@@ -24,7 +24,7 @@ export default function KeyFeatures() {
             </h2>
             <p className="text-xl text-gray-400 mb-8 leading-relaxed">
               No card reader. No extra hardware. Use Tap to Pay on iPhone to accept contactless cards, Apple Pay,
-              and Google Pay — right from your phone. Or charge any card via the built-in payment sheet.
+              and Google Pay right from your phone. Or charge any card via the built-in payment sheet.
               Powered by Stripe, with one clear rate per channel.
             </p>
             <div className="space-y-4">
@@ -32,7 +32,7 @@ export default function KeyFeatures() {
                 <CheckIcon color="bg-blue-500/20 text-blue-400" />
                 <div>
                   <h4 className="font-bold text-white mb-1">Tap to Pay on iPhone</h4>
-                  <p className="text-gray-400">Customers tap their card or Apple Pay device to your phone. Works with any contactless payment — no hardware needed.</p>
+                  <p className="text-gray-400">Customers tap their card or Apple Pay device to your phone. Works with any contactless payment. No hardware needed.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -46,7 +46,7 @@ export default function KeyFeatures() {
                 <CheckIcon color="bg-blue-500/20 text-blue-400" />
                 <div>
                   <h4 className="font-bold text-white mb-1">Clear Rates by Channel</h4>
-                  <p className="text-gray-400">3.0% + $0.20 in-person (Tap to Pay) · 3.3% + $0.40 online. Same rates for every subscription tier — no surprises, no hidden fees.</p>
+                  <p className="text-gray-400">3.0% + $0.20 in-person (Tap to Pay) · 3.3% + $0.40 online. Same rates for every subscription tier. No surprises, no hidden fees.</p>
                 </div>
               </div>
             </div>
@@ -114,14 +114,14 @@ export default function KeyFeatures() {
             </h2>
             <p className="text-xl text-gray-400 mb-8 leading-relaxed">
               As a self-employed barber, taxes can sneak up on you. Tax Hold automatically sets aside a percentage
-              of every payment — so when the bill comes, the money is already there. Set your rate once and forget it.
+              of every payment, so when the bill comes, the money is already there. Set your rate once and forget it.
             </p>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <CheckIcon color="bg-amber-500/20 text-amber-400" />
                 <div>
                   <h4 className="font-bold text-white mb-1">Auto-Earmark Every Payment</h4>
-                  <p className="text-gray-400">Every time you get paid, your tax hold balance grows automatically — no manual tracking needed</p>
+                  <p className="text-gray-400">Every time you get paid, your tax hold balance grows automatically. No manual tracking needed.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -135,7 +135,7 @@ export default function KeyFeatures() {
                 <CheckIcon color="bg-amber-500/20 text-amber-400" />
                 <div>
                   <h4 className="font-bold text-white mb-1">Tax Estimation Included</h4>
-                  <p className="text-gray-400">See a running estimate of your tax liability based on your actual earnings — free for all users</p>
+                  <p className="text-gray-400">See a running estimate of your tax liability based on your actual earnings. Free for all users.</p>
                 </div>
               </div>
             </div>
@@ -163,14 +163,14 @@ export default function KeyFeatures() {
             </h2>
             <p className="text-xl text-gray-400 mb-8 leading-relaxed">
               No more crowded waiting areas. Customers scan your QR code or visit your shop's unique link to join
-              the queue from anywhere. They get real-time updates on their phone — you manage everything from the app.
+              the queue from anywhere. They get real-time updates on their phone. You manage everything from the app.
             </p>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <CheckIcon color="bg-purple-500/20 text-purple-400" />
                 <div>
                   <h4 className="font-bold text-white mb-1">QR Code Check-In</h4>
-                  <p className="text-gray-400">Customers scan and join instantly — no app download required on their end</p>
+                  <p className="text-gray-400">Customers scan and join instantly. No app download required on their end.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -183,8 +183,8 @@ export default function KeyFeatures() {
               <div className="flex items-start gap-3">
                 <CheckIcon color="bg-purple-500/20 text-purple-400" />
                 <div>
-                  <h4 className="font-bold text-white mb-1">SMS &amp; Email Alerts (Pro)</h4>
-                  <p className="text-gray-400">Automatically notify customers when their turn is coming up — never a missed appointment</p>
+                  <h4 className="font-bold text-white mb-1">SMS &amp; Email Alerts (Premium)</h4>
+                  <p className="text-gray-400">Automatically notify customers when their turn is coming up. Never a missed appointment.</p>
                 </div>
               </div>
             </div>

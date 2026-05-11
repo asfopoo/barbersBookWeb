@@ -141,7 +141,7 @@ function TaxBreakdownRow({ userId }: TaxBreakdownRowProps) {
             <div>
               <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">DB Hold (used by cron)</p>
               <p className={`font-medium ${drift ? 'text-red-600' : 'text-gray-900'}`}>${data.dbHold.toFixed(2)}</p>
-              {drift && <p className="text-red-500">Stale — run Recalculate</p>}
+              {drift && <p className="text-red-500">Stale. Run Recalculate.</p>}
             </div>
             <div>
               <p className="text-gray-400 uppercase tracking-wide font-semibold mb-1">Transactions</p>
@@ -202,7 +202,7 @@ export default function AdminPayouts() {
             <p className="text-gray-500 mt-1 text-sm">
               Scheduled at <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs font-mono">{data?.cronSchedule ?? '0 3 * * *'}</code> UTC daily
               {data?.nextCronRunAt && (
-                <span className="ml-2 text-gray-400">— next run {formatDateTime(data.nextCronRunAt)}</span>
+                <span className="ml-2 text-gray-400">· next run {formatDateTime(data.nextCronRunAt)}</span>
               )}
             </p>
           </div>
@@ -235,7 +235,7 @@ export default function AdminPayouts() {
         {recalcResult && (
           <div className="bg-green-50 border border-green-200 rounded-lg p-3 flex items-center justify-between gap-4">
             <p className="text-sm text-green-800">
-              Tax holds recalculated — <span className="font-medium">{recalcResult.updated}</span> of {recalcResult.total} users updated.
+              Tax holds recalculated. <span className="font-medium">{recalcResult.updated}</span> of {recalcResult.total} users updated.
               {recalcResult.failed > 0 && <span className="text-red-600 ml-2">{recalcResult.failed} failed.</span>}
             </p>
             <button onClick={() => setRecalcResult(null)} className="text-gray-400 hover:text-gray-600 text-lg leading-none">×</button>

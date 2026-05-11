@@ -2,20 +2,20 @@ export default function Pricing() {
   const features = [
     { text: 'Tap to Pay on iPhone', note: 'no card reader needed' },
     { text: 'Cards, Apple Pay & Google Pay' },
-    { text: 'No-show fee protection', note: 'auto-charge customers who miss their appointment' },
+    { text: 'Recurring Appointments', note: 'weekly, biweekly, or monthly standing reservations' },
+    { text: 'No-Show Fee Protection', note: 'auto-charge customers who miss their appointment' },
     { text: 'Tax Hold', note: 'auto-earmarks % of every payment' },
     { text: 'Tax Estimation', note: 'running liability estimate' },
     { text: 'Earnings & tips tracking' },
-    { text: 'Visual analytics — daily, weekly, monthly' },
+    { text: 'Visual analytics', note: 'daily, weekly, monthly' },
     { text: 'Digital waitlist (unlimited customers)' },
     { text: 'Expense tracking & net income' },
     { text: 'Service management' },
-    { text: 'Unlimited history access' },
-    { text: 'Data export & backup' },
-    { text: 'Multi-location management' },
-    { text: 'SMS & email customer notifications' },
-    { text: 'Customers see your brand, not ours' },
-    { text: 'Priority support' },
+    { text: 'Unlimited History', note: 'all your metrics and earnings forever' },
+    { text: 'Unlimited Data Export', note: 'export and backup anytime' },
+    { text: 'Multi-Location', note: 'manage multiple shop locations from one account' },
+    { text: 'SMS & Email Notifications', note: "notify customers when it's their turn" },
+    { text: "Your Shop's Look", note: 'your booking page, waitlist, texts, and emails branded for you' },
     { text: 'Transparent payment processing', note: '3.0% + $0.20 in-person · 3.3% + $0.40 online' },
   ]
 
@@ -27,22 +27,27 @@ export default function Pricing() {
             One Plan. Everything Included.
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Payments, tax tools, analytics, and a digital waitlist — all in one app for less than a cup of coffee a week.
+            Payments, tax tools, analytics, and a digital waitlist. All in one app for less than a cup of coffee a week.
           </p>
         </div>
 
         <div className="max-w-lg mx-auto">
           <div className="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden ring-4 ring-blue-500">
             <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white text-center py-3 text-sm font-bold tracking-wide">
-              BARBER&apos;S BOOK PRO
+              BARBER&apos;S BOOK PREMIUM
             </div>
             <div className="p-10">
               <div className="text-center mb-8">
+                <div className="inline-block bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+                  14-day free trial
+                </div>
                 <div className="flex items-end justify-center gap-1 mb-2">
                   <span className="text-6xl font-bold text-white">$4.99</span>
                   <span className="text-gray-400 text-lg mb-2">/ month</span>
                 </div>
-                <p className="text-gray-400 text-sm">Cancel anytime. No contracts.</p>
+                <p className="text-gray-400 text-sm">
+                  Try Premium free for 14 days. $4.99/mo after, cancel anytime.
+                </p>
               </div>
 
               <ul className="space-y-3 mb-10">
@@ -53,7 +58,7 @@ export default function Pricing() {
                     </svg>
                     <span className="text-gray-300 text-sm">
                       {feature.text}
-                      {feature.note && <span className="text-gray-500 ml-1">— {feature.note}</span>}
+                      {feature.note && <span className="text-gray-500 ml-1">· {feature.note}</span>}
                     </span>
                   </li>
                 ))}
@@ -84,3 +89,5 @@ export default function Pricing() {
     </section>
   )
 }
+</content>
+</invoke>

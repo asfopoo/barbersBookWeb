@@ -4,13 +4,13 @@ export default function Testimonials() {
       name: 'Marcus Johnson',
       role: 'Master Barber, NYC',
       image: '👨🏿‍🦱',
-      text: 'Tap to Pay is a game changer. My clients just tap their card on my phone — no reader, no fuss. And Tax Hold running automatically means I stopped dreading tax season.'
+      text: 'Tap to Pay is a game changer. My clients just tap their card on my phone. No reader, no fuss. And Tax Hold running automatically means I stopped dreading tax season.'
     },
     {
       name: 'Sofia Martinez',
       role: 'Shop Owner, Miami',
       image: '👩🏽',
-      text: 'I used to keep a notebook for everything. Now Barber\'s Book tracks every service, every expense, and every tip. The earnings charts showed me my Fridays are twice as profitable — so I stopped taking Mondays off.'
+      text: 'I used to keep a notebook for everything. Now Barber\'s Book tracks every service, every expense, and every tip. The earnings charts showed me my Fridays are twice as profitable, so I stopped taking Mondays off.'
     },
     {
       name: 'James Lee',
@@ -28,7 +28,7 @@ export default function Testimonials() {
             Barbers Love It
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            From solo barbers to multi-chair shops — Barber's Book is built for how you actually work.
+            From solo barbers to multi-chair shops, Barber's Book is built for how you actually work.
           </p>
         </div>
 

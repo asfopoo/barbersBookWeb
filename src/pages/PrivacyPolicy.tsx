@@ -61,10 +61,10 @@ export default function PrivacyPolicy() {
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">2.4 SMS / Text Messaging Data</h3>
             <p className="text-gray-700 mb-4">
-              When you book an appointment through The Barbers Book and consent to receive text messages, we collect your mobile phone number to send transactional SMS — specifically, booking confirmations, appointment reminders, and updates if your appointment time or status changes. We also record the timestamp and source of your opt-in to maintain a compliance audit trail.
+              When you book an appointment through The Barbers Book and consent to receive text messages, we collect your mobile phone number to send transactional SMS: booking confirmations, appointment reminders, and updates if your appointment time or status changes. We also record the timestamp and source of your opt-in to maintain a compliance audit trail.
             </p>
             <p className="text-gray-700 mb-4">
-              <strong>No sharing of mobile information.</strong> Mobile information (including your phone number, opt-in consent, and SMS-related data) will not be shared with third parties or affiliates for marketing or promotional purposes. All other data-sharing categories described in this Privacy Policy exclude text messaging originator opt-in data and consent — this information is never shared with any third parties for their own marketing.
+              <strong>No sharing of mobile information.</strong> Mobile information (including your phone number, opt-in consent, and SMS-related data) will not be shared with third parties or affiliates for marketing or promotional purposes. All other data-sharing categories described in this Privacy Policy exclude text messaging originator opt-in data and consent. This information is never shared with any third parties for their own marketing.
             </p>
             <p className="text-gray-700 mb-4">
               <strong>SMS service providers.</strong> We use Twilio and/or AWS End User Messaging (Amazon SNS) to deliver text messages on our behalf. These providers process your phone number solely to transmit messages we initiate and are contractually prohibited from using it for any other purpose.

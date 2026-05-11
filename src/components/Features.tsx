@@ -26,7 +26,7 @@ export default function Features() {
     {
       icon: '🧾',
       title: 'Tax Estimation',
-      description: 'See a running estimate of your self-employment tax liability based on your actual earnings — updated in real time.',
+      description: 'See a running estimate of your self-employment tax liability based on your actual earnings, updated in real time.',
       badge: 'Free'
     },
     {
@@ -55,22 +55,46 @@ export default function Features() {
       description: 'Customers scan your QR code to join your queue from anywhere. Manage walk-ins without the chaos.'
     },
     {
+      icon: '🔁',
+      title: 'Recurring Appointments',
+      description: 'Turn any booking into a standing weekly, biweekly, or monthly reservation. Set it once and stop chasing rebookings.',
+      badge: 'Premium'
+    },
+    {
+      icon: '🛡️',
+      title: 'No-Show Fee Protection',
+      description: 'Charge customers who miss their appointment without cancelling. Stop eating the cost of empty chairs.',
+      badge: 'Premium'
+    },
+    {
       icon: '🔔',
-      title: 'Customer Notifications',
-      description: 'Send SMS & email alerts when a customer\'s turn is coming up. Keep them informed, keep them happy.',
-      badge: 'Pro'
+      title: 'SMS & Email Notifications',
+      description: "Notify customers via SMS and email when it's their turn. Keep them informed, keep them happy.",
+      badge: 'Premium'
+    },
+    {
+      icon: '🎨',
+      title: "Your Shop's Look",
+      description: "Your booking page, waitlist, texts, and emails. Branded for you, not The Barber's Book.",
+      badge: 'Premium'
     },
     {
       icon: '🏪',
       title: 'Multi-Location',
-      description: 'Manage multiple shops from a single account. Switch between locations instantly.',
-      badge: 'Pro'
+      description: 'Manage multiple shop locations from one account. Switch between locations instantly.',
+      badge: 'Premium'
     },
     {
       icon: '📤',
-      title: 'Data Export',
-      description: 'Export your full earnings and expense history anytime. Your data belongs to you.',
-      badge: 'Pro'
+      title: 'Unlimited Data Export',
+      description: 'Export and backup your full earnings and expense history anytime. Your data belongs to you.',
+      badge: 'Premium'
+    },
+    {
+      icon: '🕰️',
+      title: 'Unlimited History',
+      description: 'Access all your metrics and earnings data forever. No 30-day cap, no auto-archive.',
+      badge: 'Premium'
     }
   ]
 
@@ -82,7 +106,7 @@ export default function Features() {
             Everything You Need to Run Your Shop
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Barber's Book is built specifically for barbers — with real payments, real tax tools, and a real waitlist system.
+            Barber's Book is built specifically for barbers, with real payments, real tax tools, and a real waitlist system.
           </p>
         </div>
 
@@ -110,9 +134,11 @@ export default function Features() {
 
         <p className="text-center text-gray-500 text-sm mt-10">
           Badges: <span className="bg-amber-500/20 text-amber-400 text-xs font-semibold px-2 py-0.5 rounded-full">Free</span> = included in the free plan &nbsp;•&nbsp;
-          <span className="bg-blue-500/20 text-blue-400 text-xs font-semibold px-2 py-0.5 rounded-full">Pro</span> = included in Pro ($4.99/mo)
+          <span className="bg-blue-500/20 text-blue-400 text-xs font-semibold px-2 py-0.5 rounded-full">Premium</span> = included in Premium ($4.99/mo, 14-day free trial)
         </p>
       </div>
     </section>
   )
 }
+</content>
+</invoke>

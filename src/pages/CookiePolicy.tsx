@@ -113,7 +113,7 @@ export default function CookiePolicy() {
               You can opt-out of personalized advertising by:
             </p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li>Upgrading to BarbersBook Pro (ad-free)</li>
+              <li>Upgrading to BarbersBook Premium (ad-free)</li>
               <li>Using device settings to limit ad tracking</li>
               <li>Visiting optout.aboutads.info or youronlinechoices.eu</li>
             </ul>

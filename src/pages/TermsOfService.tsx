@@ -69,7 +69,7 @@ export default function TermsOfService() {
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">4.2 Platform Fees</h3>
             <p className="text-gray-700 mb-4">
-              A platform fee is deducted from each transaction at the following rates. Rates are inclusive of Stripe's own processing fees, so the amounts listed below are the total deducted from the transaction. Rates are the same for every subscription tier — subscriptions unlock additional features (tax tools, multi-location, etc.) but do not change payment processing fees:
+              A platform fee is deducted from each transaction at the following rates. Rates are inclusive of Stripe's own processing fees, so the amounts listed below are the total deducted from the transaction. Rates are the same for every subscription tier. Subscriptions unlock additional features (tax tools, multi-location, etc.) but do not change payment processing fees:
             </p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
               <li><strong>In-person (Tap to Pay):</strong> 3.0% + $0.20 per transaction</li>
@@ -96,7 +96,7 @@ export default function TermsOfService() {
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">4.6 Tax Estimation Features</h3>
             <p className="text-gray-700 mb-4">
-              The tax estimation features provided by the Service (available to Pro and Premium subscribers) are for informational and planning purposes only. These features do NOT constitute tax advice and should NOT be relied upon for tax filing.
+              The tax estimation features provided by the Service are for informational and planning purposes only. These features do NOT constitute tax advice and should NOT be relied upon for tax filing.
             </p>
             <p className="text-gray-700 mb-4">
               Tax estimates are based solely on recorded earnings and your configured tax rate. Your actual tax liability depends on many factors not considered here, including but not limited to: other income sources, deductions, credits, filing status, state/local taxes, and self-employment taxes.
@@ -111,12 +111,12 @@ export default function TermsOfService() {
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">5.1 Program Description</h3>
             <p className="text-gray-700 mb-4">
-              When you opt in during the booking flow at app.thebarbersbook.com, The Barbers Book sends transactional text messages to confirm your appointment, send reminders, and notify you of any changes. SMS is strictly transactional — we do not send marketing messages.
+              When you opt in during the booking flow at app.thebarbersbook.com, The Barbers Book sends transactional text messages to confirm your appointment, send reminders, and notify you of any changes. SMS is strictly transactional. We do not send marketing messages.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">5.2 Consent</h3>
             <p className="text-gray-700 mb-4">
-              You provide consent to receive SMS by checking the consent box on the booking form. Consent is not a condition of booking — you can complete a booking and choose email or no notifications instead.
+              You provide consent to receive SMS by checking the consent box on the booking form. Consent is not a condition of booking; you can complete a booking and choose email or no notifications instead.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">5.3 Message Frequency</h3>
@@ -150,16 +150,26 @@ export default function TermsOfService() {
             
             <h3 className="text-xl font-semibold text-gray-900 mb-3">6.1 Subscription Plans</h3>
             <p className="text-gray-700 mb-4">
-              We offer Free, Pro ($4.99/month), and Premium ($9.99/month) subscription plans. Paid subscriptions are billed on a recurring monthly basis through your chosen app store (Apple App Store or Google Play Store).
+              We offer a Free plan and a paid Premium plan at $4.99 per month. Premium is the only paid subscription available. Paid subscriptions are billed on a recurring monthly basis through your chosen app store (Apple App Store or Google Play Store).
             </p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li><strong>Pro:</strong> Tax estimation, tax hold, multi-location, unlimited history, data export, SMS/email notifications, and all standard features</li>
-              <li><strong>Premium:</strong> All Pro features plus additional advanced tooling</li>
+              <li><strong>Free:</strong> Tax estimation, tax hold, and basic features (earnings tracking, waitlist, expense tracking, service management).</li>
+              <li><strong>Premium ($4.99/month):</strong> Everything in Free, plus recurring appointments, no-show fee protection, unlimited history, unlimited data export, multi-location, SMS &amp; email notifications, and your shop's branding on every customer-facing surface (booking page, waitlist, texts, emails).</li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">6.2 Cancellation</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">6.2 Free Trial</h3>
             <p className="text-gray-700 mb-4">
-              You may cancel your subscription at any time through your app store account settings. Cancellations take effect at the end of the current billing period. Refunds are handled according to the app store's refund policy.
+              New Premium subscribers may be eligible for a 14-day free trial. Eligibility is determined by Apple App Store or Google Play, typically limited to users who have not previously subscribed to Premium. The trial begins when you start the subscription. If you do not cancel before the 14-day trial period ends, your subscription will automatically convert to a paid Premium subscription at $4.99 per month, and your payment method on file with the app store will be charged. You may cancel at any time during the trial through your app store account settings to avoid being charged.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">6.3 Auto-Renewal</h3>
+            <p className="text-gray-700 mb-4">
+              Premium subscriptions automatically renew each month until cancelled. Your app store will charge your payment method for the renewal within 24 hours before the end of the current period. You can manage and cancel auto-renewal in your app store account settings.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">6.4 Cancellation</h3>
+            <p className="text-gray-700 mb-4">
+              You may cancel your subscription at any time through your app store account settings. Cancellations take effect at the end of the current billing period; you retain Premium access until that period ends. Refunds are handled according to the app store's refund policy.
             </p>
           </section>
 

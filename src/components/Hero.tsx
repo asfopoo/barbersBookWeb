@@ -29,7 +29,7 @@ export default function Hero() {
           <div>
             <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <span>⚡</span>
-              <span>Tap to Pay &amp; Stripe — Built In</span>
+              <span>Tap to Pay &amp; Stripe. Built In.</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Accept Payments.<br />
@@ -37,7 +37,7 @@ export default function Hero() {
               <span className="text-blue-400">Grow Your Shop.</span>
             </h1>
             <p className="text-xl mb-8 text-gray-300 leading-relaxed">
-              The all-in-one app for barbers: accept contactless payments right on your iPhone, manage your digital waitlist, track every dollar, and stay ahead at tax time — all for free to start.
+              The all-in-one app for barbers: accept contactless payments right on your iPhone, manage your digital waitlist, track every dollar, and stay ahead at tax time. Try Premium free for 14 days, then $4.99/mo. Cancel anytime.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-10 items-start sm:items-center">
               <a href="https://apps.apple.com/us/app/barbers-book/id6740193881" className="inline-block transform hover:scale-105 transition">
@@ -66,7 +66,7 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-2 bg-white/8 border border-white/10 px-3 py-2 rounded-lg">
                 <span>🏦</span>
-                <span className="font-semibold text-gray-200">Tax Hold — Free</span>
+                <span className="font-semibold text-gray-200">Tax Hold · Free</span>
               </div>
               <div className="flex items-center gap-2 bg-white/8 border border-white/10 px-3 py-2 rounded-lg">
                 <span>⏰</span>
@@ -96,9 +96,9 @@ export default function Hero() {
                 <div className="bg-gray-700/50 rounded-xl p-4 flex items-center justify-between">
                   <div>
                     <p className="text-xs text-gray-400 mb-0.5">Last payment</p>
-                    <p className="font-semibold text-white text-sm">Classic Cut — $35.00</p>
+                    <p className="font-semibold text-white text-sm">Classic Cut · $35.00</p>
                     <p className="text-xs text-green-400 mt-0.5 flex items-center gap-1">
-                      <span>📲</span> Tap to Pay — accepted
+                      <span>📲</span> Tap to Pay accepted
                     </p>
                   </div>
                   <div className="bg-green-500/15 text-green-400 text-xs px-2 py-1 rounded-full font-semibold border border-green-500/20">
@@ -117,7 +117,7 @@ export default function Hero() {
                   <div>
                     <p className="text-xs text-gray-400 mb-0.5">Waitlist</p>
                     <p className="font-semibold text-white text-sm">4 customers waiting</p>
-                    <p className="text-xs text-blue-400 mt-0.5">Next: Marcus J. — 5 min</p>
+                    <p className="text-xs text-blue-400 mt-0.5">Next: Marcus J. · 5 min</p>
                   </div>
                   <div className="text-xl">✂️</div>
                 </div>

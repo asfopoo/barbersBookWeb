@@ -56,7 +56,7 @@ export default function AdminDashboard() {
         <div className="flex items-end justify-between">
           <div>
             <h2 className="text-2xl font-bold text-gray-900">Dashboard</h2>
-            <p className="text-gray-500 mt-1 text-sm">Platform overview — refreshes every 30s</p>
+            <p className="text-gray-500 mt-1 text-sm">Platform overview. Refreshes every 30s.</p>
           </div>
           <p className="text-xs text-gray-400">Updated {new Date().toLocaleTimeString()}</p>
         </div>
@@ -77,7 +77,7 @@ export default function AdminDashboard() {
               sub="Last 30 days"
             />
             <StatCard
-              label="Pro Subscribers"
+              label="Premium Subscribers"
               value={activeSubscriptions.toLocaleString()}
               accent="border-l-green-500"
               sub={`${conversionRate}% conversion`}

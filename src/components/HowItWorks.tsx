@@ -34,7 +34,7 @@ export default function HowItWorks() {
             Up and Running in Minutes
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Barber's Book is built to get out of your way — set up once, then just run your shop.
+            Barber's Book is built to get out of your way. Set up once, then just run your shop.
           </p>
         </div>
 

@@ -63,7 +63,7 @@ export default function AdminUserDetail() {
 
   const handleGrantTrial = () => {
     const input = window.prompt(
-      'How many days of free trial?\n(Default 90 — sets tier to Premium / status trialing)',
+      'How many days of free trial?\n(Default 90. Sets tier to Premium / status trialing.)',
       '90',
     );
     if (input === null) return;
@@ -298,7 +298,7 @@ export default function AdminUserDetail() {
                 {tempPassword && (
                   <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
                     <p className="text-xs font-semibold text-amber-800 uppercase tracking-wide">
-                      Temporary password — shown only once
+                      Temporary password (shown only once)
                     </p>
                     <div className="mt-2 flex items-center gap-2">
                       <code className="flex-1 px-3 py-2 bg-white border border-amber-300 rounded font-mono text-base text-gray-900 select-all">
@@ -555,7 +555,7 @@ export default function AdminUserDetail() {
                   if (!url) {
                     return (
                       <p className="text-sm text-gray-400 mt-1">
-                        Shop has no booking slug — shop booking not set up.
+                        Shop has no booking slug. Shop booking not set up.
                       </p>
                     );
                   }
@@ -601,7 +601,7 @@ export default function AdminUserDetail() {
               <p className="text-sm">
                 {user.hasOpenDispute ? (
                   <span className="text-red-600 font-semibold">
-                    Yes — deadline {user.disputeDeadline
+                    Yes · deadline {user.disputeDeadline
                       ? new Date(user.disputeDeadline).toLocaleDateString()
                       : 'unknown'}
                   </span>

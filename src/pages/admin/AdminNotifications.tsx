@@ -70,7 +70,7 @@ export default function AdminNotifications() {
             </div>
 
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
-              <p className="text-sm text-amber-800 font-medium">⚠️ One-time blast — only send once at launch</p>
+              <p className="text-sm text-amber-800 font-medium">⚠️ One-time blast. Only send once at launch.</p>
             </div>
 
             <button
