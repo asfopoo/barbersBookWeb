@@ -216,9 +216,6 @@ class AdminApiClient {
   async updateUser(
     id: string,
     data: {
-      subscriptionTier?: string;
-      subscriptionStatus?: string;
-      subscriptionExpiresAt?: string | null;
       isAdmin?: boolean;
       exportCount?: number;
       bookingEnabled?: boolean;

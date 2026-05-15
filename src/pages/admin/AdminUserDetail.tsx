@@ -10,8 +10,6 @@ export default function AdminUserDetail() {
   const queryClient = useQueryClient();
   const [editMode, setEditMode] = useState(false);
   const [formData, setFormData] = useState({
-    subscriptionTier: '',
-    subscriptionStatus: '',
     exportCount: 0,
   });
   const [tempPassword, setTempPassword] = useState<string | null>(null);
@@ -140,8 +138,6 @@ export default function AdminUserDetail() {
   const handleEdit = () => {
     if (data?.user) {
       setFormData({
-        subscriptionTier: data.user.subscriptionTier,
-        subscriptionStatus: data.user.subscriptionStatus,
         exportCount: data.user.exportCount,
       });
       setEditMode(true);
@@ -332,42 +328,13 @@ export default function AdminUserDetail() {
             <div className="space-y-3">
               <div>
                 <label className="text-sm font-medium text-gray-600">Tier</label>
-                {editMode ? (
-                  <select
-                    value={formData.subscriptionTier}
-                    onChange={(e) =>
-                      setFormData({ ...formData, subscriptionTier: e.target.value })
-                    }
-                    className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  >
-                    <option value="free">Free</option>
-                    <option value="premium">Premium</option>
-                  </select>
-                ) : (
-                  <p className="text-sm text-gray-900 capitalize">{user.subscriptionTier}</p>
-                )}
+                <p className="text-sm text-gray-900 capitalize">{user.subscriptionTier}</p>
               </div>
               <div>
                 <label className="text-sm font-medium text-gray-600">Status</label>
-                {editMode ? (
-                  <select
-                    value={formData.subscriptionStatus}
-                    onChange={(e) =>
-                      setFormData({ ...formData, subscriptionStatus: e.target.value })
-                    }
-                    className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  >
-                    <option value="none">None</option>
-                    <option value="active">Active</option>
-                    <option value="trialing">Trialing</option>
-                    <option value="cancelled">Cancelled</option>
-                    <option value="expired">Expired</option>
-                  </select>
-                ) : (
-                  <p className="text-sm text-gray-900 capitalize">
-                    {user.subscriptionStatus}
-                  </p>
-                )}
+                <p className="text-sm text-gray-900 capitalize">
+                  {user.subscriptionStatus}
+                </p>
               </div>
               <div>
                 <label className="text-sm font-medium text-gray-600">Expires At</label>
