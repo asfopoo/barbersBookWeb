@@ -10,17 +10,26 @@ export default function CTA() {
           Ready to Run Your Shop Smarter?
         </h2>
         <p className="text-xl mb-10 text-gray-300 max-w-2xl mx-auto">
-          Get Tap to Pay, Tax Hold, a digital waitlist, and full earnings tracking. Try Premium free for 14 days, then $4.99/mo. Cancel anytime.
+          Get Tap to Pay, Tax Hold, a digital waitlist, and full earnings
+          tracking. Try Premium free for 14 days, then{" "}
+          <span className="line-through text-gray-400">$24.99</span> $4.99/mo.
+          Cancel anytime.
         </p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <a href="https://apps.apple.com/us/app/barbers-book/id6740193881" className="inline-block transform hover:scale-105 transition">
+          <a
+            href="https://apps.apple.com/us/app/barbers-book/id6740193881"
+            className="inline-block transform hover:scale-105 transition"
+          >
             <img
               src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83&amp;releaseDate=1617926400"
               alt="Download on the App Store"
               className="h-[52px]"
             />
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.thebarbersbook.app" className="inline-block transform hover:scale-105 transition">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.thebarbersbook.app"
+            className="inline-block transform hover:scale-105 transition"
+          >
             <img
               src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
               alt="Get it on Google Play"
@@ -29,9 +38,10 @@ export default function CTA() {
           </a>
         </div>
         <p className="mt-8 text-gray-500 text-sm">
-          Cancel Premium anytime &nbsp;•&nbsp; Payments powered by Stripe &nbsp;•&nbsp; Your data is always yours
+          Cancel Premium anytime &nbsp;•&nbsp; Payments powered by Stripe
+          &nbsp;•&nbsp; Your data is always yours
         </p>
       </div>
     </section>
-  )
+  );
 }

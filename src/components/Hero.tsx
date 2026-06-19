@@ -8,10 +8,18 @@ export default function Hero() {
             <div className="text-2xl font-bold">✂️ Barber's Book</div>
           </div>
           <div className="hidden md:flex space-x-8 text-gray-300">
-            <a href="#features" className="hover:text-white transition">Features</a>
-            <a href="#payments" className="hover:text-white transition">Payments</a>
-            <a href="#how-it-works" className="hover:text-white transition">How It Works</a>
-            <a href="#pricing" className="hover:text-white transition">Pricing</a>
+            <a href="#features" className="hover:text-white transition">
+              Features
+            </a>
+            <a href="#payments" className="hover:text-white transition">
+              Payments
+            </a>
+            <a href="#how-it-works" className="hover:text-white transition">
+              How It Works
+            </a>
+            <a href="#pricing" className="hover:text-white transition">
+              Pricing
+            </a>
           </div>
           <div className="hidden md:flex">
             <a
@@ -32,22 +40,34 @@ export default function Hero() {
               <span>Tap to Pay &amp; Stripe. Built In.</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Accept Payments.<br />
-              Track Everything.<br />
+              Accept Payments.
+              <br />
+              Track Everything.
+              <br />
               <span className="text-blue-400">Grow Your Shop.</span>
             </h1>
             <p className="text-xl mb-8 text-gray-300 leading-relaxed">
-              The all-in-one app for barbers: accept contactless payments right on your iPhone, manage your digital waitlist, track every dollar, and stay ahead at tax time. Try Premium free for 14 days, then $4.99/mo. Cancel anytime.
+              The all-in-one app for barbers: accept contactless payments right
+              on your iPhone, manage your digital waitlist, track every dollar,
+              and stay ahead at tax time. Try Premium free for 14 days, then{" "}
+              <span className="line-through text-gray-500">$24.99</span>{" "}
+              $4.99/mo. Cancel anytime.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-10 items-start sm:items-center">
-              <a href="https://apps.apple.com/us/app/barbers-book/id6740193881" className="inline-block transform hover:scale-105 transition">
+              <a
+                href="https://apps.apple.com/us/app/barbers-book/id6740193881"
+                className="inline-block transform hover:scale-105 transition"
+              >
                 <img
                   src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1617926400"
                   alt="Download on the App Store"
                   className="h-[52px]"
                 />
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.thebarbersbook.app" className="inline-block transform hover:scale-105 transition">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.thebarbersbook.app"
+                className="inline-block transform hover:scale-105 transition"
+              >
                 <img
                   src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
                   alt="Get it on Google Play"
@@ -62,15 +82,21 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-2 bg-white/8 border border-white/10 px-3 py-2 rounded-lg">
                 <span>💳</span>
-                <span className="font-semibold text-gray-200">Cards &amp; Apple Pay</span>
+                <span className="font-semibold text-gray-200">
+                  Cards &amp; Apple Pay
+                </span>
               </div>
               <div className="flex items-center gap-2 bg-white/8 border border-white/10 px-3 py-2 rounded-lg">
                 <span>🏦</span>
-                <span className="font-semibold text-gray-200">Tax Hold · Free</span>
+                <span className="font-semibold text-gray-200">
+                  Tax Hold · Free
+                </span>
               </div>
               <div className="flex items-center gap-2 bg-white/8 border border-white/10 px-3 py-2 rounded-lg">
                 <span>⏰</span>
-                <span className="font-semibold text-gray-200">Digital Waitlist</span>
+                <span className="font-semibold text-gray-200">
+                  Digital Waitlist
+                </span>
               </div>
             </div>
           </div>
@@ -81,7 +107,9 @@ export default function Hero() {
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/70"></div>
                 <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></div>
                 <div className="w-2.5 h-2.5 rounded-full bg-green-500/70"></div>
-                <span className="text-gray-500 text-xs ml-2">Barber's Book</span>
+                <span className="text-gray-500 text-xs ml-2">
+                  Barber's Book
+                </span>
               </div>
               <div className="space-y-3">
                 <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-5 text-white">
@@ -96,7 +124,9 @@ export default function Hero() {
                 <div className="bg-gray-700/50 rounded-xl p-4 flex items-center justify-between">
                   <div>
                     <p className="text-xs text-gray-400 mb-0.5">Last payment</p>
-                    <p className="font-semibold text-white text-sm">Classic Cut · $35.00</p>
+                    <p className="font-semibold text-white text-sm">
+                      Classic Cut · $35.00
+                    </p>
                     <p className="text-xs text-green-400 mt-0.5 flex items-center gap-1">
                       <span>📲</span> Tap to Pay accepted
                     </p>
@@ -107,17 +137,27 @@ export default function Hero() {
                 </div>
                 <div className="bg-gray-700/50 rounded-xl p-4 flex items-center justify-between">
                   <div>
-                    <p className="text-xs text-gray-400 mb-0.5">Tax Hold Balance</p>
-                    <p className="font-semibold text-white text-sm">$121.75 set aside</p>
-                    <p className="text-xs text-yellow-400 mt-0.5">25% rate • auto-calculated</p>
+                    <p className="text-xs text-gray-400 mb-0.5">
+                      Tax Hold Balance
+                    </p>
+                    <p className="font-semibold text-white text-sm">
+                      $121.75 set aside
+                    </p>
+                    <p className="text-xs text-yellow-400 mt-0.5">
+                      25% rate • auto-calculated
+                    </p>
                   </div>
                   <div className="text-xl">🏦</div>
                 </div>
                 <div className="bg-gray-700/50 rounded-xl p-4 flex items-center justify-between">
                   <div>
                     <p className="text-xs text-gray-400 mb-0.5">Waitlist</p>
-                    <p className="font-semibold text-white text-sm">4 customers waiting</p>
-                    <p className="text-xs text-blue-400 mt-0.5">Next: Marcus J. · 5 min</p>
+                    <p className="font-semibold text-white text-sm">
+                      4 customers waiting
+                    </p>
+                    <p className="text-xs text-blue-400 mt-0.5">
+                      Next: Marcus J. · 5 min
+                    </p>
                   </div>
                   <div className="text-xl">✂️</div>
                 </div>
@@ -127,5 +167,5 @@ export default function Hero() {
         </div>
       </div>
     </div>
-  )
+  );
 }
