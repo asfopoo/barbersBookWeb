@@ -8,21 +8,21 @@ export default function HowItWorks() {
     },
     {
       number: '2',
-      emoji: '💳',
-      title: 'Connect Stripe & Set Up',
-      description: 'Complete the quick Stripe onboarding to start accepting payments. Add your custom services with pricing and get your waitlist QR code.'
+      emoji: '✂️',
+      title: 'Add Your Services',
+      description: 'Add your services with pricing, set your hours, and grab your booking link and waitlist QR code.'
     },
     {
       number: '3',
-      emoji: '✂️',
-      title: 'Serve Clients & Get Paid',
-      description: 'Tap to Pay on iPhone for contactless payments, or charge via card and Apple Pay. Add tips, select the service, done.'
+      emoji: '📅',
+      title: 'Take Bookings & Log Every Cut',
+      description: 'Customers book online or join your waitlist. After each cut, log the service, tip, and how they paid in seconds.'
     },
     {
       number: '4',
       emoji: '📊',
       title: 'Track, Save for Taxes & Grow',
-      description: 'Monitor daily earnings, watch your Tax Hold balance grow automatically, manage expenses, and analyze your business performance.'
+      description: 'Monitor daily earnings, keep an eye on your tax estimate, manage expenses, and analyze your business performance.'
     }
   ]
 

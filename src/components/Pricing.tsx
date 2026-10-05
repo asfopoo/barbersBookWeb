@@ -1,17 +1,11 @@
 export default function Pricing() {
   const features = [
-    { text: "Tap to Pay on iPhone", note: "no card reader needed" },
-    { text: "Cards, Apple Pay & Google Pay" },
+    { text: "Online booking page", note: "customers book open times themselves" },
     {
       text: "Recurring Appointments",
       note: "weekly, biweekly, or monthly standing reservations",
     },
-    {
-      text: "No-Show Fee Protection",
-      note: "auto-charge customers who miss their appointment",
-    },
-    { text: "Tax Hold", note: "auto-earmarks % of every payment" },
-    { text: "Tax Estimation", note: "running liability estimate" },
+    { text: "Tax Estimation", note: "running estimate from your logged earnings" },
     { text: "Earnings & tips tracking" },
     { text: "Visual analytics", note: "daily, weekly, monthly" },
     { text: "Digital waitlist (unlimited customers)" },
@@ -34,10 +28,6 @@ export default function Pricing() {
       text: "Your Shop's Look",
       note: "your booking page, waitlist, texts, and emails branded for you",
     },
-    {
-      text: "Transparent payment processing",
-      note: "3.0% + $0.20 in-person · 3.3% + $0.40 online",
-    },
   ];
 
   return (
@@ -48,7 +38,8 @@ export default function Pricing() {
             One Plan. Everything Included.
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Payments, tax tools, analytics, and a digital waitlist. All in one
+            Earnings tracking, online booking, tax tools, analytics, and a
+            digital waitlist. All in one
             app for less than a cup of coffee a week.
           </p>
         </div>
@@ -121,11 +112,6 @@ export default function Pricing() {
               </div>
             </div>
           </div>
-
-          <p className="text-center text-gray-500 text-sm mt-6">
-            Payment processing: 3.0% + $0.20 in-person (Tap to Pay) · 3.3% +
-            $0.40 online. Powered by Stripe.
-          </p>
         </div>
       </div>
     </section>

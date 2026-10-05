@@ -10,8 +10,8 @@ export default function CTA() {
           Ready to Run Your Shop Smarter?
         </h2>
         <p className="text-xl mb-10 text-gray-300 max-w-2xl mx-auto">
-          Get Tap to Pay, Tax Hold, a digital waitlist, and full earnings
-          tracking. Try Premium free for 14 days, then{" "}
+          Get online booking, a digital waitlist, a running tax estimate, and
+          full earnings tracking. Try Premium free for 14 days, then{" "}
           <span className="line-through text-gray-400">$24.99</span> $4.99/mo.
           Cancel anytime.
         </p>
@@ -38,8 +38,7 @@ export default function CTA() {
           </a>
         </div>
         <p className="mt-8 text-gray-500 text-sm">
-          Cancel Premium anytime &nbsp;•&nbsp; Payments powered by Stripe
-          &nbsp;•&nbsp; Your data is always yours
+          Cancel Premium anytime &nbsp;•&nbsp; Your data is always yours
         </p>
       </div>
     </section>

@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
       {/* Content */}
       <div className="container mx-auto px-6 py-16 max-w-4xl">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
-        <p className="text-gray-600 mb-8">Last updated: April 27, 2026</p>
+        <p className="text-gray-600 mb-8">Last updated: October 4, 2026</p>
 
         <div className="prose prose-lg max-w-none">
           <section className="mb-8">
@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
               <li>Account information (name, email address, phone number)</li>
               <li>Business information (shop name, services offered, pricing)</li>
-              <li>Financial data (earnings, expenses, payment information)</li>
+              <li>Financial data (earnings, expenses, and how each service was paid)</li>
               <li>Customer information you enter into the app (names, phone numbers for waitlist)</li>
             </ul>
             <p className="text-gray-700 mb-4">From <strong>end customers</strong> booking appointments through the booking flow, we collect:</p>
@@ -44,7 +44,6 @@ export default function PrivacyPolicy() {
               <li>Name, phone number, and email address</li>
               <li>Appointment details (selected service, time, notes to barber)</li>
               <li>SMS opt-in status and consent timestamp (when you check the consent box on the booking form)</li>
-              <li>Payment information processed by Stripe (we do not store full card numbers)</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">2.2 Automatically Collected Information</h3>
@@ -54,9 +53,9 @@ export default function PrivacyPolicy() {
               <li>Log data (IP address, access times, errors)</li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">2.3 Payment Information</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">2.3 Previously Connected Payment Accounts</h3>
             <p className="text-gray-700 mb-4">
-              Payment information is collected and processed by our payment processor, Stripe. We do not store full credit card numbers on our servers. We receive limited payment information (last 4 digits, transaction amounts) for record-keeping purposes.
+              The Service no longer processes card payments. If you previously connected a payment account through Stripe, Stripe continues to process the data for that account, including payouts, refunds, and disputes. We retain limited records of past transactions (amounts, dates, last 4 digits of the card) as part of your earnings history. We never stored full card numbers.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">2.4 SMS / Text Messaging Data</h3>
@@ -95,7 +94,6 @@ export default function PrivacyPolicy() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Service Providers</h3>
             <p className="text-gray-700 mb-4">Third-party vendors who perform services on our behalf:</p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li><strong>Stripe:</strong> Payment processing and payouts</li>
               <li><strong>AWS:</strong> Cloud hosting, storage (S3), email (SES), and SMS delivery (AWS End User Messaging / SNS)</li>
               <li><strong>Twilio:</strong> SMS delivery (transactional booking confirmations and reminders)</li>
               <li><strong>PostHog:</strong> Analytics and product insights</li>
@@ -177,7 +175,7 @@ export default function PrivacyPolicy() {
               Our Service uses third-party services that have their own privacy policies:
             </p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li>Stripe (payments): <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://stripe.com/privacy</a></li>
+              <li>Stripe (previously connected payment accounts): <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://stripe.com/privacy</a></li>
               <li>RevenueCat (subscriptions): <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://www.revenuecat.com/privacy</a></li>
               <li>AWS (hosting & storage): <a href="https://aws.amazon.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://aws.amazon.com/privacy</a></li>
               <li>PostHog (analytics): <a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://posthog.com/privacy</a></li>

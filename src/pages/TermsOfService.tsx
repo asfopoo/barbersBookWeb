@@ -15,7 +15,7 @@ export default function TermsOfService() {
       {/* Content */}
       <div className="container mx-auto px-6 py-16 max-w-4xl">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Terms of Service</h1>
-        <p className="text-gray-600 mb-8">Last updated: April 27, 2026</p>
+        <p className="text-gray-600 mb-8">Last updated: October 4, 2026</p>
 
         <div className="prose prose-lg max-w-none">
           <section className="mb-8">
@@ -34,7 +34,7 @@ export default function TermsOfService() {
               <li>Track earnings and expenses</li>
               <li>Manage services and pricing</li>
               <li>Operate a digital waitlist</li>
-              <li>Accept card payments from customers</li>
+              <li>Manage appointments and online booking</li>
               <li>View analytics and insights</li>
               <li>Manage customer information</li>
             </ul>
@@ -60,41 +60,14 @@ export default function TermsOfService() {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Payment Processing</h2>
-            
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">4.1 Payment Service Provider</h3>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Tax Estimation and Payment Accounts</h2>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">4.1 Previously Connected Payment Accounts</h3>
             <p className="text-gray-700 mb-4">
-              Payment processing services are provided by Stripe. By enabling payment features, you agree to Stripe's Connected Account Agreement available at <a href="https://stripe.com/legal/connect-account" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://stripe.com/legal/connect-account</a>. We act as a payment facilitator and collect a platform fee on every transaction you process.
+              The Service no longer offers in-app card payment processing. If you previously connected a payment account through Stripe, that account, including any remaining balance, payouts, refunds, and disputes, continues to be governed by Stripe's Connected Account Agreement available at <a href="https://stripe.com/legal/connect-account" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://stripe.com/legal/connect-account</a>. You remain responsible for refunds and disputes on payments you processed.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">4.2 Platform Fees</h3>
-            <p className="text-gray-700 mb-4">
-              A platform fee is deducted from each transaction at the following rates. Rates are inclusive of Stripe's own processing fees, so the amounts listed below are the total deducted from the transaction. Rates are the same for every subscription tier. Subscriptions unlock additional features (tax tools, multi-location, etc.) but do not change payment processing fees:
-            </p>
-            <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li><strong>In-person (Tap to Pay):</strong> 3.0% + $0.20 per transaction</li>
-              <li><strong>Online (PaymentSheet):</strong> 3.3% + $0.40 per transaction</li>
-            </ul>
-            <p className="text-gray-700 mb-4">
-              All fees are clearly disclosed before processing each transaction. Platform fees may be adjusted with 30 days' notice.
-            </p>
-
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">4.3 Payouts</h3>
-            <p className="text-gray-700 mb-4">
-              Payouts are managed by Stripe and typically arrive in your bank account within 2 business days. You are responsible for providing accurate banking information. We are not responsible for delays caused by your bank or Stripe.
-            </p>
-
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">4.4 Refunds and Disputes</h3>
-            <p className="text-gray-700 mb-4">
-              You are responsible for handling refunds and disputes with your customers. Platform fees are not refundable for completed transactions. Excessive chargebacks or disputes may result in account suspension or termination.
-            </p>
-
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">4.5 Prohibited Transactions</h3>
-            <p className="text-gray-700 mb-4">
-              You may not use the payment processing features for any illegal, fraudulent, or prohibited activities as defined by Stripe's terms and applicable law.
-            </p>
-
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">4.6 Tax Estimation Features</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">4.2 Tax Estimation Features</h3>
             <p className="text-gray-700 mb-4">
               The tax estimation features provided by the Service are for informational and planning purposes only. These features do NOT constitute tax advice and should NOT be relied upon for tax filing.
             </p>
@@ -153,8 +126,8 @@ export default function TermsOfService() {
               We offer a Free plan and a paid Premium plan at $4.99 per month. Premium is the only paid subscription available. Paid subscriptions are billed on a recurring monthly basis through your chosen app store (Apple App Store or Google Play Store).
             </p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li><strong>Free:</strong> Tax estimation, tax hold, and basic features (earnings tracking, waitlist, expense tracking, service management).</li>
-              <li><strong>Premium ($4.99/month):</strong> Everything in Free, plus recurring appointments, no-show fee protection, unlimited history, unlimited data export, multi-location, SMS &amp; email notifications, and your shop's branding on every customer-facing surface (booking page, waitlist, texts, emails).</li>
+              <li><strong>Free:</strong> Tax estimation and basic features (earnings tracking, waitlist, expense tracking, service management).</li>
+              <li><strong>Premium ($4.99/month):</strong> Everything in Free, plus recurring appointments, unlimited history, unlimited data export, multi-location, SMS &amp; email notifications, and your shop's branding on every customer-facing surface (booking page, waitlist, texts, emails).</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">6.2 Free Trial</h3>

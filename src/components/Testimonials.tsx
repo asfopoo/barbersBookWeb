@@ -1,12 +1,6 @@
 export default function Testimonials() {
   const testimonials = [
     {
-      name: 'Marcus Johnson',
-      role: 'Master Barber, NYC',
-      image: '👨🏿‍🦱',
-      text: 'Tap to Pay is a game changer. My clients just tap their card on my phone. No reader, no fuss. And Tax Hold running automatically means I stopped dreading tax season.'
-    },
-    {
       name: 'Sofia Martinez',
       role: 'Shop Owner, Miami',
       image: '👩🏽',
@@ -32,7 +26,7 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}

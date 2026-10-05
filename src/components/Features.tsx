@@ -8,29 +8,22 @@ type Feature = {
 export default function Features() {
   const features: Feature[] = [
     {
-      icon: "📲",
-      title: "Tap to Pay on iPhone",
+      icon: "📅",
+      title: "Online Booking",
       description:
-        "Accept contactless cards, Apple Pay, and Google Pay right on your iPhone. No card reader or extra hardware needed.",
+        "Share your booking link and let customers pick a service and an open time. Every booking lands on your calendar.",
     },
     {
-      icon: "💳",
-      title: "Cards & Apple Pay",
+      icon: "🗓️",
+      title: "Appointment Calendar",
       description:
-        "Charge any card or digital wallet through the built-in Stripe payment sheet. Works for in-person and manual entry.",
-    },
-    {
-      icon: "🏦",
-      title: "Tax Hold",
-      description:
-        "Automatically earmark a percentage of every payment for taxes. Never get surprised when the tax bill arrives.",
-      badge: "Free",
+        "See your day at a glance, add appointments yourself, and mark them done when the cut is finished.",
     },
     {
       icon: "🧾",
       title: "Tax Estimation",
       description:
-        "See a running estimate of your self-employment tax liability based on your actual earnings, updated in real time.",
+        "See a running estimate of your tax bill based on the earnings you log, so you know what to set aside.",
       badge: "Free",
     },
     {
@@ -68,13 +61,6 @@ export default function Features() {
       title: "Recurring Appointments",
       description:
         "Turn any booking into a standing weekly, biweekly, or monthly reservation. Set it once and stop chasing rebookings.",
-      badge: "Premium",
-    },
-    {
-      icon: "🛡️",
-      title: "No-Show Fee Protection",
-      description:
-        "Charge customers who miss their appointment without cancelling. Stop eating the cost of empty chairs.",
       badge: "Premium",
     },
     {
@@ -122,8 +108,8 @@ export default function Features() {
             Everything You Need to Run Your Shop
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Barber's Book is built specifically for barbers, with real payments,
-            real tax tools, and a real waitlist system.
+            Barber's Book is built specifically for barbers, with real earnings
+            tracking, online booking, tax tools, and a real waitlist system.
           </p>
         </div>
 
