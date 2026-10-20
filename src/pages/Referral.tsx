@@ -62,7 +62,12 @@ export default function Referral() {
         <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-4">{heading}</h1>
         <p className="text-lg text-gray-300 leading-relaxed mb-8">
           Log every cut and tip, take bookings online, and run a digital waitlist from one app.
-          Sign up with this code and you both get a <strong className="text-white">free month of Premium</strong>.
+          {valid !== false && (
+            <>
+              {' '}Sign up with this code and you both get a{' '}
+              <strong className="text-white">free month of Premium</strong>.
+            </>
+          )}
         </p>
 
         {valid !== false && (
@@ -86,6 +91,7 @@ export default function Referral() {
           </p>
         )}
 
+        {valid !== false && (
         <ol className="space-y-3 mb-10 text-gray-200">
           <li>
             <span className="text-blue-400 font-bold mr-2">1.</span>
@@ -100,6 +106,7 @@ export default function Referral() {
             You both get a free month of Premium, added automatically.
           </li>
         </ol>
+        )}
 
         <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-6">
           <a href={APP_STORE_URL} onClick={() => track('referral_store_clicked', { code, store: 'ios' })}>
