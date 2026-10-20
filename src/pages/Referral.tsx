@@ -4,6 +4,8 @@ import { track } from '../lib/analytics'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000'
 const APP_STORE_URL = 'https://apps.apple.com/us/app/barbers-book/id6740193881'
+// The app deep link only does anything on a phone.
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.thebarbersbook.app'
 
 // Landing page for barber-to-barber invites: thebarbersbook.com/r/CODE.
@@ -24,7 +26,7 @@ export default function Referral() {
         if (cancelled) return
         setValid(!!body)
         setReferrerName(body?.firstName ?? null)
-        track('referral_landing_viewed', { code, valid: !!body })
+        track('referral_landing_viewed', { valid: !!body })
       })
       .catch(() => {
         if (!cancelled) setValid(null)
@@ -38,7 +40,7 @@ export default function Referral() {
     try {
       await navigator.clipboard.writeText(code)
       setCopied(true)
-      track('referral_code_copied', { code })
+      track('referral_code_copied')
       setTimeout(() => setCopied(false), 2000)
     } catch {
       // Clipboard blocked; the code is still selectable on the page.
@@ -99,7 +101,7 @@ export default function Referral() {
           </li>
           <li>
             <span className="text-blue-400 font-bold mr-2">2.</span>
-            Log your cuts as you go. After 5 cuts on 2 different days, you're in.
+            Log your cuts as you go. Once you've logged 5 cuts on 2 different days within 30 days, you're in.
           </li>
           <li>
             <span className="text-blue-400 font-bold mr-2">3.</span>
@@ -109,14 +111,14 @@ export default function Referral() {
         )}
 
         <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-6">
-          <a href={APP_STORE_URL} onClick={() => track('referral_store_clicked', { code, store: 'ios' })}>
+          <a href={APP_STORE_URL} onClick={() => track('referral_store_clicked', { store: 'ios' })}>
             <img
               src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1617926400"
               alt="Download on the App Store"
               className="h-[52px]"
             />
           </a>
-          <a href={playUrl} onClick={() => track('referral_store_clicked', { code, store: 'android' })}>
+          <a href={playUrl} onClick={() => track('referral_store_clicked', { store: 'android' })}>
             <img
               src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
               alt="Get it on Google Play"
@@ -124,12 +126,14 @@ export default function Referral() {
             />
           </a>
         </div>
-        <a
-          href={`barbersbook://register?ref=${encodeURIComponent(code)}`}
-          className="text-sm text-gray-400 underline"
-        >
-          Already have the app installed? Open it
-        </a>
+        {isMobile && (
+          <a
+            href={`barbersbook://register?ref=${encodeURIComponent(code)}`}
+            className="text-sm text-gray-400 underline"
+          >
+            Already have the app installed? Open it
+          </a>
+        )}
       </main>
     </div>
   )
