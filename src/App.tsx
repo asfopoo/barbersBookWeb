@@ -12,6 +12,7 @@ import TermsOfService from './pages/TermsOfService'
 import CookiePolicy from './pages/CookiePolicy'
 import StripeReturn from './pages/StripeReturn'
 import StripeRefresh from './pages/StripeRefresh'
+import Referral from './pages/Referral'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminUsers from './pages/admin/AdminUsers'
@@ -48,6 +49,7 @@ function App() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/cookies" element={<CookiePolicy />} />
+        <Route path="/r/:code" element={<Referral />} />
         
         {/* Stripe Connect redirect pages */}
         <Route path="/stripe-return" element={<StripeReturn />} />
