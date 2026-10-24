@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
       {/* Content */}
       <div className="container mx-auto px-6 py-16 max-w-4xl">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
-        <p className="text-gray-600 mb-8">Last updated: October 4, 2026</p>
+        <p className="text-gray-600 mb-8">Last updated: October 23, 2026</p>
 
         <div className="prose prose-lg max-w-none">
           <section className="mb-8">
@@ -36,8 +36,9 @@ export default function PrivacyPolicy() {
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
               <li>Account information (name, email address, phone number)</li>
               <li>Business information (shop name, services offered, pricing)</li>
-              <li>Financial data (earnings, expenses, and how each service was paid)</li>
-              <li>Customer information you enter into the app (names, phone numbers for waitlist)</li>
+              <li>Financial data (earnings, expenses, how each service was paid, your pay structure, and amounts you record as set aside for taxes)</li>
+              <li>Customer information you enter into the app (names, phone numbers, email addresses, and notes about your clients), along with each client's visit history and spending, which we compile from the services and appointments you record</li>
+              <li>Referral information (your referral code, who invited you, and the barbers you invited)</li>
             </ul>
             <p className="text-gray-700 mb-4">From <strong>end customers</strong> booking appointments through the booking flow, we collect:</p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
@@ -50,7 +51,7 @@ export default function PrivacyPolicy() {
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
               <li>Device information (device type, operating system)</li>
               <li>Usage data (features used, time spent in app)</li>
-              <li>Log data (IP address, access times, errors)</li>
+              <li>Log data (IP address, access times, errors), including the IP address used when you sign up, which we use to detect self-referrals and duplicate accounts</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">2.3 Previously Connected Payment Accounts</h3>
@@ -83,7 +84,8 @@ export default function PrivacyPolicy() {
               <li>Provide customer support</li>
               <li>Monitor and analyze usage patterns</li>
               <li>Detect and prevent fraud or abuse</li>
-              <li>Send marketing communications (with your consent)</li>
+              <li>Run the referral program, including delivering free months and preventing abuse</li>
+              <li>Send onboarding and product emails, which you can unsubscribe from at any time using the link in each email</li>
             </ul>
           </section>
 
@@ -98,7 +100,8 @@ export default function PrivacyPolicy() {
               <li><strong>Twilio:</strong> SMS delivery (transactional booking confirmations and reminders)</li>
               <li><strong>PostHog:</strong> Analytics and product insights</li>
               <li><strong>Sentry:</strong> Error tracking and monitoring</li>
-              <li><strong>RevenueCat:</strong> Subscription management</li>
+              <li><strong>RevenueCat:</strong> Subscription management, including checking whether you subscribe through the Apple App Store or Google Play and whether your subscription renews, so we can deliver referral rewards</li>
+              <li><strong>Apple and Google:</strong> Process your subscription purchases. When you earn a referral reward, we may ask Google Play to move your renewal date, or Apple to apply a promotional offer you redeem in the app.</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Legal Requirements</h3>
