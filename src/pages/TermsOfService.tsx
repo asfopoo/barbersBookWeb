@@ -15,7 +15,7 @@ export default function TermsOfService() {
       {/* Content */}
       <div className="container mx-auto px-6 py-16 max-w-4xl">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Terms of Service</h1>
-        <p className="text-gray-600 mb-8">Last updated: October 4, 2026</p>
+        <p className="text-gray-600 mb-8">Last updated: October 23, 2026</p>
 
         <div className="prose prose-lg max-w-none">
           <section className="mb-8">
@@ -72,7 +72,10 @@ export default function TermsOfService() {
               The tax estimation features provided by the Service are for informational and planning purposes only. These features do NOT constitute tax advice and should NOT be relied upon for tax filing.
             </p>
             <p className="text-gray-700 mb-4">
-              Tax estimates are based solely on recorded earnings and your configured tax rate. Your actual tax liability depends on many factors not considered here, including but not limited to: other income sources, deductions, credits, filing status, state/local taxes, and self-employment taxes.
+              Tax estimates are based solely on the earnings and expenses you record, the pay structure you set (such as the share of each service that goes to your shop), and your configured tax rate. Your actual tax liability depends on many factors not considered here, including but not limited to: other income sources, deductions, credits, filing status, state/local taxes, and self-employment taxes.
+            </p>
+            <p className="text-gray-700 mb-4">
+              Amounts you record as set aside for taxes are your own record only. We do not hold, move, or manage any money for you. Quarterly payment dates shown in the app are general US federal estimated-tax dates, provided as a reminder; your own deadlines may differ.
             </p>
             <p className="text-gray-700 mb-4">
               We strongly recommend consulting with a qualified tax professional (CPA, enrolled agent, or tax attorney) for accurate tax guidance specific to your situation. The platform and its operators are not responsible for any inaccuracies in tax estimates or any consequences resulting from reliance on these estimates.
@@ -126,8 +129,8 @@ export default function TermsOfService() {
               We offer a Free plan and a paid Premium plan at $4.99 per month. Premium is the only paid subscription available. Paid subscriptions are billed on a recurring monthly basis through your chosen app store (Apple App Store or Google Play Store).
             </p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li><strong>Free:</strong> Tax estimation and basic features (earnings tracking, waitlist, expense tracking, service management).</li>
-              <li><strong>Premium ($4.99/month):</strong> Everything in Free, plus recurring appointments, unlimited history, unlimited data export, multi-location, SMS &amp; email notifications, and your shop's branding on every customer-facing surface (booking page, waitlist, texts, emails).</li>
+              <li><strong>Free:</strong> Tax estimation, this month's take-home summary, your client list, and basic features (earnings tracking, waitlist, expense tracking, service management).</li>
+              <li><strong>Premium ($4.99/month):</strong> Everything in Free, plus unlimited history (including take-home history and the year view), tax set-aside tracking, clients due for a cut and full client visit history, recurring appointments, unlimited data export, multi-location, SMS &amp; email notifications, and your shop's branding on every customer-facing surface (booking page, waitlist, texts, emails).</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">6.2 Free Trial</h3>
@@ -143,6 +146,20 @@ export default function TermsOfService() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">6.4 Cancellation</h3>
             <p className="text-gray-700 mb-4">
               You may cancel your subscription at any time through your app store account settings. Cancellations take effect at the end of the current billing period; you retain Premium access until that period ends. Refunds are handled according to the app store's refund policy.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">6.5 Referral Rewards</h3>
+            <p className="text-gray-700 mb-4">
+              You may invite other barbers to the Service using your referral code or link. When a barber you invited signs up with your code and becomes active, which currently means logging at least 5 services on at least 2 different days within 30 days of signing up, you and the invited barber each earn one free month (30 days) of Premium. You can earn up to 12 free months from referrals.
+            </p>
+            <p className="text-gray-700 mb-4">How you receive a free month depends on how you pay for Premium:</p>
+            <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
+              <li>If you are not paying for Premium through an app store, we add 30 days of free Premium to your account.</li>
+              <li>If you subscribe through Google Play, we ask Google Play to move your next renewal date back by 30 days, so you are not charged for that month.</li>
+              <li>If you subscribe through the Apple App Store, the free month is saved to your account. You can redeem it in the app, and Apple applies it to an upcoming renewal so you are not charged for that period. If your subscription ends before a saved month has been applied, we add the saved time to your account as free Premium instead.</li>
+            </ul>
+            <p className="text-gray-700 mb-4">
+              Free months have no cash value and cannot be transferred, sold, or exchanged. They do not change your app store's billing terms for any other period. We may review referrals and withhold, delay, or reverse rewards that we reasonably believe involve self-referral, duplicate or fake accounts, or other abuse of the program. We may change or end the referral program at any time; free months you earned before a change will still be honored.
             </p>
           </section>
 
