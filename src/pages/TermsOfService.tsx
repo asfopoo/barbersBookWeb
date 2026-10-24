@@ -129,7 +129,7 @@ export default function TermsOfService() {
               We offer a Free plan and a paid Premium plan at $4.99 per month. Premium is the only paid subscription available. Paid subscriptions are billed on a recurring monthly basis through your chosen app store (Apple App Store or Google Play Store).
             </p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li><strong>Free:</strong> Tax estimation, this month's take-home summary, your client list, and basic features (earnings tracking, waitlist, expense tracking, service management).</li>
+              <li><strong>Free:</strong> Tax estimation, take-home for the current and previous month, your client list, and basic features (earnings tracking, waitlist, expense tracking, service management).</li>
               <li><strong>Premium ($4.99/month):</strong> Everything in Free, plus unlimited history (including take-home history and the year view), tax set-aside tracking, clients due for a cut and full client visit history, recurring appointments, unlimited data export, multi-location, SMS &amp; email notifications, and your shop's branding on every customer-facing surface (booking page, waitlist, texts, emails).</li>
             </ul>
 
