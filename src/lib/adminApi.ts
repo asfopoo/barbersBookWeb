@@ -245,7 +245,7 @@ class AdminApiClient {
     });
   }
 
-  async grantTrial(id: string, days: number): Promise<{
+  async grantTrial(id: string, days: number | 'lifetime'): Promise<{
     message: string;
     subscriptionTier: string;
     subscriptionStatus: string;
@@ -253,7 +253,7 @@ class AdminApiClient {
   }> {
     return this.request(`/api/admin/users/${id}/grant-trial`, {
       method: 'POST',
-      body: JSON.stringify({ days }),
+      body: JSON.stringify(days === 'lifetime' ? { lifetime: true } : { days }),
     });
   }
 

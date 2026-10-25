@@ -37,11 +37,11 @@ export default function AdminUserDetail() {
   });
 
   const grantTrialMutation = useMutation({
-    mutationFn: (days: number) => adminApi.grantTrial(id!, days),
+    mutationFn: (days: number | 'lifetime') => adminApi.grantTrial(id!, days),
     onSuccess: (result) => {
       queryClient.invalidateQueries({ queryKey: ['admin-user', id] });
       window.alert(
-        `Trial granted. Now Premium / trialing through ${new Date(result.subscriptionExpiresAt).toLocaleDateString()}.`,
+        `${result.message}. Now Premium / ${result.subscriptionStatus} through ${new Date(result.subscriptionExpiresAt).toLocaleDateString()}.`,
       );
     },
     onError: (err: Error) => {
@@ -61,10 +61,14 @@ export default function AdminUserDetail() {
 
   const handleGrantTrial = () => {
     const input = window.prompt(
-      'How many days of free trial?\n(Default 90. Sets tier to Premium / status trialing.)',
+      'How many days of free trial?\n(Default 90. Sets tier to Premium / status trialing.\nType "lifetime" to comp Premium for good.)',
       '90',
     );
     if (input === null) return;
+    if (input.trim().toLowerCase() === 'lifetime') {
+      if (window.confirm('Give this barber Premium for life?')) grantTrialMutation.mutate('lifetime');
+      return;
+    }
     const days = Number(input.trim());
     if (!Number.isFinite(days) || days <= 0 || days > 365) {
       window.alert('Days must be a number between 1 and 365.');
