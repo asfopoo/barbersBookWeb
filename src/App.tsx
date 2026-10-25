@@ -26,6 +26,7 @@ function App() {
     <div className="min-h-screen bg-gray-950">
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/es" element={<HomePage lang="es" />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/cookies" element={<CookiePolicy />} />

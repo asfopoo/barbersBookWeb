@@ -9,17 +9,27 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const dist = path.join(root, 'dist')
 const serverEntry = path.join(root, 'dist-ssr', 'entry-server.js')
 
-const { render, ROUTES, HOME_JSON_LD, SITE_URL, OG_IMAGE } = await import(pathToFileURL(serverEntry).href)
+const { render, ROUTES, homeJsonLd, SITE_URL, OG_IMAGE } = await import(pathToFileURL(serverEntry).href)
 
 const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
+
+const OG_LOCALE = { en: 'en_US', es: 'es_ES' }
+const abs = (p) => SITE_URL + p
 
 const esc = (s) =>
   s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
 function headTags(route) {
-  const url = SITE_URL + (route.path === '/' ? '/' : route.path)
+  const url = abs(route.path)
   const tags = [
     `<link rel="canonical" href="${url}" />`,
+    ...Object.entries(route.alternates ?? {}).map(
+      ([lang, p]) => `<link rel="alternate" hreflang="${lang}" href="${abs(p)}" />`,
+    ),
+    `<meta property="og:locale" content="${OG_LOCALE[route.lang]}" />`,
+    ...Object.keys(route.alternates ?? {})
+      .filter((l) => l !== 'x-default' && l !== route.lang)
+      .map((l) => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}" />`),
     `<meta property="og:type" content="website" />`,
     `<meta property="og:site_name" content="Barber's Book" />`,
     `<meta property="og:url" content="${url}" />`,
@@ -33,8 +43,8 @@ function headTags(route) {
     `<meta name="twitter:description" content="${esc(route.description)}" />`,
     `<meta name="twitter:image" content="${OG_IMAGE}" />`,
   ]
-  if (route.path === '/') {
-    for (const ld of HOME_JSON_LD) {
+  if (route.path === '/' || route.path === '/es') {
+    for (const ld of homeJsonLd(route)) {
       tags.push(`<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`)
     }
   }
@@ -43,6 +53,7 @@ function headTags(route) {
 
 function page(route) {
   return template
+    .replace('<html lang="en">', `<html lang="${route.lang}">`)
     .replace(/<title>.*?<\/title>/s, `<title>${esc(route.title)}</title>`)
     .replace(/<meta name="description" content=".*?" \/>/s, `<meta name="description" content="${esc(route.description)}" />`)
     .replace('<!--seo-head-->', headTags(route))
@@ -65,11 +76,16 @@ for (const route of ROUTES) {
 
 const today = new Date().toISOString().slice(0, 10)
 const urls = ROUTES.filter((r) => r.indexable)
-  .map((r) => `  <url><loc>${SITE_URL}${r.path === '/' ? '/' : r.path}</loc><lastmod>${today}</lastmod></url>`)
+  .map((r) => {
+    const alts = Object.entries(r.alternates ?? {})
+      .map(([lang, p]) => `<xhtml:link rel="alternate" hreflang="${lang}" href="${abs(p)}" />`)
+      .join('')
+    return `  <url><loc>${abs(r.path)}</loc><lastmod>${today}</lastmod>${alts}</url>`
+  })
   .join('\n')
 fs.writeFileSync(
   path.join(dist, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`,
 )
 
 fs.rmSync(path.join(root, 'dist-ssr'), { recursive: true, force: true })

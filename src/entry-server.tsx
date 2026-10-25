@@ -10,7 +10,8 @@ import CookiePolicy from './pages/CookiePolicy'
 // Build-time renderer for the public pages (see scripts/prerender.mjs). It
 // mirrors the markup App renders for these routes so the client can hydrate it.
 const PAGES: Record<string, () => React.JSX.Element> = {
-  '/': HomePage,
+  '/': () => <HomePage />,
+  '/es': () => <HomePage lang="es" />,
   '/privacy': PrivacyPolicy,
   '/terms': TermsOfService,
   '/cookies': CookiePolicy,
@@ -29,4 +30,4 @@ export function render(path: string): string {
   )
 }
 
-export { ROUTES, HOME_JSON_LD, SITE_URL, OG_IMAGE } from './seo'
+export { ROUTES, homeJsonLd, SITE_URL, OG_IMAGE } from './seo'
