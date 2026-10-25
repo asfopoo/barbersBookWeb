@@ -33,7 +33,7 @@ export default function AdminInvitations() {
     try {
       await cancelMutation.mutateAsync(id);
       alert('Invitation cancelled successfully');
-    } catch (error) {
+    } catch {
       alert('Failed to cancel invitation');
     }
   };
@@ -104,13 +104,13 @@ export default function AdminInvitations() {
             <div className="bg-yellow-50 rounded-lg shadow-sm border border-yellow-200 p-4">
               <p className="text-sm font-medium text-yellow-800">Pending</p>
               <p className="text-3xl font-bold text-yellow-900 mt-2">
-                {data.invitations.filter((i: any) => i.status === 'pending').length}
+                {data.invitations.filter((i: { status: string }) => i.status === 'pending').length}
               </p>
             </div>
             <div className="bg-green-50 rounded-lg shadow-sm border border-green-200 p-4">
               <p className="text-sm font-medium text-green-800">Accepted</p>
               <p className="text-3xl font-bold text-green-900 mt-2">
-                {data.invitations.filter((i: any) => i.status === 'accepted').length}
+                {data.invitations.filter((i: { status: string }) => i.status === 'accepted').length}
               </p>
             </div>
             <div className="bg-gray-50 rounded-lg shadow-sm border border-gray-200 p-4">
@@ -118,7 +118,7 @@ export default function AdminInvitations() {
               <p className="text-3xl font-bold text-gray-900 mt-2">
                 {
                   data.invitations.filter(
-                    (i: any) => i.status === 'cancelled' || i.status === 'expired'
+                    (i: { status: string }) => i.status === 'cancelled' || i.status === 'expired'
                   ).length
                 }
               </p>
