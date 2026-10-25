@@ -26,8 +26,8 @@ export default function AdminNotifications() {
     try {
       const result = await adminApi.blastTapToPayEmail();
       setEmailResult(result);
-    } catch (err: any) {
-      setEmailError(err.message || 'Failed to send email blast');
+    } catch (err) {
+      setEmailError((err as Error).message || 'Failed to send email blast');
     } finally {
       setEmailLoading(false);
     }
@@ -42,8 +42,8 @@ export default function AdminNotifications() {
     try {
       const result = await adminApi.blastTapToPayPush();
       setPushResult(result);
-    } catch (err: any) {
-      setPushError(err.message || 'Failed to send push blast');
+    } catch (err) {
+      setPushError((err as Error).message || 'Failed to send push blast');
     } finally {
       setPushLoading(false);
     }
