@@ -13,7 +13,7 @@ const { render, ROUTES, homeJsonLd, SITE_URL, OG_IMAGE } = await import(pathToFi
 
 const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
 
-const OG_LOCALE = { en: 'en_US', es: 'es_ES' }
+const OG_LOCALE = { en: 'en_US', es: 'es_MX' }
 const abs = (p) => SITE_URL + p
 
 const esc = (s) =>
