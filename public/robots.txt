@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin
+Disallow: /r/
+Disallow: /stripe-return
+Disallow: /stripe-refresh
+
+Sitemap: https://www.thebarbersbook.com/sitemap.xml

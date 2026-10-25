@@ -1,12 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
-import Hero from './components/Hero'
-import KeyFeatures from './components/KeyFeatures'
-import Features from './components/Features'
-import HowItWorks from './components/HowItWorks'
-import Pricing from './components/Pricing'
-import Testimonials from './components/Testimonials'
-import CTA from './components/CTA'
-import Footer from './components/Footer'
+import { useRouteMeta } from './seo'
+import HomePage from './pages/Home'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import CookiePolicy from './pages/CookiePolicy'
@@ -25,23 +19,9 @@ import AdminTransactions from './pages/admin/AdminTransactions'
 import AdminPayouts from './pages/admin/AdminPayouts'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 
-// home page with hero, features, pricing, testimonials, and CTA sections
-function HomePage() {
-  return (
-    <>
-      <Hero />
-      <KeyFeatures />
-      <Features />
-      <HowItWorks />
-      <Pricing />
-      <Testimonials />
-      <CTA />
-      <Footer />
-    </>
-  )
-}
-
 function App() {
+  useRouteMeta()
+
   return (
     <div className="min-h-screen bg-gray-950">
       <Routes>
