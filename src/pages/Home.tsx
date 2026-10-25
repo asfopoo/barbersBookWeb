@@ -6,11 +6,13 @@ import Pricing from '../components/Pricing'
 import Testimonials from '../components/Testimonials'
 import CTA from '../components/CTA'
 import Footer from '../components/Footer'
+import { LangContext, type Lang } from '../i18n'
 
-// home page with hero, features, pricing, testimonials, and CTA sections
-export default function HomePage() {
+// home page with hero, features, pricing, testimonials, and CTA sections.
+// Served in English at / and in Spanish at /es.
+export default function HomePage({ lang = 'en' }: { lang?: Lang }) {
   return (
-    <>
+    <LangContext.Provider value={lang}>
       <Hero />
       <KeyFeatures />
       <Features />
@@ -19,6 +21,6 @@ export default function HomePage() {
       <Testimonials />
       <CTA />
       <Footer />
-    </>
+    </LangContext.Provider>
   )
 }

@@ -1,19 +1,21 @@
+import { useT } from '../i18n'
+
 export default function CTA() {
+  const t = useT();
+  const c = t.cta;
   return (
     <section className="py-20 bg-gradient-to-br from-gray-950 via-gray-900 to-blue-950 text-white">
       <div className="container mx-auto px-6 text-center">
         <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold mb-6">
           <span>🎁</span>
-          <span>14-day free trial. No credit card required to start.</span>
+          <span>{c.pill}</span>
         </div>
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
-          Ready to Run Your Shop Smarter?
+          {c.title}
         </h2>
         <p className="text-xl mb-10 text-gray-300 max-w-2xl mx-auto">
-          Get online booking, a digital waitlist, a running tax estimate, and
-          full earnings tracking. Try Premium free for 14 days, then{" "}
-          <span className="line-through text-gray-400">$24.99</span> $4.99/mo.
-          Cancel anytime.
+          {c.bodyBefore}{" "}
+          <span className="line-through text-gray-400">$24.99</span> {c.bodyAfter}
         </p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <a
@@ -21,8 +23,8 @@ export default function CTA() {
             className="inline-block transform hover:scale-105 transition"
           >
             <img
-              src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83&amp;releaseDate=1617926400"
-              alt="Download on the App Store"
+              src={t.badges.appStoreImgWhite}
+              alt={t.badges.appStoreAlt}
               className="h-[52px]"
             />
           </a>
@@ -31,14 +33,14 @@ export default function CTA() {
             className="inline-block transform hover:scale-105 transition"
           >
             <img
-              src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-              alt="Get it on Google Play"
+              src={t.badges.playImg}
+              alt={t.badges.playAlt}
               className="h-[70px]"
             />
           </a>
         </div>
         <p className="mt-8 text-gray-500 text-sm">
-          Cancel Premium anytime &nbsp;•&nbsp; Your data is always yours
+          {c.footBefore} &nbsp;•&nbsp; {c.footAfter}
         </p>
       </div>
     </section>

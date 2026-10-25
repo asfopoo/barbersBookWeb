@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useT } from '../i18n'
 
 export default function Footer() {
+  const t = useT()
+  const f = t.footer
   return (
     <footer className="bg-gray-950 text-white py-12">
       <div className="container mx-auto px-6">
@@ -8,7 +11,7 @@ export default function Footer() {
           <div>
             <div className="text-2xl font-bold mb-3">✂️ Barber's Book</div>
             <p className="text-gray-400 text-sm leading-relaxed mb-5">
-              The all-in-one app for barbers: track earnings, take bookings, manage your waitlist, and stay on top of taxes.
+              {f.tagline}
             </p>
             <div className="flex gap-4">
               <a href="https://discord.gg/eFEzYY2XF" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-gray-400 hover:text-white transition">
@@ -33,23 +36,23 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4">Product</h3>
+            <h3 className="font-bold text-lg mb-4">{f.product}</h3>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="#features" className="hover:text-white transition">Features</a></li>
-              <li><a href="#booking" className="hover:text-white transition">Booking</a></li>
-              <li><a href="#pricing" className="hover:text-white transition">Pricing</a></li>
-              <li><a href="https://apps.apple.com/us/app/barbers-book/id6740193881" className="hover:text-white transition">Download</a></li>
+              <li><a href="#features" className="hover:text-white transition">{f.features}</a></li>
+              <li><a href="#booking" className="hover:text-white transition">{f.booking}</a></li>
+              <li><a href="#pricing" className="hover:text-white transition">{f.pricing}</a></li>
+              <li><a href="https://apps.apple.com/us/app/barbers-book/id6740193881" className="hover:text-white transition">{f.download}</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4">Download</h3>
+            <h3 className="font-bold text-lg mb-4">{f.downloadHeading}</h3>
             <ul className="space-y-3">
               <li>
                 <a href="https://apps.apple.com/us/app/barbers-book/id6740193881" className="inline-block hover:opacity-80 transition">
                   <img
-                    src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83&releaseDate=1617926400"
-                    alt="Download on the App Store"
+                    src={t.badges.appStoreImgWhite}
+                    alt={t.badges.appStoreAlt}
                     className="h-9"
                   />
                 </a>
@@ -57,8 +60,8 @@ export default function Footer() {
               <li>
                 <a href="https://play.google.com/store/apps/details?id=com.thebarbersbook.app" className="inline-block hover:opacity-80 transition">
                   <img
-                    src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                    alt="Get it on Google Play"
+                    src={t.badges.playImg}
+                    alt={t.badges.playAlt}
                     className="h-[46px] -ml-2"
                   />
                 </a>
@@ -67,18 +70,18 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4">Legal</h3>
+            <h3 className="font-bold text-lg mb-4">{f.legal}</h3>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li><Link to="/privacy" className="hover:text-white transition">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="hover:text-white transition">Terms of Service</Link></li>
-              <li><Link to="/cookies" className="hover:text-white transition">Cookie Policy</Link></li>
+              <li><Link to="/privacy" className="hover:text-white transition">{f.privacy}</Link></li>
+              <li><Link to="/terms" className="hover:text-white transition">{f.terms}</Link></li>
+              <li><Link to="/cookies" className="hover:text-white transition">{f.cookies}</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-gray-500 text-sm">
-            &copy; 2026 eansolutions llc. All rights reserved.
+            {f.rights}
           </p>
         </div>
       </div>

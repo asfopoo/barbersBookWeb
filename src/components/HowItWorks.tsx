@@ -1,40 +1,18 @@
+import { useT } from '../i18n'
+
 export default function HowItWorks() {
-  const steps = [
-    {
-      number: '1',
-      emoji: '📲',
-      title: 'Download & Create Account',
-      description: 'Get Barber\'s Book from the App Store or Google Play. Create your free account and set up your shop profile in minutes.'
-    },
-    {
-      number: '2',
-      emoji: '✂️',
-      title: 'Add Your Services',
-      description: 'Add your services with pricing, set your hours, and grab your booking link and waitlist QR code.'
-    },
-    {
-      number: '3',
-      emoji: '📅',
-      title: 'Take Bookings & Log Every Cut',
-      description: 'Customers book online or join your waitlist. After each cut, log the service, tip, and how they paid in seconds.'
-    },
-    {
-      number: '4',
-      emoji: '📊',
-      title: 'Track, Save for Taxes & Grow',
-      description: 'Monitor daily earnings, keep an eye on your tax estimate, manage expenses, and analyze your business performance.'
-    }
-  ]
+  const t = useT().how
+  const steps = t.steps.map((s, i) => ({ ...s, number: String(i + 1) }))
 
   return (
     <section id="how-it-works" className="py-20 bg-gray-950">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Up and Running in Minutes
+            {t.title}
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Barber's Book is built to get out of your way. Set up once, then just run your shop.
+            {t.subtitle}
           </p>
         </div>
 
@@ -46,7 +24,7 @@ export default function HowItWorks() {
                   <span className="text-2xl">{step.emoji}</span>
                 </div>
                 <div className="bg-gray-800 text-gray-400 text-xs font-bold px-2 py-1 rounded-full">
-                  Step {step.number}
+                  {t.step} {step.number}
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>

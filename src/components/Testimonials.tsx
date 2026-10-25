@@ -1,28 +1,18 @@
+import { useT } from '../i18n'
+
 export default function Testimonials() {
-  const testimonials = [
-    {
-      name: 'Sofia Martinez',
-      role: 'Shop Owner, Miami',
-      image: '👩🏽',
-      text: 'I used to keep a notebook for everything. Now Barber\'s Book tracks every service, every expense, and every tip. The earnings charts showed me my Fridays are twice as profitable, so I stopped taking Mondays off.'
-    },
-    {
-      name: 'James Lee',
-      role: 'Independent Barber, LA',
-      image: '👨🏻',
-      text: 'The waitlist is incredible. Customers scan my QR code from their car, wait outside, and walk in right on time. No more crowded shop. My clients love it and honestly so do I.'
-    }
-  ]
+  const t = useT().testimonials
+  const testimonials = t.items
 
   return (
     <section id="testimonials" className="py-20 bg-gray-950">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Barbers Love It
+            {t.title}
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            From solo barbers to multi-chair shops, Barber's Book is built for how you actually work.
+            {t.subtitle}
           </p>
         </div>
 

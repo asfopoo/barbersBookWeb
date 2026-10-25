@@ -1,70 +1,42 @@
+import { useT } from '../i18n'
+
 export default function Pricing() {
-  const features = [
-    { text: "Online booking page", note: "customers book open times themselves" },
-    {
-      text: "Recurring Appointments",
-      note: "weekly, biweekly, or monthly standing reservations",
-    },
-    { text: "Tax Estimation", note: "running estimate from your logged earnings" },
-    { text: "Earnings & tips tracking" },
-    { text: "Visual analytics", note: "daily, weekly, monthly" },
-    { text: "Digital waitlist (unlimited customers)" },
-    { text: "Expense tracking & net income" },
-    { text: "Service management" },
-    {
-      text: "Unlimited History",
-      note: "all your metrics and earnings forever",
-    },
-    { text: "Unlimited Data Export", note: "export and backup anytime" },
-    {
-      text: "Multi-Location",
-      note: "manage multiple shop locations from one account",
-    },
-    {
-      text: "SMS & Email Notifications",
-      note: "notify customers when it's their turn",
-    },
-    {
-      text: "Your Shop's Look",
-      note: "your booking page, waitlist, texts, and emails branded for you",
-    },
-  ];
+  const t = useT().pricing;
+  const features = t.features;
 
   return (
     <section id="pricing" className="py-20 bg-gray-950">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            One Plan. Everything Included.
+            {t.title}
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Earnings tracking, online booking, tax tools, analytics, and a
-            digital waitlist. All in one
-            app for less than a cup of coffee a week.
+            {t.subtitle}
           </p>
         </div>
 
         <div className="max-w-lg mx-auto">
           <div className="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden ring-4 ring-blue-500">
             <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white text-center py-3 text-sm font-bold tracking-wide">
-              BARBER&apos;S BOOK PREMIUM
+              {t.banner}
             </div>
             <div className="p-10">
               <div className="text-center mb-8">
                 <div className="inline-block bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
-                  14-day free trial
+                  {t.trial}
                 </div>
                 <div className="flex items-end justify-center gap-2 mb-2">
                   <span className="text-3xl font-semibold text-gray-500 line-through mb-1">
                     $24.99
                   </span>
                   <span className="text-6xl font-bold text-white">$4.99</span>
-                  <span className="text-gray-400 text-lg mb-2">/ month</span>
+                  <span className="text-gray-400 text-lg mb-2">{t.perMonth}</span>
                 </div>
                 <p className="text-gray-400 text-sm">
-                  Try Premium free for 14 days.{" "}
+                  {t.noteBefore}{" "}
                   <span className="line-through text-gray-500">$24.99</span>{" "}
-                  $4.99/mo after, cancel anytime.
+                  {t.noteAfter}
                 </p>
               </div>
 
@@ -101,13 +73,13 @@ export default function Pricing() {
                   href="https://apps.apple.com/us/app/barbers-book/id6740193881"
                   className="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition text-base"
                 >
-                  Download on the App Store
+                  {t.appStore}
                 </a>
                 <a
                   href="https://play.google.com/store/apps/details?id=com.thebarbersbook.app"
                   className="flex items-center justify-center gap-2 w-full bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 rounded-xl transition text-base"
                 >
-                  Get it on Google Play
+                  {t.play}
                 </a>
               </div>
             </div>
