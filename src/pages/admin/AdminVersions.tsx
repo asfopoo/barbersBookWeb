@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { adminApi, type AppPlatform, type PlatformVersions } from '../../lib/adminApi';
 import AdminLayout from '../../components/admin/AdminLayout';
@@ -10,11 +10,6 @@ function PlatformCard({ platform, current }: { platform: AppPlatform; current: P
   const queryClient = useQueryClient();
   const [latest, setLatest] = useState(current.latestVersion);
   const [min, setMin] = useState(current.minVersion);
-
-  useEffect(() => {
-    setLatest(current.latestVersion);
-    setMin(current.minVersion);
-  }, [current.latestVersion, current.minVersion]);
 
   const save = useMutation({
     mutationFn: () => adminApi.setAppVersions(platform, { latestVersion: latest.trim(), minVersion: min.trim() }),
@@ -102,7 +97,8 @@ export default function AdminVersions() {
         {data && (
           <div className="grid gap-4 md:grid-cols-2">
             {(['ios', 'android'] as const).map((p) => (
-              <PlatformCard key={p} platform={p} current={data[p]} />
+              // Keyed on the saved values so the inputs reset after a save.
+              <PlatformCard key={`${p}-${data[p].latestVersion}-${data[p].minVersion}`} platform={p} current={data[p]} />
             ))}
           </div>
         )}
