@@ -6,14 +6,27 @@ import AdminLayout from '../../components/admin/AdminLayout';
 const VERSION_RE = /^\d+\.\d+\.\d+$/;
 const LABEL: Record<AppPlatform, string> = { ios: 'iOS (App Store)', android: 'Android (Google Play)' };
 
-function PlatformCard({ platform, current }: { platform: AppPlatform; current: PlatformVersions }) {
+function PlatformCard({
+  platform,
+  current,
+  justSaved,
+  onSaved,
+}: {
+  platform: AppPlatform;
+  current: PlatformVersions;
+  justSaved: boolean;
+  onSaved: () => void;
+}) {
   const queryClient = useQueryClient();
   const [latest, setLatest] = useState(current.latestVersion);
   const [min, setMin] = useState(current.minVersion);
 
   const save = useMutation({
     mutationFn: () => adminApi.setAppVersions(platform, { latestVersion: latest.trim(), minVersion: min.trim() }),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-app-config'] }),
+    onSuccess: () => {
+      onSaved();
+      queryClient.invalidateQueries({ queryKey: ['admin-app-config'] });
+    },
     onError: (err: Error) => window.alert(err.message || 'Failed to save'),
   });
 
@@ -70,13 +83,15 @@ function PlatformCard({ platform, current }: { platform: AppPlatform; current: P
           {save.isPending ? 'Saving…' : 'Save'}
         </button>
         {!valid && <span className="text-sm text-red-600">Versions look like 4.19.0</span>}
-        {save.isSuccess && !dirty && <span className="text-sm text-green-700">Saved. Apps pick it up within a minute.</span>}
+        {justSaved && !dirty && <span className="text-sm text-green-700">Saved. Apps pick it up within a minute.</span>}
       </div>
     </div>
   );
 }
 
 export default function AdminVersions() {
+  // Lives here, not in the card: the card remounts after a save (see key).
+  const [savedPlatform, setSavedPlatform] = useState<AppPlatform | null>(null);
   const { data, isLoading, error } = useQuery({
     queryKey: ['admin-app-config'],
     queryFn: () => adminApi.getAppConfig(),
@@ -98,7 +113,11 @@ export default function AdminVersions() {
           <div className="grid gap-4 md:grid-cols-2">
             {(['ios', 'android'] as const).map((p) => (
               // Keyed on the saved values so the inputs reset after a save.
-              <PlatformCard key={`${p}-${data[p].latestVersion}-${data[p].minVersion}`} platform={p} current={data[p]} />
+              <PlatformCard key={`${p}-${data[p].latestVersion}-${data[p].minVersion}`} platform={p}
+                current={data[p]}
+                justSaved={savedPlatform === p}
+                onSaved={() => setSavedPlatform(p)}
+              />
             ))}
           </div>
         )}
