@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { useRouteMeta } from './seo'
 import HomePage from './pages/Home'
 import PrivacyPolicy from './pages/PrivacyPolicy'
@@ -8,7 +8,6 @@ import StripeReturn from './pages/StripeReturn'
 import StripeRefresh from './pages/StripeRefresh'
 import Referral from './pages/Referral'
 import AdminLogin from './pages/admin/AdminLogin'
-import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminUsers from './pages/admin/AdminUsers'
 import AdminUserDetail from './pages/admin/AdminUserDetail'
 import AdminShops from './pages/admin/AdminShops'
@@ -17,6 +16,9 @@ import AdminAnalytics from './pages/admin/AdminAnalytics'
 import AdminNotifications from './pages/admin/AdminNotifications'
 import AdminTransactions from './pages/admin/AdminTransactions'
 import AdminPayouts from './pages/admin/AdminPayouts'
+import AdminFeedback from './pages/admin/AdminFeedback'
+import AdminReferrals from './pages/admin/AdminReferrals'
+import AdminVersions from './pages/admin/AdminVersions'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 
 function App() {
@@ -38,11 +40,30 @@ function App() {
         
         {/* Admin Routes - No reference from home page */}
         <Route path="/admin/login" element={<AdminLogin />} />
+        {/* Users is the landing page; old Dashboard links land there too. */}
+        <Route path="/admin" element={<Navigate to="/admin/users" replace />} />
+        <Route path="/admin/dashboard" element={<Navigate to="/admin/users" replace />} />
         <Route
-          path="/admin/dashboard"
+          path="/admin/feedback"
           element={
             <ProtectedRoute>
-              <AdminDashboard />
+              <AdminFeedback />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/referrals"
+          element={
+            <ProtectedRoute>
+              <AdminReferrals />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/versions"
+          element={
+            <ProtectedRoute>
+              <AdminVersions />
             </ProtectedRoute>
           }
         />

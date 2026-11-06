@@ -78,7 +78,7 @@ Navigate to: `https://your-domain.com/admin/login`
 ## Admin Routes (Hidden from Public)
 
 - `/admin/login` - Admin login page
-- `/admin/dashboard` - Stats overview
+- `/admin/users` - Landing page (the old `/admin/dashboard` redirects here)
 - `/admin/users` - User management
 - `/admin/users/:id` - User detail
 - `/admin/shops` - Shop management
