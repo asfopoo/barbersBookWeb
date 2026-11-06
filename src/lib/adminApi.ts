@@ -49,19 +49,6 @@ export interface Shop {
   updatedAt: string;
 }
 
-export interface DashboardStats {
-  totalUsers: number;
-  activeSubscriptions: number;
-  subscriptionBreakdown: { tier: string; count: string }[];
-  recentSignups: number;
-  totalShops: number;
-  activeShops: number;
-  totalHaircuts: number;
-  totalExpenses: number;
-  totalRevenue: number;
-  activeWaitlistEntries: number;
-}
-
 export interface PayoutUser {
   id: string;
   email: string;
@@ -96,6 +83,52 @@ export interface PayoutRunResult {
   payoutsFailed: number;
   totalAmountPaid: number;
   errors: Array<{ userId: string; email: string; error: string }>;
+}
+
+export interface FeedbackItem {
+  id: string;
+  userId: string | null;
+  email: string | null;
+  firstName: string | null;
+  lastName: string | null;
+  language: string | null;
+  category: string;
+  message: string;
+  appVersion: string | null;
+  os: string | null;
+  deviceModel: string | null;
+  createdAt: string;
+  repliedAt: string | null;
+}
+
+export interface HeldReferral {
+  referee: { id: string; email: string; firstName: string | null; lastName: string | null; createdAt: string; signupIp: string | null };
+  referrer: { id: string; email: string; firstName: string | null; lastName: string | null; signupIp: string | null };
+  refereeRewarded: boolean;
+  referrerRewarded: boolean;
+  reason: 'same_ip_as_referrer' | 'same_ip_as_other_referee';
+}
+
+export interface ReleaseResult {
+  refereeRewards: number;
+  referrerRewards: number;
+  capped: number;
+  errors: { userId: string; error: string }[];
+}
+
+export type AppPlatform = 'ios' | 'android';
+
+export interface PlatformVersions {
+  latestVersion: string;
+  minVersion: string;
+  storeUrl: string;
+}
+
+export const POSTHOG_MOBILE_PROJECT = 133308;
+
+/** PostHog keys barbers by email, so the person page is addressable by it. */
+export function posthogPersonUrl(email: string): string {
+  return `https://us.posthog.com/project/${POSTHOG_MOBILE_PROJECT}/person/${encodeURIComponent(email)}`;
 }
 
 // Auth Service
@@ -181,11 +214,6 @@ class AdminApiClient {
     }
 
     return response.json();
-  }
-
-  // Dashboard Stats
-  async getStats(): Promise<DashboardStats> {
-    return this.request('/api/admin/stats');
   }
 
   // Users
@@ -363,6 +391,42 @@ class AdminApiClient {
 
   async blastTapToPayPush(): Promise<{ sent: number; failed: number; total: number }> {
     return this.request('/api/admin/blast/tap-to-pay-push', { method: 'POST' });
+  }
+
+  // Feedback inbox
+  async getFeedback(status: 'open' | 'all' = 'all'): Promise<{ feedback: FeedbackItem[]; openCount: number }> {
+    return this.request(`/api/admin/feedback${status === 'open' ? '?status=open' : ''}`);
+  }
+
+  async setFeedbackReplied(id: string, replied: boolean): Promise<{ id: string; repliedAt: string | null }> {
+    return this.request(`/api/admin/feedback/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ replied }),
+    });
+  }
+
+  // Held referral rewards
+  async getHeldReferrals(): Promise<{ held: HeldReferral[] }> {
+    return this.request('/api/admin/referrals/held');
+  }
+
+  async releaseReferral(refereeId: string): Promise<ReleaseResult> {
+    return this.request(`/api/admin/referrals/${refereeId}/release`, { method: 'POST' });
+  }
+
+  // Store versions (what the app's update prompt compares against)
+  async getAppConfig(): Promise<Record<AppPlatform, PlatformVersions>> {
+    return this.request('/api/app-config', { cache: 'no-store' });
+  }
+
+  async setAppVersions(
+    platform: AppPlatform,
+    data: { latestVersion?: string; minVersion?: string },
+  ): Promise<PlatformVersions> {
+    return this.request(`/api/app-config/${platform}`, {
+      method: 'PATCH',
+      body: JSON.stringify(data),
+    });
   }
 
   // Payout Cron

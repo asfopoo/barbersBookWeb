@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { adminApi, barberBookingUrl, shopBookingUrl } from '../../lib/adminApi';
+import { adminApi, barberBookingUrl, posthogPersonUrl, shopBookingUrl } from '../../lib/adminApi';
 import AdminLayout from '../../components/admin/AdminLayout';
 import BookingLink from '../../components/admin/BookingLink';
 import { useState } from 'react';
@@ -16,6 +16,17 @@ export default function AdminUserDetail() {
   const [copied, setCopied] = useState(false);
   // Brief flash after copying the App User ID so it's clear the click landed.
   const [idCopied, setIdCopied] = useState(false);
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const copyEmail = async (email: string) => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 1500);
+    } catch {
+      window.prompt('Copy email:', email);
+    }
+  };
 
   const handleCopyId = async () => {
     if (!id) return;
@@ -209,7 +220,24 @@ export default function AdminUserDetail() {
                 </span>
               )}
             </h2>
-            <p className="text-gray-600 mt-1">{user.email}</p>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm">
+              <button
+                onClick={() => copyEmail(user.email)}
+                className="text-gray-600 hover:text-gray-900"
+                title="Copy email"
+              >
+                {user.email} <span className="text-xs text-gray-400">{emailCopied ? 'Copied' : 'Copy'}</span>
+              </button>
+              <a href={`mailto:${user.email}`} className="text-blue-600 hover:underline">Email</a>
+              <a href={posthogPersonUrl(user.email)} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
+                PostHog ↗
+              </a>
+              {barberBookingUrl(user.bookingSlug) && (
+                <a href={barberBookingUrl(user.bookingSlug)!} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
+                  Booking page ↗
+                </a>
+              )}
+            </div>
           </div>
           {!editMode ? (
             <button
