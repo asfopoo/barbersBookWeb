@@ -78,6 +78,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
     { path: '/admin/users', label: 'Users' },
     { path: '/admin/feedback', label: 'Feedback', badge: feedback?.openCount },
     { path: '/admin/referrals', label: 'Referrals', badge: held?.held.length },
+    { path: '/admin/affiliates', label: 'Affiliates' },
     { path: '/admin/versions', label: 'Store versions' },
     { path: '/admin/shops', label: 'Shops' },
   ];
@@ -93,7 +94,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
   ];
 
   const isActive = (path: string) =>
-    location.pathname === path || (path === '/admin/users' && location.pathname.startsWith('/admin/users/'));
+    location.pathname === path || location.pathname.startsWith(`${path}/`);
 
   return (
     <div className="min-h-screen bg-gray-50">

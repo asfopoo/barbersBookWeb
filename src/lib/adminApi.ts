@@ -101,6 +101,68 @@ export interface FeedbackItem {
   repliedAt: string | null;
 }
 
+export interface AffiliateTotals {
+  signups: number;
+  payingBarbers: number;
+  earnedUsd: number;
+  paidUsd: number;
+  owedUsd: number;
+}
+
+export interface AffiliateSummary {
+  id: string;
+  name: string;
+  code: string;
+  email: string | null;
+  commissionPercent: number;
+  commissionMonths: number;
+  payoutMethod: string | null;
+  payoutHandle: string | null;
+  notes: string | null;
+  active: boolean;
+  createdAt: string;
+  link: string;
+  statsUrl: string;
+  totals: AffiliateTotals;
+}
+
+export interface AffiliateDetail extends AffiliateSummary {
+  barbers: {
+    id: string;
+    email: string;
+    firstName: string | null;
+    lastName: string | null;
+    createdAt: string;
+    subscriptionTier: string;
+    subscriptionStatus: string;
+    earnedUsd: number;
+    firstChargeAt: string | null;
+  }[];
+  commissions: {
+    id: string;
+    userId: string | null;
+    eventType: string;
+    store: string | null;
+    grossUsd: number;
+    commissionUsd: number;
+    occurredAt: string;
+    paid: boolean;
+  }[];
+  payouts: { id: string; amountUsd: number; method: string | null; reference: string | null; note: string | null; paidAt: string }[];
+}
+
+export interface AffiliateInput {
+  name?: string;
+  code?: string;
+  email?: string | null;
+  commissionPercent?: number;
+  commissionMonths?: number;
+  payoutMethod?: string | null;
+  payoutHandle?: string | null;
+  notes?: string | null;
+  active?: boolean;
+}
+
 export interface HeldReferral {
   referee: { id: string; email: string; firstName: string | null; lastName: string | null; createdAt: string; signupIp: string | null };
   referrer: { id: string; email: string; firstName: string | null; lastName: string | null; signupIp: string | null };
@@ -406,6 +468,30 @@ class AdminApiClient {
   }
 
   // Held referral rewards
+  // Paid affiliates
+  async getAffiliates(): Promise<{ affiliates: AffiliateSummary[] }> {
+    return this.request('/api/admin/affiliates');
+  }
+
+  async getAffiliate(id: string): Promise<AffiliateDetail> {
+    return this.request(`/api/admin/affiliates/${id}`);
+  }
+
+  async createAffiliate(input: AffiliateInput): Promise<AffiliateDetail> {
+    return this.request('/api/admin/affiliates', { method: 'POST', body: JSON.stringify(input) });
+  }
+
+  async updateAffiliate(id: string, input: AffiliateInput): Promise<AffiliateDetail> {
+    return this.request(`/api/admin/affiliates/${id}`, { method: 'PATCH', body: JSON.stringify(input) });
+  }
+
+  async recordAffiliatePayout(
+    id: string,
+    input: { method?: string; reference?: string; note?: string },
+  ): Promise<{ id: string; amountUsd: number; commissions: number }> {
+    return this.request(`/api/admin/affiliates/${id}/payouts`, { method: 'POST', body: JSON.stringify(input) });
+  }
+
   async getHeldReferrals(): Promise<{ held: HeldReferral[] }> {
     return this.request('/api/admin/referrals/held');
   }
