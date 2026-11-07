@@ -7,6 +7,7 @@ import CookiePolicy from './pages/CookiePolicy'
 import StripeReturn from './pages/StripeReturn'
 import StripeRefresh from './pages/StripeRefresh'
 import Referral from './pages/Referral'
+import AffiliateStats from './pages/AffiliateStats'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminUsers from './pages/admin/AdminUsers'
 import AdminUserDetail from './pages/admin/AdminUserDetail'
@@ -18,6 +19,8 @@ import AdminTransactions from './pages/admin/AdminTransactions'
 import AdminPayouts from './pages/admin/AdminPayouts'
 import AdminFeedback from './pages/admin/AdminFeedback'
 import AdminReferrals from './pages/admin/AdminReferrals'
+import AdminAffiliates from './pages/admin/AdminAffiliates'
+import AdminAffiliateDetail from './pages/admin/AdminAffiliateDetail'
 import AdminVersions from './pages/admin/AdminVersions'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 
@@ -33,6 +36,7 @@ function App() {
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/cookies" element={<CookiePolicy />} />
         <Route path="/r/:code" element={<Referral />} />
+        <Route path="/a/:token" element={<AffiliateStats />} />
         
         {/* Stripe Connect redirect pages */}
         <Route path="/stripe-return" element={<StripeReturn />} />
@@ -56,6 +60,22 @@ function App() {
           element={
             <ProtectedRoute>
               <AdminReferrals />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/affiliates"
+          element={
+            <ProtectedRoute>
+              <AdminAffiliates />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/affiliates/:id"
+          element={
+            <ProtectedRoute>
+              <AdminAffiliateDetail />
             </ProtectedRoute>
           }
         />

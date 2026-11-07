@@ -97,6 +97,8 @@ export function useRouteMeta() {
   const { pathname } = useLocation()
 
   useEffect(() => {
+    // Private affiliate pages set their own title and robots tag.
+    if (pathname.startsWith('/a/')) return
     const meta = ROUTES.find((r) => r.path === pathname) ?? ROUTES[0]
     document.title = meta.title
     document.documentElement.lang = meta.lang

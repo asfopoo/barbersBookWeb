@@ -8,12 +8,17 @@ const isLocalHost = (): boolean => {
   return h === "localhost" || h === "127.0.0.1" || h === "::1" || h.endsWith(".local");
 };
 
-const isAdminRoute = (): boolean => window.location.pathname.startsWith("/admin");
+// Admin pages and affiliate stats pages (/a/<token>) stay out of analytics:
+// pageviews would record the secret token in the URL.
+const isPrivateRoute = (): boolean => {
+  const p = window.location.pathname;
+  return p.startsWith("/admin") || p.startsWith("/a/");
+};
 
 let initialized = false;
 
 export function initAnalytics(): void {
-  if (initialized || !KEY || !HOST || isLocalHost() || isAdminRoute()) return;
+  if (initialized || !KEY || !HOST || isLocalHost() || isPrivateRoute()) return;
   posthog.init(KEY, {
     api_host: HOST,
     capture_pageview: "history_change",

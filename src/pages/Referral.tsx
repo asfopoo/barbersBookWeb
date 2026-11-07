@@ -15,6 +15,8 @@ export default function Referral() {
   const { code: rawCode = '' } = useParams()
   const code = rawCode.toUpperCase().replace(/[^A-Z0-9]/g, '')
   const [referrerName, setReferrerName] = useState<string | null>(null)
+  // Affiliate codes (an educator, an expo) only reward the barber signing up.
+  const [isAffiliate, setIsAffiliate] = useState(false)
   const [valid, setValid] = useState<boolean | null>(null)
   const [copied, setCopied] = useState(false)
 
@@ -26,7 +28,8 @@ export default function Referral() {
         if (cancelled) return
         setValid(!!body)
         setReferrerName(body?.firstName ?? null)
-        track('referral_landing_viewed', { valid: !!body })
+        setIsAffiliate(body?.kind === 'affiliate')
+        track('referral_landing_viewed', { valid: !!body, kind: body?.kind ?? null })
       })
       .catch(() => {
         if (!cancelled) setValid(null)
@@ -66,7 +69,7 @@ export default function Referral() {
           Log every cut and tip, take bookings online, and run a digital waitlist from one app.
           {valid !== false && (
             <>
-              {' '}Sign up with this code and you both get a{' '}
+              {' '}Sign up with this code and {isAffiliate ? 'you get' : 'you both get'} a{' '}
               <strong className="text-white">free month of Premium</strong>.
             </>
           )}
@@ -105,7 +108,7 @@ export default function Referral() {
           </li>
           <li>
             <span className="text-blue-400 font-bold mr-2">3.</span>
-            You both get a free month of Premium, added automatically.
+            {isAffiliate ? 'You get' : 'You both get'} a free month of Premium, added automatically.
           </li>
         </ol>
         )}
