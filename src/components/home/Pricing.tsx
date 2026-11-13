@@ -49,7 +49,6 @@ export default function Pricing() {
                 </span>
               </div>
               <p className="mt-4 flex items-end gap-3">
-                <span className="mb-1.5 font-display text-2xl font-semibold text-zinc-600 line-through">$24.99</span>
                 <span className="font-display text-6xl font-extrabold tracking-tight text-white">$4.99</span>
                 <span className="mb-2 text-zinc-500">{t.perMonth}</span>
               </p>

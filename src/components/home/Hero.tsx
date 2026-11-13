@@ -56,7 +56,7 @@ export default function Hero() {
           <div className="pop-in mt-9 flex flex-col items-center gap-5 lg:items-start [--d:240ms]">
             <StoreBadges placement="hero" />
             <p className="text-sm text-zinc-500">
-              {t.priceBefore} <span className="text-zinc-600 line-through">$24.99</span>{' '}
+              {t.priceBefore}{' '}
               <span className="font-semibold text-zinc-300">{t.priceAfter}</span>
               <span className="mx-2 text-zinc-700">·</span>
               {t.platforms}
