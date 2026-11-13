@@ -1,11 +1,36 @@
 // English copy for the home page. es.ts must provide every key (see Dict).
+// Feature claims mirror the 4.18+ app and the store listing; Premium items
+// mirror the app's subscription.premiumFeatures list.
+
+export type Shot = 'today' | 'money' | 'schedule' | 'clients' | 'tax' | 'client'
+
+export type IconName =
+  | 'scissors'
+  | 'wallet'
+  | 'calendar'
+  | 'users'
+  | 'receipt'
+  | 'clock'
+  | 'link'
+  | 'repeat'
+  | 'history'
+  | 'download'
+  | 'sparkles'
+  | 'message'
+  | 'bell'
+  | 'gift'
+  | 'globe'
+  | 'chart'
+
 const en = {
+  shotDir: '/app/en',
   nav: {
     features: 'Features',
-    booking: 'Booking',
-    howItWorks: 'How It Works',
+    calculator: 'Calculator',
+    howItWorks: 'How it works',
     pricing: 'Pricing',
-    download: 'Download Free',
+    download: 'Get the app',
+    home: "Barber's Book home",
   },
   badges: {
     appStoreImg:
@@ -17,326 +42,292 @@ const en = {
     playAlt: 'Get it on Google Play',
   },
   hero: {
-    pill: 'Earnings, Bookings & Waitlist. One App.',
-    line1: 'Track Every Dollar.',
-    line2: 'Fill Your Chair.',
-    line3: 'Grow Your Shop.',
-    bodyBefore:
-      'The all-in-one app for barbers: log every cut and tip, take bookings online, run your digital waitlist, and stay ahead at tax time. Try Premium free for 14 days, then',
-    bodyAfter: '$4.99/mo. Cancel anytime.',
-    chips: ['Earnings Tracking', 'Online Booking', 'Tax Estimate · Free', 'Digital Waitlist'],
-    mock: {
-      todayEarnings: "Today's Earnings",
-      services: '12 services',
-      tips: '$52 tips',
-      nextAppt: 'Next appointment',
-      nextApptValue: 'Classic Cut · 2:30 PM',
-      bookedOnline: 'Booked online',
-      confirmed: 'Confirmed',
-      taxEstimate: 'Tax Estimate',
-      setAside: '$121.75 to set aside',
-      rate: '25% rate • from logged earnings',
-      waitlist: 'Waitlist',
-      waiting: '4 customers waiting',
-      next: 'Next: Marcus J. · 5 min',
+    eyebrow: 'New: the redesigned app is here',
+    title1: 'Know what you',
+    title2: 'really take home.',
+    body: "Log a cut in seconds and Barber's Book does the math: your real take-home after the shop's cut, expenses and taxes. Plus a free booking link, a walk-in waitlist, and every client remembered.",
+    priceBefore: 'Free to use. Premium is free for 14 days, then',
+    priceAfter: '$4.99/mo.',
+    platforms: 'iPhone, iPad and Android',
+    shotAltFront: 'The Money screen showing take-home pay after shop cut, expenses and taxes',
+    shotAltBack: "The Today screen showing what you made, who's next and who needs you",
+    float: {
+      cutLabel: 'Cut logged',
+      cutValue: 'Haircut + Beard',
+      cutAmount: '+$45',
+      cutTip: '+$3 tip',
+      taxLabel: 'Next quarterly payment',
+      taxValue: 'Set aside $1,056',
+      taxDate: 'JAN',
+      dueLabel: 'Due for a cut',
+      dueValue: 'Andre Morales',
+      dueAction: 'Book',
     },
   },
-  key: {
-    booking: {
-      pill: 'Online Booking',
-      title: 'Let Customers Book You Anytime',
-      body: 'Share your booking link and customers pick a service and an open time on their own. Every booking lands on your calendar, and you set the rules for when and how far ahead people can book.',
-      points: [
-        {
-          title: 'Your Own Booking Page',
-          text: 'Customers see your services, prices, and open times. No app download required on their end.',
-        },
-        {
-          title: 'Automatic Reminders',
-          text: 'Customers get reminded before their appointment, with a link to cancel if plans change.',
-        },
-        {
-          title: 'Your Booking Rules',
-          text: 'Set your hours, minimum notice, booking window, and cancellation cutoff.',
-        },
-      ],
-      today: 'Today',
-      appts: [
-        { time: '10:00 AM', name: 'Skin Fade', who: 'Marcus J.', tag: 'Booked online' },
-        { time: '11:30 AM', name: 'Classic Cut', who: 'Andre W.', tag: 'Recurring' },
-        { time: '2:30 PM', name: 'Cut + Beard', who: 'Luis R.', tag: 'Booked online' },
-      ],
-    },
-    earnings: {
-      img: '/screenshots/earnings.png',
-      imgAlt: 'Earnings overview screen',
-      imgTall: false,
-      pill: 'Earnings & Analytics',
-      title: 'See Every Dollar You Earn',
-      body: 'Log each service with price, tip, service type, and payment method. View daily, weekly, and monthly earnings charts. Know your top services, best days, and exactly how your business is growing.',
-      points: [
-        {
-          title: 'Service + Tip Breakdown',
-          text: 'Track service revenue and tips separately, with payment method per transaction',
-        },
-        {
-          title: 'Visual Analytics',
-          text: 'Daily, weekly, and monthly charts make trends and growth easy to spot',
-        },
-        {
-          title: 'Top Services & Best Days',
-          text: 'Identify what drives your revenue so you can make smarter business decisions',
-        },
-      ],
-    },
-    tax: {
-      pill: 'Tax Estimate',
-      pillBadge: 'FREE for everyone',
-      title: 'Never Get Caught Off Guard at Tax Time',
-      body: "As a self-employed barber, taxes can sneak up on you. Barber's Book estimates what you owe from the earnings you log, so you know how much to put aside before the bill comes. Set your rate once and check in anytime.",
-      points: [
-        {
-          title: 'Built From Your Real Earnings',
-          text: 'Every cut and tip you log updates your estimate. You choose whether cash earnings count.',
-        },
-        {
-          title: 'Your Rate, Your Rules',
-          text: 'Set your own estimate rate. Most self-employed barbers use 25 to 30%.',
-        },
-        {
-          title: 'Free for Everyone',
-          text: 'The running tax estimate is included on every plan, including free.',
-        },
-      ],
-      ytd: 'Year-to-date earnings',
-      estimated: 'Estimated tax',
-      rate: '25% rate · from logged earnings',
-    },
-    waitlist: {
-      img: '/screenshots/waitlist.png',
-      imgAlt: 'Digital Waitlist management',
-      pill: 'Digital Waitlist',
-      title: 'Your Customers Wait Anywhere',
-      body: "No more crowded waiting areas. Customers scan your QR code or visit your shop's unique link to join the queue from anywhere. They get real-time updates on their phone. You manage everything from the app.",
-      points: [
-        {
-          title: 'QR Code Check-In',
-          text: 'Customers scan and join instantly. No app download required on their end.',
-        },
-        {
-          title: 'Real-Time Position Updates',
-          text: 'They always know where they stand in line and when to head over',
-        },
-        {
-          title: 'SMS & Email Alerts (Premium)',
-          text: 'Automatically notify customers when their turn is coming up. Never a missed appointment.',
-        },
-      ],
-    },
+  marquee: [
+    'Booth renters',
+    'Commission barbers',
+    'Shop owners',
+    'Log a cut in seconds',
+    'Free booking link',
+    'Walk-in waitlist',
+    'Tax set-aside',
+    'English y español',
+  ],
+  story: {
+    eyebrow: 'The app',
+    title: 'Your whole business, in your pocket.',
+    subtitle: 'Five screens. Everything a barber needs, nothing you have to figure out.',
+    chapters: [
+      {
+        shot: 'today' as Shot,
+        tag: 'Today',
+        title: 'Your day at a glance.',
+        body: "Open the app and see what you made, who's up next, booking requests waiting on you, and regulars who are due back.",
+        bullets: ['One tap to log a cut', 'Booking requests and walk-ins in one place', 'A daily heads-up for tomorrow'],
+        alt: "The Today screen: what you made, who needs you, and who's up next",
+      },
+      {
+        shot: 'money' as Shot,
+        tag: 'Money',
+        title: 'What you really keep.',
+        body: "Your real take-home after the shop's cut, your expenses and taxes. Flip between week, month and year and spot your best months.",
+        bullets: ['Commission, chair rent or per-cut fee', 'Services and tips side by side', 'Twelve months of history at a glance'],
+        alt: 'The Money screen: take-home broken down into yours, tax, expenses and shop',
+      },
+      {
+        shot: 'tax' as Shot,
+        tag: 'Taxes',
+        title: 'No surprises at tax time.',
+        body: 'A running tax estimate tells you how much to set aside, with a countdown to each quarterly payment. See which services bring in the most.',
+        bullets: ['Your rate, your rules', 'Quarterly payment countdown', 'Top services ranked by revenue'],
+        alt: 'The tax card with the next quarterly payment and top services',
+      },
+      {
+        shot: 'schedule' as Shot,
+        tag: 'Schedule',
+        title: 'A booking page that costs nothing.',
+        body: 'Day, week and month views in one place. Share your free booking link so clients book themselves, approve requests, and run your walk-in line from your phone.',
+        bullets: ['Free booking link for every barber', 'Approve or decline requests', 'Walk-in waitlist with a QR code'],
+        alt: 'The weekly schedule with bookings across seven days',
+      },
+      {
+        shot: 'clients' as Shot,
+        tag: 'Clients',
+        title: 'Remember every client.',
+        body: "Visits, usual cut, notes, tips and what they've spent with you. See who is due for a cut and book or text them in one tap.",
+        bullets: ['Who is due back, before they drift', 'Notes like "low skin fade, #3 on top"', 'Book or text in one tap'],
+        alt: 'The Clients screen with regulars who are due for a cut',
+      },
+    ],
   },
-  features: {
-    title: 'Everything You Need to Run Your Shop',
-    subtitle:
-      "Barber's Book is built specifically for barbers, with real earnings tracking, online booking, tax tools, and a real waitlist system.",
+  calc: {
+    eyebrow: 'Take-home calculator',
+    title: 'Where does your money actually go?',
+    subtitle: 'Move the sliders to match a typical week. This is the same math the app runs on every cut you log.',
+    services: 'Services per week',
+    tips: 'Tips per week',
+    payLabel: 'How you get paid',
+    commission: 'Commission',
+    rent: 'Chair rent',
+    shopPct: "Shop's cut of services",
+    rentWeek: 'Chair rent per week',
+    expenses: 'Supplies and other expenses',
+    taxRate: 'Tax set-aside rate',
+    resultLabel: 'You take home',
+    perWeek: '/ week',
+    perYear: 'About {amount} a year',
+    yours: 'Yours',
+    tax: 'Tax set-aside',
+    expensesShort: 'Expenses',
+    shop: 'Shop',
+    disclaimer: 'An estimate, not tax advice. Tax is set aside from what is left after the shop and your expenses.',
+    cta: 'Track it for real, free',
+  },
+  bento: {
+    eyebrow: 'Features',
+    title: 'Built for how barbers actually work.',
+    subtitle: "Free to use, with Premium when you're ready for more.",
     free: 'Free',
     premium: 'Premium',
-    legendLabel: 'Badges:',
-    legendFree: '= included in the free plan',
-    legendPremiumBefore: '= included in Premium (',
-    legendPremiumAfter: '$4.99/mo, 14-day free trial)',
     items: [
       {
-        icon: '📅',
-        title: 'Online Booking',
-        description:
-          'Share your booking link and let customers pick a service and an open time. Every booking lands on your calendar.',
+        icon: 'scissors' as IconName,
+        title: 'Log a cut in seconds',
+        body: 'Service, price, tip and how they paid. The app does the rest of the math.',
+        size: 'lg',
+        visual: 'keypad',
       },
       {
-        icon: '🗓️',
-        title: 'Appointment Calendar',
-        description:
-          'See your day at a glance, add appointments yourself, and mark them done when the cut is finished.',
+        icon: 'wallet' as IconName,
+        title: 'Real take-home',
+        body: "After the shop's cut, expenses and taxes. Not just what came in.",
+        size: 'lg',
+        visual: 'bar',
       },
       {
-        icon: '🧾',
-        title: 'Tax Estimation',
-        description:
-          'See a running estimate of your tax bill based on the earnings you log, so you know what to set aside.',
-        badge: 'free',
+        icon: 'link' as IconName,
+        title: 'Free booking link',
+        body: 'Clients pick a service and a time. No app download on their end.',
+        size: 'sm',
       },
       {
-        icon: '💰',
-        title: 'Earnings Tracking',
-        description:
-          'Log every service with price, tip, service type, and payment method. Know exactly how much you made today.',
+        icon: 'clock' as IconName,
+        title: 'Walk-in waitlist',
+        body: 'Clients scan your QR code and wait anywhere, not in your shop.',
+        size: 'sm',
       },
       {
-        icon: '📊',
-        title: 'Visual Analytics',
-        description:
-          'Daily, weekly, and monthly charts show your earnings trends, top services, and best-performing days.',
+        icon: 'receipt' as IconName,
+        title: 'Expenses',
+        body: 'Chair rent, supplies, tools. Every deductible cost in one place.',
+        size: 'sm',
       },
       {
-        icon: '💸',
-        title: 'Expense Management',
-        description:
-          'Track chair rent, supplies, and other business costs by category. See your real net income automatically.',
+        icon: 'bell' as IconName,
+        title: 'Daily schedule heads-up',
+        body: "A notification with today's or tomorrow's lineup, at the time you pick.",
+        size: 'sm',
       },
       {
-        icon: '✂️',
-        title: 'Service Management',
-        description:
-          'Create your custom service menu with prices. Log earnings for any service in seconds.',
-      },
-      {
-        icon: '⏰',
-        title: 'Digital Waitlist',
-        description:
-          'Customers scan your QR code to join your queue from anywhere. Manage walk-ins without the chaos.',
-      },
-      {
-        icon: '🔁',
-        title: 'Recurring Appointments',
-        description:
-          'Turn any booking into a standing weekly, biweekly, or monthly reservation. Set it once and stop chasing rebookings.',
+        icon: 'users' as IconName,
+        title: 'Clients due back',
+        body: 'See which regulars are overdue and text or book them in one tap.',
+        size: 'sm',
         badge: 'premium',
       },
       {
-        icon: '🔔',
-        title: 'SMS & Email Notifications',
-        description:
-          "Notify customers via SMS and email when it's their turn. Keep them informed, keep them happy.",
+        icon: 'chart' as IconName,
+        title: 'Tax set-aside tracking',
+        body: "Log what you put away for taxes and see what's still left to save.",
+        size: 'sm',
         badge: 'premium',
       },
       {
-        icon: '🎨',
-        title: "Your Shop's Look",
-        description:
-          "Your booking page, waitlist, texts, and emails. Branded for you, not The Barber's Book.",
+        icon: 'repeat' as IconName,
+        title: 'Recurring appointments',
+        body: 'Weekly, biweekly or monthly standing bookings. Set it once.',
+        size: 'sm',
         badge: 'premium',
       },
       {
-        icon: '🏪',
-        title: 'Multi-Location',
-        description:
-          'Manage multiple shop locations from one account. Switch between locations instantly.',
+        icon: 'history' as IconName,
+        title: 'Your full money history',
+        body: "Every month and year you've logged, not just this month and last.",
+        size: 'sm',
         badge: 'premium',
       },
       {
-        icon: '📤',
-        title: 'Unlimited Data Export',
-        description:
-          'Export and backup your full earnings and expense history anytime. Your data belongs to you.',
+        icon: 'sparkles' as IconName,
+        title: "Your shop's look",
+        body: "Your booking page, waitlist, texts and emails, branded for you.",
+        size: 'sm',
         badge: 'premium',
       },
       {
-        icon: '🕰️',
-        title: 'Unlimited History',
-        description:
-          'Access all your metrics and earnings data forever. No 30-day cap, no auto-archive.',
-        badge: 'premium',
+        icon: 'globe' as IconName,
+        title: 'English y español',
+        body: 'The whole app, booking page and texts work in both languages.',
+        size: 'sm',
       },
-    ] as { icon: string; title: string; description: string; badge?: 'free' | 'premium' }[],
+    ] as {
+      icon: IconName
+      title: string
+      body: string
+      size: 'lg' | 'sm'
+      visual?: 'keypad' | 'bar'
+      badge?: 'premium'
+    }[],
+    keypad: { service: 'Haircut + Beard', tip: 'Tip', method: 'Cash', save: 'Log cut' },
   },
   how: {
-    title: 'Up and Running in Minutes',
-    subtitle: "Barber's Book is built to get out of your way. Set up once, then just run your shop.",
-    step: 'Step',
+    eyebrow: 'Get started',
+    title: 'Set up before your next client sits down.',
     steps: [
       {
-        emoji: '📲',
-        title: 'Download & Create Account',
-        description:
-          "Get Barber's Book from the App Store or Google Play. Create your free account and set up your shop profile in minutes.",
+        title: 'Download and sign up',
+        body: 'Free on the App Store and Google Play. Tell it how you get paid: commission, chair rent or a per-cut fee.',
       },
       {
-        emoji: '✂️',
-        title: 'Add Your Services',
-        description:
-          'Add your services with pricing, set your hours, and grab your booking link and waitlist QR code.',
+        title: 'Add your services',
+        body: 'Prices for your cuts, your hours, and you get a booking link and waitlist QR code to share.',
       },
       {
-        emoji: '📅',
-        title: 'Take Bookings & Log Every Cut',
-        description:
-          'Customers book online or join your waitlist. After each cut, log the service, tip, and how they paid in seconds.',
-      },
-      {
-        emoji: '📊',
-        title: 'Track, Save for Taxes & Grow',
-        description:
-          'Monitor daily earnings, keep an eye on your tax estimate, manage expenses, and analyze your business performance.',
+        title: 'Log every cut',
+        body: 'Tap, pick the service, add the tip. Your take-home, tax estimate and client history update on their own.',
       },
     ],
   },
   pricing: {
-    title: 'One Plan. Everything Included.',
-    subtitle:
-      'Earnings tracking, online booking, tax tools, analytics, and a digital waitlist. All in one app for less than a cup of coffee a week.',
-    banner: "BARBER'S BOOK PREMIUM",
+    eyebrow: 'Pricing',
+    title: 'Free to start. Cheap to grow.',
+    subtitle: 'Less than a cup of coffee a week for everything. Cancel anytime.',
+    freeName: 'Free',
+    freePrice: '$0',
+    freeNote: 'Forever. No card needed.',
+    freeFeatures: [
+      'Log unlimited cuts and tips',
+      'Take-home after shop cut and expenses',
+      'This month and last at a glance',
+      'Free booking link and walk-in waitlist',
+      'Client list, notes and visit history',
+      'Running tax estimate',
+    ],
+    premiumName: 'Premium',
     trial: '14-day free trial',
     perMonth: '/ month',
-    noteBefore: 'Try Premium free for 14 days.',
-    noteAfter: '$4.99/mo after, cancel anytime.',
-    appStore: 'Download on the App Store',
-    play: 'Get it on Google Play',
-    features: [
-      { text: 'Online booking page', note: 'customers book open times themselves' },
-      { text: 'Recurring Appointments', note: 'weekly, biweekly, or monthly standing reservations' },
-      { text: 'Tax Estimation', note: 'running estimate from your logged earnings' },
-      { text: 'Earnings & tips tracking' },
-      { text: 'Visual analytics', note: 'daily, weekly, monthly' },
-      { text: 'Digital waitlist (unlimited customers)' },
-      { text: 'Expense tracking & net income' },
-      { text: 'Service management' },
-      { text: 'Unlimited History', note: 'all your metrics and earnings forever' },
-      { text: 'Unlimited Data Export', note: 'export and backup anytime' },
-      { text: 'Multi-Location', note: 'manage multiple shop locations from one account' },
-      { text: 'SMS & Email Notifications', note: "notify customers when it's their turn" },
-      { text: "Your Shop's Look", note: 'your booking page, waitlist, texts, and emails branded for you' },
-    ] as { text: string; note?: string }[],
+    premiumNote: 'Free for 14 days, then $4.99/mo. Cancel anytime.',
+    premiumLead: 'Everything in Free, plus:',
+    premiumFeatures: [
+      'Your full money history, every month and year',
+      'Clients due back, with one-tap book or text',
+      'Tax set-aside tracking',
+      'Recurring appointments',
+      "Your shop's look on booking page, texts and emails",
+      'Texts in your words',
+      'Unlimited data export',
+    ],
+    cta: 'Start free',
+    referral: 'Invite another barber and get a free month of Premium when they start using the app.',
   },
   testimonials: {
-    title: 'Barbers Love It',
-    subtitle: "From solo barbers to multi-chair shops, Barber's Book is built for how you actually work.",
+    eyebrow: 'Barbers love it',
+    title: 'From solo chairs to full shops.',
     items: [
       {
         name: 'Sofia Martinez',
         role: 'Shop Owner, Miami',
-        image: '👩🏽',
+        initials: 'SM',
         text: "I used to keep a notebook for everything. Now Barber's Book tracks every service, every expense, and every tip. The earnings charts showed me my Fridays are twice as profitable, so I stopped taking Mondays off.",
       },
       {
         name: 'James Lee',
         role: 'Independent Barber, LA',
-        image: '👨🏻',
+        initials: 'JL',
         text: 'The waitlist is incredible. Customers scan my QR code from their car, wait outside, and walk in right on time. No more crowded shop. My clients love it and honestly so do I.',
       },
     ],
   },
   cta: {
-    pill: '14-day free trial. No credit card required to start.',
-    title: 'Ready to Run Your Shop Smarter?',
-    bodyBefore:
-      'Get online booking, a digital waitlist, a running tax estimate, and full earnings tracking. Try Premium free for 14 days, then',
-    bodyAfter: '$4.99/mo. Cancel anytime.',
-    footBefore: 'Cancel Premium anytime',
-    footAfter: 'Your data is always yours',
+    title1: 'Your next cut could be',
+    title2: 'the first one you track.',
+    body: 'Download free. See your real take-home by the end of the day.',
+    foot: 'Free to use · Cancel Premium anytime · Your data is always yours',
   },
   footer: {
     tagline:
-      'The all-in-one app for barbers: track earnings, take bookings, manage your waitlist, and stay on top of taxes.',
+      'The simple way for barbers to see what they really take home, keep their chair full, and remember every client.',
     product: 'Product',
     features: 'Features',
-    booking: 'Booking',
+    calculator: 'Calculator',
     pricing: 'Pricing',
-    download: 'Download',
     downloadHeading: 'Download',
     legal: 'Legal',
     privacy: 'Privacy Policy',
     terms: 'Terms of Service',
     cookies: 'Cookie Policy',
     rights: '© 2026 eansolutions llc. All rights reserved.',
+    contact: 'support@thebarbersbook.com',
   },
 }
 
