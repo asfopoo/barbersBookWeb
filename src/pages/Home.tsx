@@ -1,26 +1,36 @@
-import Hero from '../components/Hero'
-import KeyFeatures from '../components/KeyFeatures'
-import Features from '../components/Features'
-import HowItWorks from '../components/HowItWorks'
-import Pricing from '../components/Pricing'
-import Testimonials from '../components/Testimonials'
-import CTA from '../components/CTA'
-import Footer from '../components/Footer'
+import Nav from '../components/home/Nav'
+import Hero from '../components/home/Hero'
+import Marquee from '../components/home/Marquee'
+import Story from '../components/home/Story'
+import Calculator from '../components/home/Calculator'
+import Bento from '../components/home/Bento'
+import HowItWorks from '../components/home/HowItWorks'
+import Pricing from '../components/home/Pricing'
+import Testimonials from '../components/home/Testimonials'
+import FinalCTA from '../components/home/FinalCTA'
+import Footer from '../components/home/Footer'
 import { LangContext, type Lang } from '../i18n'
 
-// home page with hero, features, pricing, testimonials, and CTA sections.
-// Served in English at / and in Spanish at /es.
+// Home page. Served in English at / and in Spanish at /es, and prerendered at
+// build time, so components must render without touching window.
 export default function HomePage({ lang = 'en' }: { lang?: Lang }) {
   return (
     <LangContext.Provider value={lang}>
-      <Hero />
-      <KeyFeatures />
-      <Features />
-      <HowItWorks />
-      <Pricing />
-      <Testimonials />
-      <CTA />
-      <Footer />
+      <div className="relative overflow-x-clip bg-ink font-sans text-zinc-100 selection:bg-[#0a84ff]/40">
+        <Nav />
+        <main>
+          <Hero />
+          <Marquee />
+          <Story />
+          <Calculator />
+          <Bento />
+          <HowItWorks />
+          <Pricing />
+          <Testimonials />
+          <FinalCTA />
+        </main>
+        <Footer />
+      </div>
     </LangContext.Provider>
   )
 }
