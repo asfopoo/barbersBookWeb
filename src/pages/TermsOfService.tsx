@@ -15,7 +15,7 @@ export default function TermsOfService() {
       {/* Content */}
       <div className="container mx-auto px-6 py-16 max-w-4xl">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Terms of Service</h1>
-        <p className="text-gray-600 mb-8">Last updated: October 23, 2026</p>
+        <p className="text-gray-600 mb-8">Last updated: November 13, 2026</p>
 
         <div className="prose prose-lg max-w-none">
           <section className="mb-8">
@@ -129,8 +129,8 @@ export default function TermsOfService() {
               We offer a Free plan and a paid Premium plan at $4.99 per month. Premium is the only paid subscription available. Paid subscriptions are billed on a recurring monthly basis through your chosen app store (Apple App Store or Google Play Store).
             </p>
             <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-              <li><strong>Free:</strong> Tax estimation, take-home for the current and previous month, your client list, and basic features (earnings tracking, waitlist, expense tracking, service management).</li>
-              <li><strong>Premium ($4.99/month):</strong> Everything in Free, plus unlimited history (including take-home history and the year view), tax set-aside tracking, clients due for a cut and full client visit history, recurring appointments, unlimited data export, multi-location, SMS &amp; email notifications, and your shop's branding on every customer-facing surface (booking page, waitlist, texts, emails).</li>
+              <li><strong>Free:</strong> Unlimited earnings and tip logging, expense tracking, take-home for the current and previous month, a running tax estimate, your booking link and walk-in waitlist, your client list with recent visits, and service management.</li>
+              <li><strong>Premium ($4.99/month):</strong> Everything in Free, plus unlimited history (including take-home history and the year view), tax set-aside tracking, clients due for a cut and full client visit history, recurring appointments, unlimited data export, additional shop locations, custom wording for the texts and emails your clients receive, and your shop's branding on every customer-facing surface (booking page, waitlist, texts, emails).</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">6.2 Free Trial</h3>
