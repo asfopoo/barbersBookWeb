@@ -290,24 +290,6 @@ const en = {
     cta: 'Start free',
     referral: 'Invite another barber and get a free month of Premium when they start using the app.',
   },
-  testimonials: {
-    eyebrow: 'Barbers love it',
-    title: 'From solo chairs to full shops.',
-    items: [
-      {
-        name: 'Sofia Martinez',
-        role: 'Shop Owner, Miami',
-        initials: 'SM',
-        text: "I used to keep a notebook for everything. Now Barber's Book tracks every service, every expense, and every tip. The earnings charts showed me my Fridays are twice as profitable, so I stopped taking Mondays off.",
-      },
-      {
-        name: 'James Lee',
-        role: 'Independent Barber, LA',
-        initials: 'JL',
-        text: 'The waitlist is incredible. Customers scan my QR code from their car, wait outside, and walk in right on time. No more crowded shop. My clients love it and honestly so do I.',
-      },
-    ],
-  },
   cta: {
     title1: 'Your next cut could be',
     title2: 'the first one you track.',

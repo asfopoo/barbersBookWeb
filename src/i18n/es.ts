@@ -263,24 +263,6 @@ const es: Dict = {
     cta: 'Empieza gratis',
     referral: 'Invita a otro barbero y recibe un mes gratis de Premium cuando empiece a usar la app.',
   },
-  testimonials: {
-    eyebrow: 'A los barberos les encanta',
-    title: 'De una silla a una barbería completa.',
-    items: [
-      {
-        name: 'Sofia Martinez',
-        role: 'Dueña de barbería, Miami',
-        initials: 'SM',
-        text: "Antes anotaba todo en una libreta. Ahora Barber's Book registra cada servicio, cada gasto y cada propina. Las gráficas de ingresos me mostraron que mis viernes dejan el doble, así que dejé de tomarme los lunes libres.",
-      },
-      {
-        name: 'James Lee',
-        role: 'Barbero independiente, Los Ángeles',
-        initials: 'JL',
-        text: 'La lista de espera es increíble. Mis clientes escanean mi código QR desde el carro, esperan afuera y entran justo a tiempo. Se acabó la barbería llena. A mis clientes les encanta y, la verdad, a mí también.',
-      },
-    ],
-  },
   cta: {
     title1: 'Tu próximo corte puede ser',
     title2: 'el primero que registres.',

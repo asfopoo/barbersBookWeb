@@ -6,7 +6,6 @@ import Calculator from '../components/home/Calculator'
 import Bento from '../components/home/Bento'
 import HowItWorks from '../components/home/HowItWorks'
 import Pricing from '../components/home/Pricing'
-import Testimonials from '../components/home/Testimonials'
 import FinalCTA from '../components/home/FinalCTA'
 import Footer from '../components/home/Footer'
 import { LangContext, type Lang } from '../i18n'
@@ -26,7 +25,6 @@ export default function HomePage({ lang = 'en' }: { lang?: Lang }) {
           <Bento />
           <HowItWorks />
           <Pricing />
-          <Testimonials />
           <FinalCTA />
         </main>
         <Footer />
