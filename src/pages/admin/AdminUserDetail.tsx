@@ -636,6 +636,48 @@ export default function AdminUserDetail() {
           </div>
         </div>
 
+        {/* Money settings: what the app uses to work out take-home */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Money Settings</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {(
+              [
+                ['Pay structure', user.paymentStructureType ?? 'not set'],
+                ['Commission rate', user.commissionRate != null ? `${user.commissionRate}%` : 'none'],
+                ['Per-service fee', user.perServiceFee != null ? `$${user.perServiceFee}` : 'none'],
+                [
+                  'Chair rent',
+                  Number(user.chairRentAmount ?? 0) > 0
+                    ? `$${user.chairRentAmount} ${user.chairRentFrequency ?? '(no frequency)'}`
+                    : 'none',
+                ],
+                ['Renting since', user.chairRentSince ?? 'not set'],
+                ['Rent logged as expenses', `${stats?.rentExpenseCount ?? 0} entries`],
+                ['Subtract expenses from net', user.subtractExpensesFromNet ? 'on' : 'off'],
+                ['Tax estimate', user.showTaxEstimate ? `on, ${user.taxRate}%` : `off (rate ${user.taxRate}%)`],
+                [
+                  'Tax counts',
+                  [user.taxIncludeCash && 'cash', user.taxIncludeDigital && 'digital'].filter(Boolean).join(' + ') ||
+                    'nothing',
+                ],
+                ['Tax year starts', user.taxYearStart ?? 'not set'],
+                [
+                  'Tax reminders',
+                  user.taxRemindersEnabled == null ? 'never set' : user.taxRemindersEnabled ? 'on' : 'off',
+                ],
+                ['Walk-in mode', user.walkInMode ? 'on' : 'off'],
+                ['Language', user.language ?? 'not set'],
+                ['Time zone', user.timezone ?? 'not set'],
+              ] as [string, string][]
+            ).map(([label, value]) => (
+              <div key={label}>
+                <label className="text-sm font-medium text-gray-600">{label}</label>
+                <p className="text-sm text-gray-900">{value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Payouts & Tax */}
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Payouts &amp; Tax</h3>
