@@ -23,6 +23,8 @@ export interface User {
   lastExportDate: string | null;
   bookingSlug: string | null;
   bookingEnabled: boolean;
+  /** Only on the user detail response; created on first admin view. */
+  referralCode?: string | null;
   createdAt: string;
   updatedAt: string;
   /** Set when the user is soft-deleted (admin delete or self-delete). */

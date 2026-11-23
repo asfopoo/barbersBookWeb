@@ -28,6 +28,18 @@ export default function AdminUserDetail() {
     }
   };
 
+  const [referralCopied, setReferralCopied] = useState(false);
+  const copyReferralLink = async (code: string) => {
+    const link = `https://thebarbersbook.com/r/${code}`;
+    try {
+      await navigator.clipboard.writeText(link);
+      setReferralCopied(true);
+      setTimeout(() => setReferralCopied(false), 1500);
+    } catch {
+      window.prompt('Copy invite link:', link);
+    }
+  };
+
   const handleCopyId = async () => {
     if (!id) return;
     try {
@@ -236,6 +248,17 @@ export default function AdminUserDetail() {
                 <a href={barberBookingUrl(user.bookingSlug)!} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
                   Booking page ↗
                 </a>
+              )}
+              {user.referralCode && (
+                <button
+                  onClick={() => copyReferralLink(user.referralCode!)}
+                  className="text-gray-600 hover:text-gray-900"
+                  title="Copy invite link"
+                  data-testid="referral-code"
+                >
+                  Referral code <span className="font-mono text-gray-900">{user.referralCode}</span>{' '}
+                  <span className="text-xs text-gray-400">{referralCopied ? 'Copied' : 'Copy link'}</span>
+                </button>
               )}
             </div>
           </div>
